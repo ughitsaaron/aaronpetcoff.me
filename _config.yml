@@ -2,6 +2,7 @@ source:      .
 destination: ./_site
 plugins:     ./_plugins
 layouts:     ./_layouts
+url:         http://
 include:     ['.htaccess']
 exclude:     []
 keep_files:  ['.git','.svn']
