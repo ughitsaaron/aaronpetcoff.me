@@ -10,5 +10,9 @@ and (max-width : 64em) {
 @media all and (min-width : 64em) { // desktop
   body { transition:font-size .25s ease; font-size: 16px; }
   #blog ul li { font-size: 21px; } // blog on desktop display
-  footer .footer-section { h2,p,li { font-size: inherit; }}
+  footer .footer-section { 
+    opacity:0.3;
+    &:hover { transition:opacity .3s ease; opacity:1; }
+    h2,p,li { font-size: inherit; }
+  }
 }
