@@ -10,4 +10,8 @@ Issues
 ------
 
 * Finish coding out individual posts template.
-* Fix AJAX form (either figure out how to use CORS or allow a simple refresh :-P)
+
+Updates
+-------
+
+* Removed contact form and replaced with basic link to e-mail address.
