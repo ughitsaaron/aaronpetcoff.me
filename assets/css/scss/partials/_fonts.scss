@@ -1,0 +1,30 @@
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:300|Open+Sans+Condensed:300|Open+Sans+Condensed:800);
+
+@font-face {
+  font-family: 'icomoon';
+  src:url('/assets/fonts/icomoon.eot');
+  src:url('/assets/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/icomoon.svg#icomoon') format('svg'),
+    url('/assets/fonts/icomoon.woff') format('woff'),
+    url('/assets/fonts/icomoon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-down:before {
+  content: "\e600";
+}

@@ -1,0 +1,16 @@
+---
+layout: default
+title: Aaron Petcoff | Front End Web Developer
+---
+
+<div class="homepage page-wrap">
+
+  {% for page in site.pages %}
+    {% if page.type == 'homepage' %}  
+      {{ page.content }}
+    {% endif %}
+  {% endfor %}
+
+<section class="row home-footer footer-wrap">{% include footer.html %}</section>
+
+</div><!--.homepage-->
