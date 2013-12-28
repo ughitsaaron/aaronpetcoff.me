@@ -14,15 +14,7 @@ title: Aaron Petcoff | Front End Web Developer
     </div><!--.container-->
   </section><!--#home-->
 
-  <section id="nav" class="row">
-    <nav class="nav nocollapse container" role="navigation">
-        <ol>
-          <li><a href="index.html#home" class="noicon">Home</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="index.html#contact" class="noicon">Contact</a></li>
-        </ol>
-    </nav>
-  </section>
+  {% include nav.html %}
 
   <section id="skills" class="row page">
     <div class="container">
@@ -34,8 +26,31 @@ title: Aaron Petcoff | Front End Web Developer
 
       <p>Inventore, a, incidunt quidem ullam soluta exercitationem dolorem. Eos deleniti possimus dolore a. Laudantium, perferendis molestias minus voluptate ratione quaerat ipsum. Consectetur, provident porro dolore sapiente tenetur officia beatae mollitia.</p>
 
-    </div><!--.container-->
-  </section><!--#page.id-->
+  </div><!--.container-->
+</section><!--#page.id-->
+
+<section id="contact" class="row page">
+  <div class="container">
+    <h1><a name="contact">Contact Me</a></h1>
+
+    <div class="wrap">
+      <form id="emailForm" method="post">
+        <h3>Name:</h3>
+        <input id="name" type="text" placeholder="Name" required></input>
+        <h3>E-mail:</h3>
+        <input id="email" placeholder="E-mail" required></input>
+        <h3 class="subject">Subject</h3>
+        <input class="subject" id="subject" placeholder="Subject"></input>
+         <h3>Message:</h3>
+        <textarea id="text" type="text" placeholder="Message" name="message" required></textarea>
+        <input class="btn" type="submit" value="Submit"></input>
+        <p class="success">Your message has been sent.</p>
+        <p class="error">There was an error submitting your message.</p>
+      </form>
+    </div><!--.wrap-->
+
+  </div><!--.container-->
+</section><!--#page.id-->
 
 <section class="row home-footer footer-wrap">{% include footer.html %}</section>
 

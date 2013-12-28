@@ -11,7 +11,6 @@ $green: #67dd67;
 
 @import "compass";
 @import "partials/groundwork";
-@import "partials/media";
 @import "partials/fonts";
 @import "partials/blog";
 
@@ -37,6 +36,7 @@ body {
 	margin:0;
 	padding:0;
 	font-family:$body;
+	font-size: 8px;
 	color: white;
 	background: {
 		image:url(/assets/images/noise.jpg);
@@ -245,7 +245,7 @@ footer {
 		h2,
 		p,
 		li {
-			font-size: 2em;
+			font-size: 1.7em;
 		}
 	}
 }
@@ -253,3 +253,5 @@ footer {
 .footer-article-list {
 	list-style: none;
 }
+
+@import "partials/media";

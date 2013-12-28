@@ -11,7 +11,7 @@ module.exports = (grunt) ->
         files: ['**/*.html','**/_posts/*.**','!**/_site/**','!**/node_modules/**']
         tasks: ['build']
       js:
-        files: ['assets/js/*.js','!**/*.min.js','!**/_site/**','!**/node_modules/**']
+        files: ['**/*.js','!**/*.min.js','!**/_site/**','!**/node_modules/**']
         tasks: ['build']
       options:
         livereload: true
