@@ -3,16 +3,14 @@
 @media all and (min-width : 30em) // tablet
 and (max-width : 64em) {
   body { transition:font-size .25s ease; font-size: 14px; }
-  #blog ul li { font-size: 20px; } // blog on tablet display
-  footer .footer-section { h2,p,li { font-size: 1em; }}
+  #blog ul li, .post, footer .footer-section { font-size: 20px; } // blog and footer on tablet display
 }
 
 @media all and (min-width : 64em) { // desktop
   body { transition:font-size .25s ease; font-size: 16px; }
-  #blog ul li { font-size: 21px; } // blog on desktop display
+  #blog ul li, .post, footer .footer-section { font-size: 21px; } // blog and footer on desktop display
   footer .footer-section { 
-    opacity:0.3;
+    opacity:0.3; // highlight transitions for footer;
     &:hover { transition:opacity .3s ease; opacity:1; }
-    h2,p,li { font-size: inherit; }
   }
 }
