@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "grunt": "~0.4.3",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-compass": "~0.7.2",
+    "grunt-autoprefixer": "~0.7.2",
+    "grunt-pngmin": "~0.6.1",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-cssmin": "~0.9.0",
+    "grunt-jekyll": "~0.4.1"
+  }
+}

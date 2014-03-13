@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html class="no-js no-trs">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="width=device-width">
+        <script src="js/modernizr.js"></script>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+    <div class="site">
+
+      <aside>
+        <header>
+          <img class="me" src="img/me.jpg" alt="" >
+          <h1 class="name">{{ site.name }}</h1>
+          <h2 class="title">web developer</h2>
+        </header>
+
+        <nav class="nav">
+          <ol>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills &amp; Experience</a></li>
+            <li><a href="#skills">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ol>
+        </nav>
+
+      </aside>
+
+      <main>
+        <div class="content">
+          {{ content }}
+        </div><!--.content-->
+
+        <footer class="footer">
+          <div class="contact">
+            <p>
+              Your Name<br />
+              What You Are<br />
+              you@example.com
+            </p>
+          </div>
+          <div class="contact">
+            <p>
+              <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+              <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+            </p>
+          </div>
+        </footer>
+      </main>
+    
+    </div><!--.site-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>');</script>
+    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
