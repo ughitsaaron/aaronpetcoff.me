@@ -1,3 +1,6 @@
+$red: #d32;
+$blue: #70b9f8;
+
 @import "normalize";
 @import "settings";
 @import "foundation/components/grid";
@@ -19,6 +22,16 @@ html {
 
 body {
   font-family: "Alegreya Sans","Helvetica Neue",Helvetica,sans-serif;
+  font-size: 16px;
+}
+
+a:link {
+  color:$blue;
+}
+
+a:hover,
+a:visited {
+  color:darken($blue,10%);
 }
 
 // primary layout
