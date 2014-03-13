@@ -65,7 +65,7 @@
           separator: ';',
         },
         files: {
-          src: ['js/fastclick.js','js/nav.js','js/main.min.js'],
+          src: ['js/fastclick.min.js','js/nav.js','js/main.min.js'],
           dest: 'js/site.min.js',
         }
       },
