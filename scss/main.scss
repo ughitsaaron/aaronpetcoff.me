@@ -118,15 +118,72 @@ a:visited {
   > h2 {
     margin: 0;
   }
+
+  // mail & github
+  > ol {
+    display: table;
+    list-style: none;
+    @include clearfix;
+    margin: 10px auto 0 auto;
+    padding: 0;
+
+    li {
+      float: left;
+
+      a {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 36px;
+        @extend %icons;
+      }
+
+      &:first-child a:before {
+        content: $email;
+        margin-right: 5px;
+      }
+
+      &:nth-child(2) a:before {
+        content: $github;
+      }
+    }
+  }
 }
 
 // navigation
 
+.nav-toggle {
+  margin-top: 10px;
+}
+
 .site aside nav {
   ol {
     list-style: none;
-    padding: rem-calc(20) 0;
     margin: 0;
+    padding: rem-calc(10) 0 0 0;
+
+    li {
+      a:link,
+      a:visited {
+        display: inline-block;
+        padding: rem-calc(5);
+        text-decoration: none;
+        background-color: transparent;
+        color:$blue;
+      }
+    }
+    
+    @media #{$medium-up} {
+      padding: rem-calc(20) 0;
+
+      .active {
+        a:link,
+        a:visited {
+          background-color:$blue;
+          border-radius: 3px;
+          color:white;
+        }
+      }
+    }
   }
 }
 
