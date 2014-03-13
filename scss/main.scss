@@ -255,7 +255,11 @@ main footer {
   @extend %contain;
 
   .contact {
-    @include grid-column($columns:6,$collapse:true);
+    @include grid-row();
+  
+    @media #{$medium-up} {
+      @include grid-column($columns:6,$collapse:true);
+    }
   }
 }
 
