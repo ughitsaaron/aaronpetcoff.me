@@ -59,6 +59,10 @@ a:visited {
       left: 0;
       top: 0;
     }
+
+    @media #{$xlarge-up} {
+      @include grid-column($columns:2,$offset:1,$collapse:true);
+    }
   }
 
   > main {
@@ -70,6 +74,10 @@ a:visited {
     @media #{$medium-up} {
       @include grid-column($columns:10,$offset:2,$collapse:true);
       padding-left: rem-calc(30);
+    }
+
+    @media #{$xlarge-up} {
+      @include grid-column($columns:10,$offset:3,$collapse:true);
     }
   }
 }
