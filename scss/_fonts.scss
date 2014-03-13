@@ -1,3 +1,10 @@
+$menu: "\e605";
+$github: "\e606";
+$email:"\e600";
+$wand: "\e602";
+$hammer: "\e603";
+$rocket: "\e601";
+
 @import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:100,400,700,400italic);
 
 @font-face {
@@ -27,8 +34,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-menu:before,
-%menu-icon {
+.icon-menu:before {
   content: "\e605";
 }
 .icon-github:before {
@@ -36,4 +42,13 @@
 }
 .icon-mail:before {
   content: "\e600";
+}
+.icon-wand:before {
+  content: "\e602";
+}
+.icon-hammer:before {
+  content: "\e603";
+}
+.icon-rocket:before {
+  content: "\e601";
 }

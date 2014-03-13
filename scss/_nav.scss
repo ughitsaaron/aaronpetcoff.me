@@ -38,7 +38,7 @@
   display: inline-block;
 
   &:before {
-    @extend %menu-icon;
+    content: $menu;
   }
 }
 
@@ -51,15 +51,5 @@
   }
   .nav-toggle {
     display: none;
-  }
-  .nav ol li a {
-    display: inline-block;
-    padding: rem-calc(5);
-    text-decoration: none;
-  }
-
-  .active a {
-    background:#ccc;
-    color:white;
   }
 }
