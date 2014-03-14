@@ -189,7 +189,7 @@ a:visited {
 
 // main content area
 
-.callouts {
+.skills {
   ol {
     @include grid-row();
     @include clearfix;
@@ -221,6 +221,7 @@ a:visited {
 
 .content {
   @extend %contain;
+  padding: 0 rem-calc(20);
 
   .contact {
     $row-width:100%;
