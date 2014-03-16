@@ -74,11 +74,10 @@ a:visited {
 
     @media #{$medium-up} {
       @include grid-column($columns:10,$offset:2,$collapse:true);
-      padding-left: rem-calc(30);
     }
 
     @media #{$xlarge-up} {
-      @include grid-column($columns:10,$offset:3,$collapse:true);
+      @include grid-column($columns:9,$offset:3,$collapse:true);
     }
   }
 }
@@ -86,16 +85,19 @@ a:visited {
 // header
 
 .site > aside {
-  transition-property: filter,-webkit-filter;
-  transition-duration: .35s;
-  transition-timing-function: ease;
-  filter:saturate(0);
 
-  &:hover {
+  @media #{$medium-up} {
     transition-property: filter,-webkit-filter;
     transition-duration: .35s;
     transition-timing-function: ease;
-    filter:saturate(1);
+    filter:saturate(0);
+
+    &:hover {
+      transition-property: filter,-webkit-filter;
+      transition-duration: .35s;
+      transition-timing-function: ease;
+      filter:saturate(1);
+    }
   }
 }
 
@@ -154,6 +156,7 @@ a:visited {
 
 .nav-toggle {
   margin-top: 10px;
+  display: block;
 }
 
 .site aside nav {
@@ -167,6 +170,7 @@ a:visited {
       a:visited {
         display: inline-block;
         padding: rem-calc(5);
+        line-height:25px;
         text-decoration: none;
         background-color: transparent;
         color:$blue;
