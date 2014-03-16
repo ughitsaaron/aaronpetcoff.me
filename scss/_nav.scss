@@ -32,10 +32,27 @@
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-touch-callout: none;
   user-select: none;
+  transition-property: background-color, color;
+  transition-duration: 0.35s;
+  transition-timing-function: ease;
   @extend %icons;
   text-decoration: none;
   font-size: 34px;
-  display: inline-block;
+  display: block;
+  padding:5px 0;
+  background-color:#3fa1f6;;
+
+  &:link {
+    color:white;
+  }
+
+  &:hover {
+    transition-property: background-color, color;
+    transition-duration: 0.35s;
+    transition-timing-function: ease;
+    color:#3fa1f6;
+    background-color: white;
+  }
 
   &:before {
     content: $menu;
@@ -50,6 +67,6 @@
     max-height: none;
   }
   .nav-toggle {
-    display: none;
+    display: none !important;
   }
 }
