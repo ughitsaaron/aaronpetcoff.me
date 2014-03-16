@@ -269,26 +269,92 @@ a:visited {
     $row-width:100%;
 
     @include grid-row();
+  }
+}
 
-    .image { 
+.contact > ol {
+  @include grid-row();
+  list-style: none;
+  padding: 0;
+  margin: 0;
 
-      @media #{$medium-up} {
-        @include grid-column($columns:4,$collapse:true);
-      }
+  > li:first-child {
+    display: none;
+    
+    img {
+      width: 100%;
     }
 
-    .form { 
-
-      @media #{$medium-up} {
-        @include grid-column($columns:8,$collapse:true);
-      }
-
-      ol {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-      }
+    @media #{$medium-up} {
+      display: list-item;
+      padding-top: rem-calc(40);
+      @include grid-column($columns:4,$collapse:true);
     }
+  }
+
+  > li:nth-child(2) {
+    @include grid-row();
+
+    @media #{$medium-up} {
+      @include grid-column($columns:8,$collapse:true);
+    }
+
+    ol {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+  }
+}
+
+.contact form {
+  input {
+    width:100%;
+    height:rem-calc(50);
+    margin-bottom: rem-calc(5);
+  }
+
+  textarea {
+    width: 100%;
+    height:rem-calc(100);
+    font-size: rem-calc(18);
+  }
+
+  input,
+  textarea {
+    border: 1px solid #ccc;
+    padding:rem-calc(3);
+    font-size: rem-calc(18);
+    border-radius: 3px;
+
+    &:active,
+    &:focus {
+      border: 1px solid $blue;
+    }
+  }
+
+  input[type="submit"] {
+    transition-property: background-color, color, border;
+    transition-duration: 0.35s;
+    transition-timing-function: ease;
+    border-radius: 3px;
+    background-color: $blue;
+    border:1px solid transparent;
+    color: white;
+
+    &:hover {
+      transition-property: background-color, color, border;
+      transition-duration: 0.35s;
+      transition-timing-function: ease;
+      border-radius: 3px;
+      background-color: white;
+      border:1px solid $blue;
+      color: $blue;
+    }
+  }
+
+  @media #{$medium-up} {
+    padding-left:rem-calc(20);
   }
 }
 
