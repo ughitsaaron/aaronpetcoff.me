@@ -32,11 +32,15 @@ body {
 
 a:link {
   color:$blue;
+
+  &:hover,
+  &:visited {
+      color:darken($blue,10%);
+  }
 }
 
-a:hover,
 a:visited {
-  color:darken($blue,10%);
+    color:darken($blue,10%);
 }
 
 // primary layout
@@ -288,7 +292,6 @@ a:visited {
 
   > li:first-child {
     display: none;
-    
     img {
       width: 100%;
     }
@@ -379,4 +382,3 @@ main footer {
     }
   }
 }
-
