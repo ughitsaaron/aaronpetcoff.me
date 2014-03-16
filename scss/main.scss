@@ -17,6 +17,10 @@ $blue: #70b9f8;
   transition: none !important;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   overflow-y:scroll !important;
 }
