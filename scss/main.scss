@@ -7,6 +7,7 @@ $blue: #70b9f8;
 @import "fonts";
 @import "nav";
 @import "syntax";
+@import "thumbs/*.png";
 
 %contain {
   max-width: rem-calc(960);
@@ -196,24 +197,65 @@ a:visited {
     list-style: none;
     padding: 0;
 
+    li {
+      text-align: center;
+
+      i {
+        @extend %icons;
+        display: block;
+        font-size: rem-calc(115);
+        color:$blue;
+        text-shadow: 4px 1px 0 darken($blue,20%);
+      }
+
+      $skills:3;
+
+      @for $i from 1 through $skills {
+        $icons:$wand,$hammer,$rocket;
+        &:nth-child(#{$i}) i:before {
+            content: nth($icons,$i);
+        }
+      }
+    }
+
     @media #{$medium-up} {
       li {
         @include grid-column($columns:4,$collapse:true);
+        padding:0 rem-calc(10);
       }
     }
   }
 }
 
-.gallery {
+.portfolio {
   ol {
     @include grid-row();
     @include clearfix;
     list-style: none;
     padding: 0;
 
+    li {
+      $thumbs: 4;
+
+      i {
+        display: block;
+      }
+
+      @for $i from 1 through $thumbs {
+        &:nth-child(#{$i}) i {
+          $thumbs: sprite-map("thumbs/*.png");
+          $height: rem-calc(thumbs-sprite-height(port1));
+          padding-top: $height;
+          background-image: sprite-url($thumbs);
+          background-position: sprite-position($thumbs, port#{$i}, $offset-x:50%);
+          background-repeat: no-repeat;
+        }
+      }
+    }
+
     @media #{$medium-up} {
       li {
-        @include grid-column($columns:6,$collapse:true);
+        @include grid-column($columns:6);
       }
     }
   }
