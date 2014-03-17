@@ -56,7 +56,7 @@ title: Aaron Petcoff | Web Developer
   </ol>
 </section><!--.gallery-->
 
-<section class="contact" id="contact">
+<section class="contact">
   <h2><a name="contact">Contact Me</a></h2>
   <ol>
     <li>
@@ -65,11 +65,14 @@ title: Aaron Petcoff | Web Developer
     <li>
       <form action="">
         <ol>
-          <li><input type="text" placeholder="Your name"></li>
-          <li><input type="email" placeholder="Your e-mail"></li>
-          <li><input type="text" placeholder="The subject"></li>
-          <li><textarea></textarea></li>
-          <li><input type="submit" value="Send"></li>
+          <li><input name="name" type="text" placeholder="Name"></li>
+          <li><input name="email" type="email" placeholder="E-mail"></li>
+          <li><input name="subject" type="text" placeholder="Subject"></li>
+          <li><textarea name="message" placeholder="Message"></textarea></li>
+          <li><input type="submit" value="Send">
+            <p class="success">Your message was sent successfully.</p>
+            <p class="error">There was an error sending your message.</p>
+          </li>
         </ol>
       </form>
     </li>

@@ -364,6 +364,14 @@ a:visited {
     }
   }
 
+  .success {
+    display: none;
+  }
+
+  .error {
+    display: none;
+  }
+
   @media #{$medium-up} {
     padding-left:rem-calc(20);
   }
@@ -374,7 +382,7 @@ a:visited {
 main footer {
   @extend %contain;
 
-  .contact {
+  .contact-info {
     @include grid-row();
   
     @media #{$medium-up} {
