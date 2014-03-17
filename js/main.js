@@ -8,7 +8,7 @@ function navLinks() {
 
   $(window).scroll(function() {
     var windscroll = $(window).scrollTop();
-    if (windscroll >= 1) {
+    if (windscroll) {
       $('.content section').each(function(i) {
         if ($(this).position().top <= windscroll) {
           $('.nav li.active').removeClass('active');
