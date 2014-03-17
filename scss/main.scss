@@ -134,7 +134,8 @@ a:visited {
     background-color:$blue;
     border-radius: 3px;
     color:white;
-    display:block;
+    display: inline-block;
+    padding:0 10px;
     text-decoration: none;
   }
 
