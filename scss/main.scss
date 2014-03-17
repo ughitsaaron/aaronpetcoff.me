@@ -130,6 +130,14 @@ a:visited {
     margin: 0;
   }
 
+  > h3 a {
+    background-color:$blue;
+    border-radius: 3px;
+    color:white;
+    display:block;
+    text-decoration: none;
+  }
+
   // mail & github
   > ol {
     display: table;
@@ -275,7 +283,7 @@ a:visited {
 
 .content {
   @extend %contain;
-  padding: 0 rem-calc(20);
+  padding: 0 rem-calc(20) rem-calc(60) rem-calc(20);
 
   .contact {
     $row-width:100%;
@@ -327,6 +335,8 @@ a:visited {
 
   textarea {
     width: 100%;
+    min-width:100%;
+    max-width:100%;
     height:rem-calc(100);
     font-size: rem-calc(18);
   }

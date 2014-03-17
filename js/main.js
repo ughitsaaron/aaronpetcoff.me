@@ -15,13 +15,17 @@ function navLinks() {
           $('.nav li').eq(i).addClass('active');
         }
       });
-
     } else {
       $('nav li.active').removeClass('active');
       $('nav li:first').addClass('active');
     }
 
-  }).scroll();
+    if(($(window).scrollTop() + $(window).height()) + 30 >= $(document).height()) {
+      $('nav li.active').removeClass('active');
+      $('nav li:last').addClass('active');
+    } 
+
+  });
 }
 
 function contactForm() {
@@ -42,7 +46,8 @@ function contactForm() {
         data: dataString,
         success: function() {
           $(".success").css("display","block");
-          $(".contact input").val("");
+          $(".contact input[type=\"text\"").val("");
+          $(".contact input[type=\"email\"").val("");
           $(".contact textarea").val("");
         },
         error: function() {
