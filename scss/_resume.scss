@@ -33,18 +33,28 @@
     padding: 0;
     list-style: none;
 
-    li {
-      float: left;
-    }
+    @media #{$medium-up} {
+      li {
+        float: left;
+      }
 
-    li:first-child:after {
-      content:"//";
-      margin:0 rem-calc(10);
+      li:first-child:after {
+        content:"//";
+        margin:0 rem-calc(10);
+      }
     }
   }
 
   a {
+    display: block;
     text-decoration: none;
+    text-align: center;
+  }
+
+  @media #{$medium-up} {
+    a {
+      display: inline;
+    }
   }
 }
 
