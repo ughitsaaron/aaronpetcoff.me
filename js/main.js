@@ -1,8 +1,10 @@
-var nav = responsiveNav(".nav", {
-    navClass: "nav",
-    label: "",
-    navActiveClass: ""
-});
+if($(".nav").length > 0) {
+  var nav = responsiveNav(".nav", {
+      navClass: "nav",
+      label: "",
+      navActiveClass: ""
+  });
+}
 
 function navLinks() {
 
@@ -61,6 +63,46 @@ function contactForm() {
   });
 }
 
+function isElementInViewport(elem) {
+    var $elem = $(elem);
+
+    // Get the scroll position of the page.
+    var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') !== -1) ? 'body' : 'html');
+    var viewportTop = $(scrollElem).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+
+    // Get the position of the element on the page.
+    var elemTop = Math.round( $elem.offset().top );
+    var elemBottom = elemTop + $elem.height();
+
+    return ((elemTop < viewportBottom) && (elemBottom > viewportTop));
+}
+
+// Check if it's time to start the animation.
+function checkAnimation() {
+    var $elem = $('.skillbar');
+
+    // If the animation has already been started
+    if ($elem.hasClass('start')) {
+      return;
+    }
+
+    if (isElementInViewport($elem)) {
+        // Start the animation
+        $elem.addClass('start');
+    }
+}
+
+function isElementVisible(el) {
+  var $el = $(el);
+  var windowTop = $(window).scrollTop(),
+      windowBottom = windowTop + $(window).height(),
+      elTop = Math.round( $el.offset().top ),
+      elBottom = elTop + $el.height();
+
+  return ((elTop < windowBottom) && (elBottom > windowTop));
+}
+
 $(document).ready(function(){
   $("html").removeClass("no-trs");
   $(".contact form ol li:nth-child(3)").css("display","none");
@@ -68,4 +110,10 @@ $(document).ready(function(){
   navLinks();
 
   contactForm();
+
+  $(window).scroll(function() {
+    if(isElementVisible($(".skillset"))){
+      $(".skillset span").removeClass("not-visible");
+    }
+  });
 });

@@ -5,7 +5,8 @@ $blue: #70b9f8;
 @import "foundation/components/grid";
 @import "fonts";
 @import "nav";
-@import "syntax";
+// @import "syntax";
+@import "resume";
 // @import "thumbs/*.png";
 
 %contain {
@@ -302,7 +303,7 @@ a:visited {
   }
 }
 
-.content {
+.site .content {
   @extend %contain;
   padding: 0 rem-calc(20) rem-calc(60) rem-calc(20);
 
@@ -420,3 +421,4 @@ main footer {
     }
   }
 }
+
