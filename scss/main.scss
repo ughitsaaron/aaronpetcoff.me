@@ -4,14 +4,10 @@ $blue: #70b9f8;
 @import "settings";
 @import "foundation/components/grid";
 @import "fonts";
-@import "nav";
+// @import "nav";
 // @import "syntax";
 @import "resume";
 // @import "thumbs/*.png";
-
-%contain {
-  max-width: rem-calc(960);
-}
 
 .no-trs * {
   transition: none !important;
@@ -22,13 +18,14 @@ $blue: #70b9f8;
 }
 
 html {
-  overflow-y:scroll !important;
+  //overflow-y:scroll !important;
 }
 
 body {
-  font-family: "Alegreya Sans","Helvetica Neue",Helvetica,sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 16px;
   color:#333;
+  background-image: url(http://subtlepatterns.com/patterns/dark_wall.png);
 }
 
 a:link {
@@ -48,73 +45,68 @@ a:visited {
 
 .site {
   @include clearfix;
-  $row-width: 100%;
-
+  position: relative;
   width:100%;
   height:100%;
+}
 
+aside {
+  @include grid-column($columns:7,$collapse:true);
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height:100%;
+  color:white;
+  text-align: center;
+  background-repeat: repeat;
+  overflow-y:scroll;
 
-  > aside {
-    text-align: center;
-
-    @media #{$small-only} {
-      @include grid-row();
-    }
-
-    @media #{$medium-up} {
-      @include grid-column($columns:2,$collapse:true);
-      overflow-y:scroll;
-      height:100%;
-      position: fixed;
-      left: 0;
-      top: 0;
-    }
-
-    @media #{$xlarge-up} {
-      @include grid-column($columns:2,$offset:1,$collapse:true);
-    }
+  @media #{$medium-up} {
+    @include grid-column($columns:4,$offset:1,$collapse:true);
   }
 
-  > main {
+  @media #{$large-up} {
+    @include grid-column($columns:3,$offset:1,$collapse:true);
+  }
+}
 
-    @media #{$small-only} {
-      @include grid-row();
-    }
+main {
+  position: relative;
+  z-index: 1;
+  padding-top: rem-calc(10);
+  background-color: #fafffa;
+  transform:translateX(0);
+  transition-property: translateX;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+}
 
-    @media #{$medium-up} {
-      @include grid-column($columns:10,$offset:2,$collapse:true);
-    }
+.push {
+  transform:translateX(58%);
+  transition-property: translateX;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+  overflow: hidden;
+  box-shadow: 0 0 10px 3px black;
 
-    @media #{$xlarge-up} {
-      @include grid-column($columns:9,$offset:3,$collapse:true);
-    }
+  @media #{$medium-up} {
+    transform:translateX(42%);
+  }
+
+  @media #{$large-up} {
+    transform:translateX(33%);
   }
 }
 
 // header
 
-.site > aside {
-
-  @media #{$medium-up} {
-    transition-property: filter,-webkit-filter;
-    transition-duration: .35s;
-    transition-timing-function: ease;
-    filter:saturate(0);
-
-    &:hover {
-      transition-property: filter,-webkit-filter;
-      transition-duration: .35s;
-      transition-timing-function: ease;
-      filter:saturate(1);
-    }
-  }
-}
-
-.site > aside > header {
+header {
   padding-top:rem-calc(30);
 
   img {
     width: 50%;
+    max-width: rem-calc(230);
     border-radius: 50%;
 
     @media #{$medium-up} {
@@ -141,6 +133,44 @@ a:visited {
   }
 }
 
+.nav-toggle {
+  display: table;
+  margin: 0 rem-calc(10) rem-calc(10) rem-calc(10);
+  padding:rem-calc(3);
+  width:rem-calc(35);
+  height:rem-calc(30);
+  border:none;
+  border-radius: rem-calc(8);
+  background-color: #fefefe;
+  box-shadow: 0 0 1px 1px #dedede;
+  text-align: center;
+  text-decoration: none;
+  cursor:pointer;
+}
+
+.nav-toggle:before {
+  @include icons;
+  color:#dedede;
+  font-size: rem-calc(24);
+  text-align: center;
+  content:$menu;
+}
+
+.nav-toggle.active {
+  background-color: #303030;
+  color:white;
+}
+
+.nav-toggle.active:hover {
+  box-shadow: inset 3px 3px 2px black;
+}
+
+.nav-toggle:hover {
+  box-shadow: inset 3px 3px 2px darken(#dedede,3%),
+              inset -3px -3px 2px #fff,
+              0 0 1px 1px #dedede;
+}
+
 // mail & github
 .social {
   display: table;
@@ -156,7 +186,7 @@ a:visited {
       display: inline-block;
       text-decoration: none;
       font-size: 36px;
-      @extend %icons;
+      @include icons;
     }
 
     .mail:before {
@@ -172,12 +202,7 @@ a:visited {
 
 // navigation
 
-.nav-toggle {
-  margin-top: 10px;
-  display: block;
-}
-
-.site aside nav {
+nav {
   ol {
     list-style: none;
     margin: 0;
@@ -197,15 +222,6 @@ a:visited {
     
     @media #{$medium-up} {
       padding: rem-calc(20) 0;
-
-      .active {
-        a:link,
-        a:visited {
-          background-color:$blue;
-          border-radius: 3px;
-          color:white;
-        }
-      }
     }
   }
 }
@@ -213,8 +229,13 @@ a:visited {
 // main content area
 
 .primary h1 {
+  margin-top: 0;
   text-align: center;
   font-weight: 100;
+
+  @media #{$medium-up} {
+    padding:0 rem-calc(145);
+  }
 }
 
 .skills {
@@ -228,7 +249,7 @@ a:visited {
       text-align: center;
 
       i {
-        @extend %icons;
+        @include icons;
         display: block;
         font-size: rem-calc(115);
         color:$blue;
@@ -303,13 +324,12 @@ a:visited {
   }
 }
 
-.site .content {
-  @extend %contain;
+.content {
+  @include grid-row();
   padding: 0 rem-calc(20) rem-calc(60) rem-calc(20);
 
   .contact {
     $row-width:100%;
-
     @include grid-row();
   }
 }
@@ -410,15 +430,11 @@ a:visited {
 
 // footer
 
-main footer {
-  @extend %contain;
+.contact-info {
 
-  .contact-info {
-    @include grid-row();
-  
-    @media #{$medium-up} {
-      @include grid-column($columns:6,$collapse:true);
-    }
+  @media #{$medium-up} {
+    @include grid-column($columns:6,$collapse:true);
   }
 }
+
 

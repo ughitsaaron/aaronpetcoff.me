@@ -6,34 +6,6 @@ $hammer: "\e603";
 $rocket: "\e601";
 
 @font-face {
-  font-family: 'Alegreya Sans';
-  font-style: normal;
-  font-weight: 100;
-  src: local('Alegreya Sans Thin'), local('AlegreyaSans-Thin'), url(http://themes.googleusercontent.com/static/fonts/alegreyasans/v1/TKyx_-JJ6MdpQruNk-t-PMirbh6OUF7J5FHbYIz0tTY.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Alegreya Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Alegreya Sans'), local('AlegreyaSans-Regular'), url(http://themes.googleusercontent.com/static/fonts/alegreyasans/v1/KYNzioYhDai7mTMnx_gDgnt9r5m2YmP5sw3cUAQwL0E.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Alegreya Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Alegreya Sans Bold'), local('AlegreyaSans-Bold'), url(http://themes.googleusercontent.com/static/fonts/alegreyasans/v1/11EDm-lum6tskJMBbdy9aVV8F1P-UN-fltcX6iMUcbA.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Alegreya Sans';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Alegreya Sans Italic'), local('AlegreyaSans-Italic'), url(http://themes.googleusercontent.com/static/fonts/alegreyasans/v1/TKyx_-JJ6MdpQruNk-t-PNA87aWxC834_3i5Wx3tdEA.woff) format('woff');
-}
-
-@font-face {
   font-family: 'icons';
   src:url('/fonts/icons.eot?m1ds7e');
   src:url('/fonts/icons.eot?#iefixm1ds7e') format('embedded-opentype'),
@@ -44,9 +16,7 @@ $rocket: "\e601";
   font-style: normal;
 }
 
-[class^="icon-"],
-[class*=" icon-"],
-%icons {
+@mixin icons{
   font-family: 'icons';
   speak: none;
   font-style: normal;
@@ -58,23 +28,4 @@ $rocket: "\e601";
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-menu:before {
-  content: "\e605";
-}
-.icon-github:before {
-  content: "\e606";
-}
-.icon-mail:before {
-  content: "\e600";
-}
-.icon-wand:before {
-  content: "\e602";
-}
-.icon-hammer:before {
-  content: "\e603";
-}
-.icon-rocket:before {
-  content: "\e601";
 }

@@ -6,7 +6,10 @@ layouts:     ./_layouts
 include:     ['.htaccess']
 exclude:     ['.sass_cache','bower_components','node_modules','scss','bower.json','config.rb','Gruntfile.js','package.json','README.md']
 keep_files:  ['.git','.svn']
-gems:        []
+gems:
+  - jekyll-redirect-from
+pygments: true
+github: [Repository metadata]
 
 future:      true
 show_drafts: nil

@@ -1,35 +1,3 @@
-if($(".nav").length > 0) {
-  var nav = responsiveNav(".nav", {
-      navClass: "nav",
-      label: "",
-      navActiveClass: ""
-  });
-}
-
-function navLinks() {
-
-  $(window).scroll(function() {
-    var windscroll = $(window).scrollTop();
-    if (windscroll) {
-      $('.content section').each(function(i) {
-        if ($(this).position().top <= windscroll) {
-          $('.nav li.active').removeClass('active');
-          $('.nav li').eq(i).addClass('active');
-        }
-      });
-    } else {
-      $('nav li.active').removeClass('active');
-      $('nav li:first').addClass('active');
-    }
-
-    if(($(window).scrollTop() + $(window).height()) + 30 >= $(document).height()) {
-      $('nav li.active').removeClass('active');
-      $('nav li:last').addClass('active');
-    } 
-
-  });
-}
-
 function contactForm() {
   $(".contact form").submit(function(e) {
     e.preventDefault();
@@ -40,7 +8,7 @@ function contactForm() {
     message = $(".contact textarea[name^=\"message\"]").val();
     dataString = 'name=' + name + '&email=' + email + '&message=' + message;
 
-    if(subject==false) {
+    if(subject===false) {
       $.ajax({
         type: "POST",
         url: "http://getsimpleform.com/messages/ajax?form_api_token=b5f5dc858da495c26b344e4fa8b484b3",
@@ -107,13 +75,31 @@ $(document).ready(function(){
   $("html").removeClass("no-trs");
   $(".contact form ol li:nth-child(3)").css("display","none");
 
-  navLinks();
+  $(".nav-toggle").on("click", function(e) {
+    e.preventDefault;
+    $(".nav-toggle").toggleClass("active");
+    $("main").toggleClass("push");
+    
+    if($(".push").length) {
+      $(".site").css("overflow","hidden");
+    }
+  });
+
+  /* $("main").on("click", function() {
+    if($("main.push").length) {
+      $(".push").removeClass("push");
+      $(".nav-toggle").removeClass("active");
+      $(".site").css(false);
+    }
+  }); */
 
   contactForm();
 
-  $(window).scroll(function() {
-    if(isElementVisible($(".skillset"))){
-      $(".skillset span").removeClass("not-visible");
-    }
-  });
+  if($(".skillset").length) {
+    $(window).scroll(function() {
+      if(isElementVisible($(".skillset"))){
+        $(".skillset span").removeClass("not-visible");
+      }
+    });
+  }
 });
