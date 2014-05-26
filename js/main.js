@@ -98,7 +98,7 @@ $(document).ready(function(){
   if($(".skillset").length) {
     $(window).scroll(function() {
       if(isElementVisible($(".skillset"))){
-        $(".skillset span").removeClass("not-visible");
+        $(".bar b").removeClass("not-visible");
       }
     });
   }

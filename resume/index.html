@@ -1,91 +1,62 @@
 ---
 layout: default
-title: Aaron Petcoff | Web Developer
-redirect_from:
-  - /resume.html
+title: Resume | Aaron Petcoff | Web Developer
 ---
 
-<div class="resume">
+<div class="resume" class="ng-cloak">
 
   <header class="personal-info">
     <img src="/img/logo.png" alt="" class="logo">
-    <h1>Aaron Petcoff</h1>
+    <h1>//resume.name//</h1>
     <ul>
-      <li><a href="mailto:hello@aaronpetcoff.me" class="email">hello@aaronpetcoff.me</a></li>
-      <li><a href="/" class="website">www.aaronpetcoff.me</a></li>
+      <li><a href="mailto://resume.email//" class="email">//resume.email//</a></li>
+      <li><a href="/" class="website">//resume.website//</a></li>
     </ul>
   </header>
 
+  <section>
+    <div class="label"><h2>Skills</h2></div>
+    <div class="details">
+      <ol class="skillset">
+        <li ng-repeat="skill in resume.skills">
+          <h3>//skill.name//</h3>
+          <span class="bar"><b class="not-visible" style="width://skill.proficency//%;"></b></span>
+        </li>
+      </ol>
+      <div class="additional">Additional experience with: <span ng-repeat="additionalSkill in resume.additionalSkills | orderBy:'toString()'">//additionalSkill////$last ? '' : ', '//</span></div>
+    </div><!--.content-->  
+  </section><!--.skills-->
+
   <section class="experience">
     <div class="label"><h2>Experience</h2></div>
-    <div class="content">
+    <div class="details">
       <ol>
-        <li>
-          <h3>Front End Web Developer</h3>, High Level Marketing, LLC – West Bloomfield, MI
-          <span class="date">August 2013 - Present</span>
+        <li ng-repeat="job in resume.jobs">
+          <h3>//job.title//</h3>, //job.employer// &#45; //job.location//
+          <span class="date">//job.startDate// &#8211; //job.endDate//</span>
           <ul>
-            <li>Build clean, public facing websites for a range of clients using HTML, CSS, Sass/Compass, JavaScript, jQuery, PHP, MySQL, and related technologies.</li>
-            <li>Collaborate closely with design and project management teams in order to meet clients’ individual needs.</li>
-            <li>Lead development workflow streamlining by implementing productivity and version control tools such as Grunt, git, and other related tools.</li>
-            <li>Share expertise with development and design teams by keeping informed on emerging trends and technologies.</li>
-          </ul>
-        </li>
-        <li>
-          <h3>Development Associate (Fundraising)</h3>, College of Engineering, Wayne State University – Detroit, MI
-          <span class="date">February 2013 - August 2013</span>
-          <ul>
-            <li>Support development staff with cultivation and stewardship of donors through research and reporting.</li>
-            <li>Design and produce reports and promotional materials.</li>
-            <li>Faciliate reliable communication between donors, prospects, and staff.</li>
+            <li ng-repeat="responsibility in job.responsibilities">//responsibility//</li>
           </ul>
         </li>
       </ol>
 
     </div><!--.content-->
   </section>
-  <section>
-    <div class="label"><h2>Skills</h2></div>
-    <div class="content">
-      <ul class="skillset">
-        <li>
-          <h3>HTML/CSS/Sass</h3>
-          <span class="bar html not-visible"></span>
-        </li>
-        <li>
-          <h3>JavaScript/jQuery</h3>
-          <span class="bar javascript not-visible"></span>
-        </li>
-        <li>
-          <h3>Design &amp; Layout</h3>
-          <span class="bar design not-visible"></span>
-        </li>
-        <li>
-          <h3>RWD</h3>
-          <span class="bar rwd not-visible"></span>
-        </li>
-        <li>
-          <h3>CMS Customization</h3>
-          <span class="bar cms not-visible"></span>
-        </li>
-        <li>
-          <h3>PHP/MySQL</h3>
-          <span class="bar php not-visible"></span>
-        </li>
-      </ul>
-      <div class="additional">Additional experience with: Bootstrap, Fireworks, Foundation, git, GitHub, Google Analytics, Illustrator, InDesign, Jekyll, Jira, Object-Oriented Programming concepts, Photoshop, Ruby, SEO, Stash, Wordpress, YAML</div>
-    </div><!--.content-->  
-  </section><!--.skills-->
+
   <section class="education">
     <div class="label"><h2>Education</h2></div>
-    <div class="content">
-      <h3>Bachelor of Arts, History</h3>, December 2010
-      <span class="institution">College of Liberal Arts &amp; Sciences, Wayne State University, Detroit, MI</span>
+    <div class="details">
+      <ol>
+        <li ng-repeat="school in resume.education">
+          <h3>//school.degree//, //school.major//</h3>, //school.graduationDate//
+          <span class="institution">//school.name//, //school.location//</span>
+        </li>
+      </ol>
 
       <h3 class="awards-heading">Awards &amp; Scholarships</h3>
-      <ul class="awards">
-        <li>Center for Chicano-Boricua Studies Undergraduate Research Fellowship, 2010</li>
-        <li>Abraham Lincoln Brigade Scholarship, 2008</li>
-      </ul>
+      <ol class="awards">
+        <li ng-repeat="award in resume.awards">//award.name//, //award.year//</li>
+      </ol>
     </div><!--.content-->
   </section>
 

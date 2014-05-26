@@ -12,7 +12,7 @@
           tasks: ['compass','autoprefixer','cssmin','jekyll']
         },
         js: {
-          files: ['js/**/*.js', '!js/**/*.min.js', '!js/site.js'],
+          files: ['js/**/*.{js,json}', '!js/**/*.min.js', '!js/site.js'],
           tasks: ['uglify','concat','jekyll']
         },
         img: {
