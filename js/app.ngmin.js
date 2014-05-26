@@ -12,7 +12,7 @@
     '$scope',
     '$http',
     function ($scope, $http) {
-      $http.get('/js/resume.json').success(function (data) {
+      $http.get('/js/resume.min.json').success(function (data) {
         $scope.resume = data;
       });
     }
