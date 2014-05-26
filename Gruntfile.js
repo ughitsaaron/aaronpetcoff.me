@@ -56,8 +56,11 @@
       },
       uglify: {
         files: {
-          src: 'js/main.js',
-          dest: 'js/main.min.js'
+          expand:true,
+          cwd: 'js/',
+          src: ['main.js','app.ngmin.js'],
+          dest: 'js/',
+          ext: '.min.js'
         }
       },
       concat: {
@@ -65,7 +68,7 @@
           separator: ';',
         },
         files: {
-          src: ['js/fastclick.min.js','js/nav.js','js/main.min.js'],
+          src: ['js/app.min.js','js/main.min.js','js/fastclick.min.js'],
           dest: 'js/site.min.js',
         }
       },
@@ -93,7 +96,7 @@
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-pngmin');
     grunt.loadNpmTasks('grunt-autoprefixer');
-    grunt.registerTask('default', ['jekyll','compass', 'autoprefixer', 'cssmin', 'uglify', 'concat', 'pngmin']);
+    grunt.registerTask('default', ['compass', 'autoprefixer', 'cssmin', 'uglify', 'concat', 'pngmin', 'jekyll']);
   };
 
 }).call(this);

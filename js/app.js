@@ -7,9 +7,9 @@
     $interpolateProvider.endSymbol('//');
   });
 
-  app.controller('ResumeController', function($scope, $http) {
+  app.controller('ResumeController', ['$scope', '$http', function($scope, $http) {
     $http.get('/js/resume.json').success(function(data){
       $scope.resume = data;
     });
-  });
+  }]);
 })();
