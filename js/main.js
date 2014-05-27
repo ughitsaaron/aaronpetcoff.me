@@ -72,6 +72,7 @@ function isElementVisible(el) {
 }
 
 $(document).ready(function(){
+  $("html").removeClass("no-js");
   $("html").removeClass("no-trs");
   $(".contact form ol li:nth-child(3)").css("display","none");
 
