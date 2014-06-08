@@ -95,7 +95,7 @@ main {
 }
 
 .home {
-  margin-bottom: rem-calc(385);
+  margin-bottom: rem-calc(417);
 
   @media #{$medium-up} {
     margin-bottom: $footer-height;
@@ -432,7 +432,7 @@ nav {
   position: fixed;
   bottom: 0;
   left: 0;
-  height:rem-calc(417);
+  height:rem-calc(449);
   width:100%;
   background-image: $bg;
 
