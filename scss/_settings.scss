@@ -12,6 +12,19 @@
 // Allows the use of rem-calc() or lower-bound() in your settings
 @import "foundation/functions";
 
+$blue: #70b9f8;
+$footer-height:rem-calc(337) !default;
+$bg:url(http://subtlepatterns.com/patterns/dark_wall.png);
+$callouts:url(/images/callouts.png);
+$thumbs:url(/images/thumbs.png);
+
+@mixin animateSlide {
+  transform:translateX(0);
+  transition-property: translateX;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+}
+
 // $experimental: true;
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)

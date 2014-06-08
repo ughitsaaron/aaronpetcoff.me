@@ -7,17 +7,21 @@
           files: ['**/*.html','{_layouts,_posts}/**','!_site/**'],
           tasks: ['jekyll']
         },
-        compass: {
+        sass: {
           files: '**/*.scss',
-          tasks: ['compass','autoprefixer','cssmin','jekyll']
+          tasks: ['sass','autoprefixer','cssmin','jekyll']
         },
         js: {
           files: ['js/**/*.{js,json}', '!js/**/*.min.js', '!js/site.js'],
           tasks: ['uglify','concat','jekyll']
         },
         img: {
-          files: ['images/unopt/**/*.png', '!images/*.png'],
+          files: ['img/unopt/**/*.png', '!img/*.png'],
           tasks: 'pngmin'
+        },
+        sprites: {
+          files: ['img/sprites/**/*.png'],
+          tasks: 'sprite'
         },
         options: {
           livereload: true
@@ -31,12 +35,16 @@
           }
         }
       },
-      compass: {
-        build: {
-          options: {
-            config: 'config.rb',
-            trace: true
-          }
+      sass: {
+        options: {
+          includePaths: ['bower_components/foundation/scss']
+        },
+        dist: {
+          expand:true,
+          cwd: 'scss',
+          src: '**/*.scss',
+          dest: 'css',
+          ext: '.css'
         }
       },
       autoprefixer: {
@@ -75,7 +83,8 @@
       pngmin: {
         compile: {
           options: {
-            ext: '.png'
+            ext: '.png',
+            force: true
           },
           files: [
             {
@@ -86,17 +95,32 @@
             }
           ]
         }
+      },
+      sprite: {
+        thumbs: {
+          src: ['img/sprites/thumbs/*.png'],
+          destImg: 'img/unopt/thumbs.png',
+          cssFormat:'scss',
+          destCSS: 'scss/_sprite-thumbs.scss'
+        },
+        callouts: {
+          src: ['img/sprites/callouts/*.png'],
+          destImg: 'img/unopt/callouts.png',
+          cssFormat:'scss',
+          destCSS: 'scss/_sprite-callouts.scss'
+        }
       }
     });
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-jekyll');
-    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-pngmin');
     grunt.loadNpmTasks('grunt-autoprefixer');
-    grunt.registerTask('default', ['compass', 'autoprefixer', 'cssmin', 'uglify', 'concat', 'pngmin', 'jekyll']);
+    grunt.loadNpmTasks('grunt-spritesmith');
+    grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'uglify', 'concat', 'pngmin', 'sprite', 'jekyll']);
   };
 
 }).call(this);

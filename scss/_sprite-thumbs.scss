@@ -1,0 +1,247 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+*/
+$adler-x: 0px;
+$adler-y: 225px;
+$adler-offset-x: 0px;
+$adler-offset-y: -225px;
+$adler-width: 400px;
+$adler-height: 250px;
+$adler-total-width: 400px;
+$adler-total-height: 4975px;
+$adler-image: '../img/unopt/thumbs.png';
+$adler: 0px 225px 0px -225px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$affordable-x: 0px;
+$affordable-y: 2475px;
+$affordable-offset-x: 0px;
+$affordable-offset-y: -2475px;
+$affordable-width: 400px;
+$affordable-height: 250px;
+$affordable-total-width: 400px;
+$affordable-total-height: 4975px;
+$affordable-image: '../img/unopt/thumbs.png';
+$affordable: 0px 2475px 0px -2475px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$allpro-x: 0px;
+$allpro-y: 475px;
+$allpro-offset-x: 0px;
+$allpro-offset-y: -475px;
+$allpro-width: 400px;
+$allpro-height: 250px;
+$allpro-total-width: 400px;
+$allpro-total-height: 4975px;
+$allpro-image: '../img/unopt/thumbs.png';
+$allpro: 0px 475px 0px -475px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$angstcat-x: 0px;
+$angstcat-y: 725px;
+$angstcat-offset-x: 0px;
+$angstcat-offset-y: -725px;
+$angstcat-width: 400px;
+$angstcat-height: 250px;
+$angstcat-total-width: 400px;
+$angstcat-total-height: 4975px;
+$angstcat-image: '../img/unopt/thumbs.png';
+$angstcat: 0px 725px 0px -725px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$argo-x: 0px;
+$argo-y: 975px;
+$argo-offset-x: 0px;
+$argo-offset-y: -975px;
+$argo-width: 400px;
+$argo-height: 250px;
+$argo-total-width: 400px;
+$argo-total-height: 4975px;
+$argo-image: '../img/unopt/thumbs.png';
+$argo: 0px 975px 0px -975px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$athome-x: 0px;
+$athome-y: 1225px;
+$athome-offset-x: 0px;
+$athome-offset-y: -1225px;
+$athome-width: 400px;
+$athome-height: 250px;
+$athome-total-width: 400px;
+$athome-total-height: 4975px;
+$athome-image: '../img/unopt/thumbs.png';
+$athome: 0px 1225px 0px -1225px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$cashkillall-x: 0px;
+$cashkillall-y: 1475px;
+$cashkillall-offset-x: 0px;
+$cashkillall-offset-y: -1475px;
+$cashkillall-width: 400px;
+$cashkillall-height: 250px;
+$cashkillall-total-width: 400px;
+$cashkillall-total-height: 4975px;
+$cashkillall-image: '../img/unopt/thumbs.png';
+$cashkillall: 0px 1475px 0px -1475px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$donahue-x: 0px;
+$donahue-y: 1725px;
+$donahue-offset-x: 0px;
+$donahue-offset-y: -1725px;
+$donahue-width: 400px;
+$donahue-height: 250px;
+$donahue-total-width: 400px;
+$donahue-total-height: 4975px;
+$donahue-image: '../img/unopt/thumbs.png';
+$donahue: 0px 1725px 0px -1725px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$fire-x: 0px;
+$fire-y: 1975px;
+$fire-offset-x: 0px;
+$fire-offset-y: -1975px;
+$fire-width: 400px;
+$fire-height: 250px;
+$fire-total-width: 400px;
+$fire-total-height: 4975px;
+$fire-image: '../img/unopt/thumbs.png';
+$fire: 0px 1975px 0px -1975px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$grout-x: 0px;
+$grout-y: 2225px;
+$grout-offset-x: 0px;
+$grout-offset-y: -2225px;
+$grout-width: 400px;
+$grout-height: 250px;
+$grout-total-width: 400px;
+$grout-total-height: 4975px;
+$grout-image: '../img/unopt/thumbs.png';
+$grout: 0px 2225px 0px -2225px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$hilite-x: 0px;
+$hilite-y: 4725px;
+$hilite-offset-x: 0px;
+$hilite-offset-y: -4725px;
+$hilite-width: 400px;
+$hilite-height: 250px;
+$hilite-total-width: 400px;
+$hilite-total-height: 4975px;
+$hilite-image: '../img/unopt/thumbs.png';
+$hilite: 0px 4725px 0px -4725px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$julia-x: 0px;
+$julia-y: 2725px;
+$julia-offset-x: 0px;
+$julia-offset-y: -2725px;
+$julia-width: 400px;
+$julia-height: 250px;
+$julia-total-width: 400px;
+$julia-total-height: 4975px;
+$julia-image: '../img/unopt/thumbs.png';
+$julia: 0px 2725px 0px -2725px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$loya-x: 0px;
+$loya-y: 2975px;
+$loya-offset-x: 0px;
+$loya-offset-y: -2975px;
+$loya-width: 400px;
+$loya-height: 250px;
+$loya-total-width: 400px;
+$loya-total-height: 4975px;
+$loya-image: '../img/unopt/thumbs.png';
+$loya: 0px 2975px 0px -2975px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$lucky-x: 0px;
+$lucky-y: 3225px;
+$lucky-offset-x: 0px;
+$lucky-offset-y: -3225px;
+$lucky-width: 400px;
+$lucky-height: 250px;
+$lucky-total-width: 400px;
+$lucky-total-height: 4975px;
+$lucky-image: '../img/unopt/thumbs.png';
+$lucky: 0px 3225px 0px -3225px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$meaghan-x: 0px;
+$meaghan-y: 3475px;
+$meaghan-offset-x: 0px;
+$meaghan-offset-y: -3475px;
+$meaghan-width: 400px;
+$meaghan-height: 250px;
+$meaghan-total-width: 400px;
+$meaghan-total-height: 4975px;
+$meaghan-image: '../img/unopt/thumbs.png';
+$meaghan: 0px 3475px 0px -3475px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$roof-x: 0px;
+$roof-y: 3725px;
+$roof-offset-x: 0px;
+$roof-offset-y: -3725px;
+$roof-width: 400px;
+$roof-height: 250px;
+$roof-total-width: 400px;
+$roof-total-height: 4975px;
+$roof-image: '../img/unopt/thumbs.png';
+$roof: 0px 3725px 0px -3725px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$safeway-x: 0px;
+$safeway-y: 3975px;
+$safeway-offset-x: 0px;
+$safeway-offset-y: -3975px;
+$safeway-width: 400px;
+$safeway-height: 250px;
+$safeway-total-width: 400px;
+$safeway-total-height: 4975px;
+$safeway-image: '../img/unopt/thumbs.png';
+$safeway: 0px 3975px 0px -3975px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$sameday-x: 0px;
+$sameday-y: 4225px;
+$sameday-offset-x: 0px;
+$sameday-offset-y: -4225px;
+$sameday-width: 400px;
+$sameday-height: 250px;
+$sameday-total-width: 400px;
+$sameday-total-height: 4975px;
+$sameday-image: '../img/unopt/thumbs.png';
+$sameday: 0px 4225px 0px -4225px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$stlouis-x: 0px;
+$stlouis-y: 4475px;
+$stlouis-offset-x: 0px;
+$stlouis-offset-y: -4475px;
+$stlouis-width: 400px;
+$stlouis-height: 250px;
+$stlouis-total-width: 400px;
+$stlouis-total-height: 4975px;
+$stlouis-image: '../img/unopt/thumbs.png';
+$stlouis: 0px 4475px 0px -4475px 400px 250px 400px 4975px '../img/unopt/thumbs.png';
+$watchdog-x: 0px;
+$watchdog-y: 0px;
+$watchdog-offset-x: 0px;
+$watchdog-offset-y: 0px;
+$watchdog-width: 400px;
+$watchdog-height: 225px;
+$watchdog-total-width: 400px;
+$watchdog-total-height: 4975px;
+$watchdog-image: '../img/unopt/thumbs.png';
+$watchdog: 0px 0px 0px 0px 400px 225px 400px 4975px '../img/unopt/thumbs.png';
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}

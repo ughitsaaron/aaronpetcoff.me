@@ -1,0 +1,77 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+*/
+$experience-x: 0px;
+$experience-y: 0px;
+$experience-offset-x: 0px;
+$experience-offset-y: 0px;
+$experience-width: 200px;
+$experience-height: 200px;
+$experience-total-width: 200px;
+$experience-total-height: 600px;
+$experience-image: '../img/unopt/callouts.png';
+$experience: 0px 0px 0px 0px 200px 200px 200px 600px '../img/unopt/callouts.png';
+$expertise-x: 0px;
+$expertise-y: 200px;
+$expertise-offset-x: 0px;
+$expertise-offset-y: -200px;
+$expertise-width: 200px;
+$expertise-height: 200px;
+$expertise-total-width: 200px;
+$expertise-total-height: 600px;
+$expertise-image: '../img/unopt/callouts.png';
+$expertise: 0px 200px 0px -200px 200px 200px 200px 600px '../img/unopt/callouts.png';
+$passionate-x: 0px;
+$passionate-y: 400px;
+$passionate-offset-x: 0px;
+$passionate-offset-y: -400px;
+$passionate-width: 200px;
+$passionate-height: 200px;
+$passionate-total-width: 200px;
+$passionate-total-height: 600px;
+$passionate-image: '../img/unopt/callouts.png';
+$passionate: 0px 400px 0px -400px 200px 200px 200px 600px '../img/unopt/callouts.png';
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}

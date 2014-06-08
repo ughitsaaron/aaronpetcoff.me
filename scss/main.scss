@@ -1,13 +1,11 @@
-$blue: #70b9f8;
-
-@import "normalize";
-@import "settings";
-@import "foundation/components/grid";
-@import "fonts";
-// @import "nav";
-// @import "syntax";
-@import "resume";
-// @import "thumbs/*.png";
+@import "normalize",
+        "settings",
+        "foundation/components/grid",
+        "fonts",
+        "sprites",
+//      "nav",
+//      "syntax",
+        "resume";
 
 .no-trs * {
   transition: none !important;
@@ -15,6 +13,14 @@ $blue: #70b9f8;
 
 .ng-cloak {
   display: none !important;
+}
+
+.hide {
+  display: none;
+}
+
+.screen {
+  overflow: hidden;
 }
 
 * {
@@ -29,7 +35,7 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   color:#333;
-  background-image: url(http://subtlepatterns.com/patterns/dark_wall.png);
+  background-image: $bg;
 }
 
 a:link {
@@ -76,18 +82,28 @@ aside {
 }
 
 main {
+  @include animateSlide;
   position: relative;
   z-index: 1;
   padding-top: rem-calc(10);
   background-color: #fafffa;
-  transform:translateX(0);
-  transition-property: translateX;
-  transition-duration: 0.25s;
-  transition-timing-function: ease;
+  box-shadow: 0px 4px 4px black;
+
+  &.push {
+    margin-bottom: 0;
+  }
+}
+
+.home {
+  margin-bottom: rem-calc(385);
+
+  @media #{$medium-up} {
+    margin-bottom: $footer-height;
+  }
 }
 
 .push {
-  transform:translateX(58%);
+  transform:translateX(58%) !important;
   transition-property: translateX;
   transition-duration: 0.25s;
   transition-timing-function: ease;
@@ -95,11 +111,11 @@ main {
   box-shadow: 0 0 10px 3px black;
 
   @media #{$medium-up} {
-    transform:translateX(42%);
+    transform:translateX(42%) !important;
   }
 
   @media #{$large-up} {
-    transform:translateX(33%);
+    transform:translateX(33%) !important;
   }
 }
 
@@ -150,6 +166,10 @@ header {
   text-align: center;
   text-decoration: none;
   cursor:pointer;
+
+  @media #{$medium-up} {
+    float: left;
+  }
 }
 
 .nav-toggle:before {
@@ -238,11 +258,11 @@ nav {
   font-weight: 100;
 
   @media #{$medium-up} {
-    padding:0 rem-calc(145);
+    padding:3rem rem-calc(145);
   }
 }
 
-.skills {
+.callouts {
   ol {
     @include grid-row();
     @include clearfix;
@@ -252,20 +272,22 @@ nav {
     li {
       text-align: center;
 
-      i {
-        @include icons;
+      &:before {
         display: block;
-        font-size: rem-calc(115);
-        color:$blue;
-        text-shadow: 4px 1px 0 darken($blue,20%);
+        width: rem-calc(200);
+        height: rem-calc(200);
+        margin: 0 auto;
+        border-radius: 50%;
+        background-image: url(/img/callouts.png);
+        box-shadow: 0 0 1px rgba(black,0.35),
+                    inset 0 0 10px rgba(black,0.35);
+        content:""
       }
 
-      $skills:3;
-
-      @for $i from 1 through $skills {
-        $icons:$wand,$hammer,$rocket;
-        &:nth-child(#{$i}) i:before {
-            content: nth($icons,$i);
+      @for $i from 1 through 3 {
+        $sprites:$expertise,$experience,$passionate !default;
+        &:nth-child(#{$i}):before {
+          @include sprite-position(nth($sprites,$i));
         }
       }
     }
@@ -279,7 +301,7 @@ nav {
   }
 }
 
-.skills h3 {
+.callouts h3 {
   font-size: rem-calc(24);
   text-align: center;
 }
@@ -290,84 +312,148 @@ nav {
     @include clearfix;
     list-style: none;
     padding: 0;
+  }
 
+  li a {
+    text-decoration: none;
+  }
+
+  li a:link,
+  li a:visited,
+  li a:hover,
+  li a:visited {
+    color:#333;
+  }
+
+  .thumb {
+    display: block;
+    max-width: rem-calc(400);
+    height:rem-calc(250);
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-image: url(/img/thumbs.png);
+  }
+
+  h3 {
+    text-align: center;
+
+    @media #{$medium-up} {
+      text-align: left;
+    }
+  }
+}
+
+.personal {
+  $sprites:$julia,$cashkillall,$angstcat,$meaghan !default;
+
+  @for $i from 1 through length($sprites) {
+    li:nth-child(#{$i}) .thumb {
+      @include sprite-position(nth($sprites,$i));
+    }
+  }
+
+  @media #{$medium-up} {
     li a {
-      text-decoration: none;
-
-      i {
-        display: block;
-        height:rem-calc(255);
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: contain;
-      }
+      @include grid-column($columns:6);
     }
+  }
+}
 
-    li a:link,
-    li a:visited,
-    li a:hover,
-    li a:visited {
-      color:#333;
-    }
+.hlm {
 
-    li:nth-child(3) a {
-      clear: left;
-    }
+  .featured {
+    $sprites:$sameday, $loya, $adler !default;
 
-    @for $i from 1 through 4 {
-      li:nth-child(#{$i}) i {
-        background-image: url(/img/thumbs/port#{$i}.png);
+    @for $i from 1 through length($sprites) {
+      li:nth-child(#{$i}) .thumb {
+        @include sprite-position(nth($sprites,$i));
       }
     }
 
     @media #{$medium-up} {
       li a {
-        @include grid-column($columns:6);
+        @include grid-column($columns:4);
       }
     }
+  }
+
+  .non-featured {
+    $sprites:$affordable, $allpro, $argo, $athome,$hilite, $lucky, $safeway, $stlouis !default;
+
+    @for $i from 1 through length($sprites) {
+      li:nth-child(#{$i}) .thumb {
+        @include sprite-position(nth($sprites,$i));
+      }
+    }
+
+    @media #{$medium-up} {
+      li a {
+        @include grid-column($columns:4);
+      }
+    }
+
+    @media #{$medium-only} {
+      li:nth-child(4) a,
+      li:nth-child(7) a {
+        clear:left;
+      }
+    }
+
+    @media #{$large-up} {
+      li a {
+        @include grid-column($columns:3);
+      }
+
+      li:nth-child(5) a {
+        clear:left;
+      }
+    }
+  }
+
+  li a:hover .thumb {
+    opacity: 1;
+    transition: opacity 0.25s ease;
+  }
+
+  .thumb {
+    opacity: 0.8;
+    transition: opacity 0.25s ease;
   }
 }
 
 .content {
   @include grid-row();
   padding: 0 rem-calc(20) rem-calc(60) rem-calc(20);
+}
 
-  .contact {
-    $row-width:100%;
-    @include grid-row();
+.contact {
+  @include animateSlide;
+  padding-top: 32px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height:rem-calc(417);
+  width:100%;
+  background-image: $bg;
+
+  @media #{$medium-up} {
+    height:$footer-height;
   }
 }
 
-.contact > ol {
+.contact .form {
   @include grid-row();
+  padding: 0 rem-calc(16);
+
+}
+
+.contact ol {
   list-style: none;
   padding: 0;
   margin: 0;
 
-  > li:first-child {
-    display: none;
-    img {
-      width: 90%;
-    }
-
-    @media #{$medium-up} {
-      display: block;
-      @include grid-column($columns:4,$collapse:true);
-    }
-  }
-
-  > li:nth-child(2) {
-    @include grid-row();
-
-    @media #{$medium-up} {
-      @include grid-column($columns:8,$collapse:true);
-    }
-
-    ol {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
+  @media #{$medium-up} {
+    @include grid-column($columns:8,$float:right,$collapse:true);
   }
 }
 
@@ -392,6 +478,7 @@ nav {
     padding:rem-calc(3);
     font-size: rem-calc(18);
     border-radius: 3px;
+    resize: none;
 
     &:active,
     &:focus {
@@ -432,6 +519,12 @@ nav {
   }
 }
 
+.form h2 {
+  float: left;
+  color: white;
+  font-size: 32px;
+}
+
 // footer
 
 .contact-info {
@@ -440,5 +533,3 @@ nav {
     @include grid-column($columns:6,$collapse:true);
   }
 }
-
-
