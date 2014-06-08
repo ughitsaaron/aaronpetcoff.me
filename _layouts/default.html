@@ -42,7 +42,6 @@
       {% if page.url == "/index.html" %}
       <section class="contact">
         <div class="form">
-          <h2>Let's Talk!</h2>
           <form action="">
             <ol>
               <li><input name="name" type="text" placeholder="Name"></li>
@@ -50,11 +49,12 @@
               <li><input name="subject" type="text" placeholder="Subject"></li>
               <li><textarea name="message" placeholder="Message"></textarea></li>
               <li><input type="submit" value="Send">
-                <p class="success">Your message was sent successfully.</p>
-                <p class="error">There was an error sending your message.</p>
               </li>
             </ol>
           </form>
+          <h2>Let's Talk!</h2>
+          <p class="success">Your message was sent successfully.</p>
+          <p class="error">There was an error sending your message.</p>
         </div>
       </section><!--.contact-->
       {% endif; %}

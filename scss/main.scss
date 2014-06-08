@@ -441,6 +441,20 @@ nav {
   }
 }
 
+.success,
+.error {
+  float: left;
+  display: none;
+}
+
+.success {
+  color:#2ECC40;
+}
+
+.error {
+  color:#FF7A42;
+}
+
 .contact .form {
   @include grid-row();
   padding: 0 rem-calc(16);
@@ -504,14 +518,6 @@ nav {
       border:1px solid $blue;
       color: $blue;
     }
-  }
-
-  .success {
-    display: none;
-  }
-
-  .error {
-    display: none;
   }
 
   @media #{$medium-up} {
