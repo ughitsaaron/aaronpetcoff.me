@@ -24,7 +24,7 @@
       message = $(".contact textarea[name^=\"message\"]").val();
       dataString = 'name=' + name + '&email=' + email + '&message=' + message;
 
-      if(subject===false) {
+      if(subject.length === 0) {
         $.ajax({
           type: "POST",
           url: "http://getsimpleform.com/messages/ajax?form_api_token=b5f5dc858da495c26b344e4fa8b484b3",
