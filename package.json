@@ -1,0 +1,26 @@
+{
+  "name": "Blog",
+  "version": "1.0.0",
+  "description": "Aaron's blog",
+  "main": "app.js",
+  "dependencies": {
+    "chokidar": "^0.12.5",
+    "express": "^4.10.6",
+    "markdown": "^0.5.0",
+    "pdc": "^0.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aptkf/blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aptkf/blog/issues"
+  },
+  "homepage": "https://github.com/aptkf/blog"
+}
