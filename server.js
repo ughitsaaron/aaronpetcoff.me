@@ -1,3 +1,7 @@
+/* jshint node: true */
+
+"use strict";
+
 var express = require("express"),
     app = express(),
     fs = require("fs"),
