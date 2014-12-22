@@ -6,7 +6,7 @@ var express = require("express"),
 
 /* Create list of all posts */
 app.get("/api/blog/", function(req,res) {
-  fs.readdir("./posts/", function(err, files) {
+  fs.readdir(__dirname + "/../posts/", function(err, files) {
     var Post, posts = [];
 
     Post = function(address, title) {
@@ -21,7 +21,7 @@ app.get("/api/blog/", function(req,res) {
     files.forEach(function(el, index) {
       var article, title;
 
-      el = "./posts/" + el;
+      el = __dirname + "/../posts/" + el;
       title = fs.readFileSync(el, {encoding:"utf-8"})
               .match(/(?:\btitle:)(.*)/gm)[0]
               .replace(/title:/g,"");
@@ -35,19 +35,16 @@ app.get("/api/blog/", function(req,res) {
 });
 
 /* Render singles */
-
 app.get("/api/blog/:file", function(req,res) {
-  var file, postData;
+  var file = __dirname + "/../posts/" + req.params.file + ".md";
 
-  file = "./posts/" + req.params.file + ".md";
   fs.readFile(file, {encoding: "utf-8"}, function(err, data) {
     if (err) throw err;
-    data = data.replace(/\<!---\ntitle:(.?)*\n--\>/gm,"");
-    data = md.toHTML(data);
+    data = md.toHTML(data.replace(/<!---\ntitle:(.?)*\n--\>/gm,""));
     return res.json([ data ][0]);
   });
 });
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + "/../public/"));
 app.listen(process.env.PORT || 3000);
 console.log("Listening on port 3000");
