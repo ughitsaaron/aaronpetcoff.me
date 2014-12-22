@@ -8,12 +8,13 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
+    nodemon = require('gulp-nodemon'),
     livereload = require('gulp-livereload');
  
 var paths = {
   markup: { src:'./public/*.html' },
   styles: { src:'scss', files:'scss/**/*.scss', dest:'./public/css' },
-  scripts: { src: ['./public/js/main.js'], dest:'./public/js', ext:'main.min.js'}
+  scripts: { src: ['./public/js/app.js','./public/js/main.js'], dest:'./public/js', ext:'main.min.js'}
 };
  
 var watchPaths = [paths.markup.src, paths.styles.src, paths.scripts.src];
@@ -29,7 +30,11 @@ gulp.task('styles', function() {
   .pipe(plumber({errorHandler: onError}))
   .pipe(sass({
     style: 'compressed',
-    loadPath: __dirname,
+    loadPath: [
+      "./bower_components/bourbon/dist/",
+      "./bower_components/neat/app/assets/stylesheets/",
+      "./bower_components/normalize.css/"
+    ],
     noCache: true,
     "sourcemap=none": true }))
   .pipe(autoprefixer('last 2 versions'))
@@ -50,12 +55,17 @@ gulp.task('scripts', function() {
  
 // watch
 gulp.task('watch', function() {
-  livereload.listen();
-  gulp.watch(paths.markup.src, ['']);
-  gulp.watch(paths.styles.files, ['styles']);
-  gulp.watch([paths.scripts.src,'./public/js/app.js'], ['scripts']);
-  gulp.watch(watchPaths).on('change', livereload.changed);
 });
  
 // default task
-gulp.task('default', ['styles','scripts']);
+gulp.task('default', ['styles','scripts'], function() {
+  livereload.listen();
+  gulp.watch(paths.markup.src, ['']);
+  gulp.watch(paths.styles.files, ['styles']);
+  gulp.watch([paths.scripts.src], ['scripts']);
+  gulp.watch(watchPaths).on('change', livereload.changed);
+  nodemon({
+    script: "server.js",
+    ignore: [paths.markup.src, paths.styles.files, paths.scripts.src]
+  });
+});
