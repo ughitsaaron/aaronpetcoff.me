@@ -2,7 +2,7 @@
   "name": "Blog",
   "version": "1.0.0",
   "description": "Aaron's blog",
-  "main": "app.js",
+  "main": "server.js",
   "dependencies": {
     "chokidar": "^0.12.5",
     "express": "^4.10.6",
