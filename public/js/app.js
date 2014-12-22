@@ -12,10 +12,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     });
 }]);
 
-app.controller("blogCtrl", function() {
-
-});
-
 app.controller("postCtrl", ["$http","$scope","$routeParams", function($http,$scope,$routeParams) {
 
   $http.get("/api/blog/" + $routeParams.entry)
@@ -28,6 +24,5 @@ app.controller("homeCtrl", ["$http","$scope", function($http,$scope) {
   $http.get("/api/blog/")
     .success(function(data) {
       $scope.posts = data;
-      console.log(data);
     });
 }]);
