@@ -1,2 +1,4 @@
-  <div ng-bind-html="post"></div>
-  <a href="/#/">Back</a>
+<article ng-bind-html="post"></article>
+<a ng-hide="currentPost === 0" ng-href="/#/posts/{{ posts[currentPost - 1].address }}">Previous</a>
+<a ng-hide="currentPost === posts.length-1" ng-href="/#/posts/{{ posts[currentPost + 1].address }}">Next</a>
+  <a href="/#/">Home</a>

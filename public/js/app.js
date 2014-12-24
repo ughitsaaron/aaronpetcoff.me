@@ -17,7 +17,20 @@ app.controller("postCtrl", ["$http","$scope","$routeParams", function($http,$sco
   $http.get("/api/blog/" + $routeParams.entry)
     .success(function(data) {
       $scope.post = data;
-    });
+  });
+
+  $http.get("/api/blog")
+    .success(function(data) {
+      $scope.posts = data;
+      data.forEach(function(el, i) {
+        $scope.currentPost;
+        if(el.address === $routeParams.entry) {
+          $scope.currentPost = i;
+        }
+      });
+
+      console.log($scope.currentPost);
+  });
 }]);
 
 app.controller("homeCtrl", ["$http","$scope", function($http,$scope) {
