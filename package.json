@@ -4,10 +4,11 @@
   "description": "Aaron's blog",
   "main": "server.js",
   "dependencies": {
-    "cheerio": "^0.18.0",
-    "chokidar": "^0.12.5",
+    "colors": "^1.0.3",
     "express": "^4.10.6",
-    "marked": "^0.3.2"
+    "highlight.js": "^8.4.0",
+    "meta-marked": "^0.3.3",
+    "watch": "^0.13.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
