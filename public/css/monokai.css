@@ -112,7 +112,8 @@ pre code,
 .tex .hljs-command,
 .hljs-prompt,
 .hljs-link_label,
-.hljs-link_url {
+.hljs-link_url,
+.hljs-pi {
   color: #e6db74;
 }
 
@@ -121,7 +122,6 @@ pre code,
 .hljs-annotation,
 .hljs-decorator,
 .hljs-template_comment,
-.hljs-pi,
 .hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
