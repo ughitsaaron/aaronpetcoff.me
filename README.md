@@ -39,3 +39,7 @@ In posts create a new Markdown file at ```./posts/```, e.g.,
 If the post is successfully compiled you should get a confirmation message in the command line.
 
 Check in your browser at ```http://localhost:3000/```
+
+###Demo
+
+A live [demonstration is available](https://salty-gorge-5722.herokuapp.com/) on Heroku.
