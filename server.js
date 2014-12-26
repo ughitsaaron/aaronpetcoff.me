@@ -7,61 +7,101 @@ var express = require("express"),
     app = express(),
     fs = require("fs"),
     path = require('path'),
-    md = require("marked"),
+    watch = require('watch'),
+    md = require("meta-marked"),
+    colors = require("colors"),
     hljs = require("highlight.js");
 
-// Create list of all posts for homepage
-app.get("/api/blog/", function(req,res) {
-  fs.readdir("posts/", function(err, files) {
-    var Post, posts = [];
+//Convert *.md files in ./posts to *.html in ./public/posts
+watch.createMonitor("./posts", function(monitor) {
 
-    // post object constructor
-    Post = function(address, title) {
-      this.address = address;
-      this.title = title;
-    };
+  var make, // function to make posts
+      markdown, // function to check if markdown
+      exists, // function to check if source has already been compiled
+      source = []; // store of noncompiled markdown
 
-    // grab markdown only files
-    files = files.filter(function(el) {
-      return path.extname(el) === ".md";
+  make = function(src) {
+    // console.log(src);
+    fs.readFile(src, {encoding:"utf-8"}, function(err, data) {
+      if(err) throw err;
+      data = md(data, {
+        highlight: function(code) {
+          return hljs.highlightAuto(code).value;
+        }
+      });
+
+      // save current datetime to new post in unix format
+      // for parsing by angular
+      data.meta.date = Date.now();
+
+      fs.writeFile("./public/posts/" + path.basename(src,".md") + ".json", JSON.stringify(data), function(err) {
+        if(err) throw err;
+
+        // confirm new file written
+        console.log("./public/posts/".green + path.basename(src,".md").green + ".json".green + " saved!".green);
+      });
     });
+  };
 
-    // on each markdown file in the posts directory
-    // extract post title metadata and the file's
-    // basename to act as address
-
-    files.forEach(function(el, index) {
-      var article, title;
-
-      el = "posts/" + el;
-      title = fs.readFileSync(el, {encoding:"utf-8"})
-              .match(/(?:\btitle:)(.*)/gm)[0]
-              .replace(/title:/g,"");
+  markdown = function(src) {
+    return path.extname(src) === ".md";
+  };
   
-      article = new Post(path.basename(el,".md"), title);
-      posts.push(article);
-      
-    });
+  exists = function(src) {
+    return fs.existsSync("./public/posts/" + path.basename(src,".md") + ".json");
+  };
 
-    return res.json(posts);
+  // filter out non-md and already compiled files
+  source = Object.keys(monitor.files).filter(function(el) {
+    return markdown(el) && !exists(el);
+  });
+
+  // list how many files to write
+  console.log(source.length ? source.length.green + " files to write.".green : "No files to write!".red);
+
+
+  source.forEach(function(el, index) {
+    make(el);
+  });
+
+  // create new file when one is made
+  monitor.on("created", function(f, stat) {
+    console.log(f.green + " created.".green);
+    markdown(f) && !exists(f) ? make(f) : console.log(f.red + " has already been written.".red);
   });
 });
 
-/* Render singles */
-app.get("/api/blog/:file", function(req,res) {
-  var file = "posts/" + req.params.file + ".md";
+//Create API of total posts out of posts in ./public/posts
+app.get("/api/blog/", function(req,res) {
+  fs.readdir("./public/posts/", function(err, files) {
+    var Post, posts = [];
 
-  fs.readFile(file, {encoding: "utf-8"}, function(err, data) {
+    // post object constructor
+    Post = function(address, title, date) {
+      this.address = address;
+      this.title = title;
+      this.date = date;
+    };
 
-    if (err) throw err;
+    files = files.filter(function(el) {
+      return path.extname(el) === ".json";
+    });
 
-    data = md.setOptions({
-      highlight: function(code) {
-        return hljs.highlightAuto(code).value;
-      }
-    })(data);
+    files.forEach(function(el, i) {
+      var post, data;
+      
+      data = JSON.parse(fs.readFileSync("./public/posts/" + el, {encoding:"utf-8"}));
+      post = new Post(path.basename(el,".json"), data.meta.title, data.meta.date);
+      posts.push(post);
+    });
 
-    return res.json(data);
+    var mostRecent = function(a,b) {
+      if(a.date < b.date) return 1;
+      if(a.date > b.date) return -1;
+      return 0;
+    };
+
+    return res.json(posts.sort(mostRecent));
   });
 });
 

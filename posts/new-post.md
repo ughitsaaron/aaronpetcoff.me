@@ -1,11 +1,19 @@
-<!---
-title:Title of my post
--->
+---
+title: A new post
+---
 
-This is my blog
-=======
+#This is a new post
 
-1. This is a
-2. List
+Sometimes you need to make another post about something different.
 
-[foo](http://www.google.com)
+    "use strict";
+    
+    var express = require("express");
+    var app = express();
+
+    // make a thing happen
+
+* This
+* is
+* a
+* list

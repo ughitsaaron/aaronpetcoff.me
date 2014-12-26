@@ -14,22 +14,20 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
 app.controller("postCtrl", ["$http","$scope","$routeParams", function($http,$scope,$routeParams) {
 
-  $http.get("/api/blog/" + $routeParams.entry)
+  $http.get("/posts/" + $routeParams.entry + ".json")
     .success(function(data) {
-      $scope.post = data;
+      $scope.post = data.html;
   });
 
   $http.get("/api/blog")
     .success(function(data) {
       $scope.posts = data;
       data.forEach(function(el, i) {
-        $scope.currentPost;
+        $scope.count;
         if(el.address === $routeParams.entry) {
-          $scope.currentPost = i;
+          $scope.count = i;
         }
       });
-
-      console.log($scope.currentPost);
   });
 }]);
 
