@@ -8,7 +8,7 @@ This is still very much a work in progress. I would highly recommend against eve
 
 ###How it works
 
-Run ```gulp``` to start ```server.js```. Write posts using Markdown in ```./posts/```.  Write metadata (e.g., title, etc.) in your Markdown using YAML front-matter similar to Jekyll (h/t [meta-marked](https://github.com/j201/meta-marked/).
+Run ```gulp``` to start ```server.js```. Write posts using Markdown in ```./posts/```.  Write metadata (e.g., title, etc.) in your Markdown using YAML front-matter similar to Jekyll (h/t [meta-marked](https://github.com/j201/meta-marked/)).
 
 [Highlight.js](https://github.com/isagalaev/highlight.js) is run on the server-side to parse any code samples in your Markdown.
 
