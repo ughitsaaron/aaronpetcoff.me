@@ -1,12 +1,4 @@
-<article class="post-single">
-  <a ng-href="/#/{{ post.meta.address }}" class="post-title"><h1>{{ post.meta.title }}</h1></a>
-  <span class="post-date">{{ date(post.meta) }}</span>
-  <div class="post-content" ng-bind-html="post.html">
-    <!-- good stuff goes here -->    
-  </div>
-  <div class="post-navigation">
-    <a class="post-navigation-prev" ng-hide="count === 0" ng-href="/#/posts/{{ posts[count - 1].address }}">Previous</a>
-    <a href="/#/">Home</a>
-    <a class="post-navigation-next" ng-hide="count === posts.length-1" ng-href="/#/posts/{{ posts[count + 1].address }}">Next</a>
-  </div>
-</article>
+<article ng-bind-html="post"></article>
+<a ng-hide="count === 0" ng-href="/#/posts/{{ posts[count - 1].address }}">Previous</a>
+<a ng-hide="count === posts.length-1" ng-href="/#/posts/{{ posts[count + 1].address }}">Next</a>
+  <a href="/#/">Home</a>
