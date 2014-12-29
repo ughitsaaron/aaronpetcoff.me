@@ -1,5 +1,11 @@
 var app = angular.module("blog", ['ngRoute','ngSanitize']);
 
+app.factory("date", ["$filter", function($filter) {
+  return function(post) {
+    return $filter("date")(post.date, "d" + "." + "M" + "." + "yy");
+  };
+}]);
+
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider
     .when("/posts/:entry", {
@@ -12,11 +18,20 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     });
 }]);
 
-app.controller("postCtrl", ["$http","$scope","$routeParams", function($http,$scope,$routeParams) {
+app.controller("homeCtrl", ["$http","$scope","date", function($http,$scope,date) {
+  $http.get("/api/blog/")
+    .success(function(data) {
+      $scope.posts = data;
+      $scope.date = date;
+    });
+}]);
+
+app.controller("postCtrl", ["$http","$scope","$routeParams","date", function($http,$scope,$routeParams,date) {
 
   $http.get("/posts/" + $routeParams.entry + ".json")
     .success(function(data) {
-      $scope.post = data.html;
+      $scope.post = data;
+      $scope.date = date;
   });
 
   $http.get("/api/blog")
@@ -29,11 +44,4 @@ app.controller("postCtrl", ["$http","$scope","$routeParams", function($http,$sco
         }
       });
   });
-}]);
-
-app.controller("homeCtrl", ["$http","$scope", function($http,$scope) {
-  $http.get("/api/blog/")
-    .success(function(data) {
-      $scope.posts = data;
-    });
 }]);

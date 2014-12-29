@@ -21,9 +21,9 @@ watch.createMonitor("./posts", function(monitor) {
       source = []; // store of noncompiled markdown
 
   make = function(src) {
-    // console.log(src);
-    fs.readFile(src, {encoding:"utf-8"}, function(err, data) {
+    var data = fs.readFile(src, {encoding:"utf-8"}, function(err, data) {
       if(err) throw err;
+      
       data = md(data, {
         highlight: function(code) {
           return hljs.highlightAuto(code).value;
@@ -66,7 +66,7 @@ watch.createMonitor("./posts", function(monitor) {
 
   // create new file when one is made
   monitor.on("created", function(f, stat) {
-    console.log(f.green + " created.".green);
+    console.log(f.yellow + " created.".yellow);
     markdown(f) && !exists(f) ? make(f) : console.log(f.red + " has already been written.".red);
   });
 });

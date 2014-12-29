@@ -1,5 +1,8 @@
-<ul>
+<ul class="post-list">
   <li ng-repeat="post in posts">
-    <a ng-href="/#/posts/{{post.address}}">{{ post.title }} | {{ post.date | date:"medium" }}</a>
+    <a class="post" ng-href="/#/posts/{{post.address}}" title="{{ post.title }}">
+      <h2 class="post-title">{{ post.title }}</h2>
+      <span class="post-date">Posted on {{ date(post) }}</span>
+    </a>
   </li>
 </ul>
