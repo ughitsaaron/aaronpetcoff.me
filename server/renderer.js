@@ -21,6 +21,13 @@ module.exports = function(opts) {
     return path.extname(file) === ".md";
   });
 
+  // clear public/posts to rebuild it from scratch
+  fs.readdir(opts.dirs.public + "posts/", function(err, rms) {
+    rms.forEach(function(rm) {
+      fs.unlink(opts.dirs.public + "posts/" + rm);
+    });
+  });
+
   // convert each md file to json
   files.forEach(function(file) {
     var address, date;
