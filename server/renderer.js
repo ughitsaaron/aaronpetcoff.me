@@ -23,9 +23,11 @@ module.exports = function(opts) {
 
   // clear public/posts to rebuild it from scratch
   fs.readdir(opts.dirs.public + "posts/", function(err, rms) {
-    rms.forEach(function(rm) {
-      fs.unlink(opts.dirs.public + "posts/" + rm);
-    });
+    if(rms) {
+      rms.forEach(function(rm) {
+        fs.unlink(opts.dirs.public + "posts/" + rm);
+      });
+    }
   });
 
   // convert each md file to json
