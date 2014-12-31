@@ -1,0 +1,107 @@
+$module: "post";
+$container: rem(900);
+
+.#{$module} {
+  @include trs((background-color, border-bottom));
+  display: block;
+  padding: 1em;
+  border-bottom: 2px solid rgba($border,0.35);
+  background-color:rgba($border,0);
+  text-decoration: none;
+
+  &:hover {
+    @include trs(background-color border-bottom);
+    background-color:rgba($border,0.075);
+    border-bottom: 2px solid $link-color;
+  }
+
+  .#{$module}-date {
+    margin-top: 0.5em;
+  }
+}
+
+li:last-child .#{$module} {
+  margin-bottom: 0;
+}
+
+.#{$module}-list {
+  @include outer-container($local-max-width:$container);
+}
+
+.#{$module}-single {
+  padding: 0 1em 1em 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid $link-color;
+
+  @include media($large) {
+    padding: 0 0 1em 0;
+  }
+}
+
+.#{$module}-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  color:$secondary;
+  text-decoration: none;
+}
+
+.#{$module}-date {
+  display: block;
+  color:$secondary;
+  opacity:0.35;
+}
+
+.#{$module}-navigation-wrap {
+  text-align: center;
+}
+
+.#{$module}-navigation {
+  @include link {
+    @include trs(box-shadow);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    display: inline-block;
+    text-decoration: none;
+    color:$secondary;
+    box-shadow: 0 2px 0 transparent;
+  }
+
+  &:hover {
+    @include trs(box-shadow);
+    box-shadow: 0 2px 0 $secondary;
+  }
+}
+
+.#{$module}-navigation-prev {
+  @include arrow(left);
+}
+
+.#{$module}-navigation[href="/posts/"] {
+  display: none;
+}
+
+.#{$module}-navigation-next {
+  @include arrow(right);
+}
+
+.#{$module}-archive-link {
+  @include outer-container($local-max-width:$container);
+  padding: 1em;
+  text-align: right;
+
+  a {
+    @include link {
+      @include arrow(right, 9px solid $tertiary);
+      color: $tertiary;
+    }
+  }
+}
+
+.fourohfour {
+  text-align: center;
+
+  img {
+    width: 100%;
+    max-width: rem(550);
+  }
+}

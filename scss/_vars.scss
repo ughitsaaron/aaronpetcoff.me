@@ -1,0 +1,70 @@
+// global settings
+$border-box-sizing:true;
+$max-width:rem(1000);
+
+// breakpoints
+$large: new-breakpoint(min-width rem(1024));
+
+// global style vars
+$body:'Cabin', sans-serif;
+$console:'Ubuntu Mono', monospace;
+
+$primary: #fafafa;
+$secondary: #23241f;
+$tertiary: #db2732;
+
+$link-color: rgba($tertiary,0.85);
+$link-hover: $tertiary;
+
+$border: darken($primary,25%);
+
+// helper classes
+
+[class*="-list"] {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+// mixins
+
+@mixin link {
+  &:link,
+  &:visited,
+  &:active {
+    @content;
+  }
+}
+
+@mixin trs($props,$duration:0.35s,$timing:ease) {
+  transition-property: $props;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+}
+
+@mixin arrow-content {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 6px outset transparent;
+  border-bottom: 6px outset transparent;
+  margin-left: 0.25em;
+  content:"";
+}
+
+@mixin arrow($direction, $style:9px solid $secondary) {
+
+  @if $direction == left {
+    &:before {
+      @include arrow-content;
+      margin-right: 0.25em;
+      border-right:$style;
+    }
+  } @else if $direction == right {
+    &:after {
+      @include arrow-content;
+      margin-left: 0.25em;
+      border-left:$style;
+    }
+  }
+}

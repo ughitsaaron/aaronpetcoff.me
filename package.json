@@ -4,13 +4,14 @@
   "description": "Aaron's blog",
   "main": "server.js",
   "dependencies": {
-    "gulp": "^3.8.10",
-    "gulp-nodemon": "^1.0.4",
     "colors": "^1.0.3",
     "express": "^4.10.6",
+    "gulp": "^3.8.10",
+    "gulp-nodemon": "^1.0.4",
+    "handlebars": "^2.0.0",
     "highlight.js": "^8.4.0",
     "meta-marked": "^0.3.3",
-    "watch": "^0.13.0"
+    "moment": "^2.8.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

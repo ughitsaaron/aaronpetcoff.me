@@ -1,22 +1,19 @@
-/*
-
-Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
-
-*/
-
 pre code {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
+  padding: 1em;
   background: #23241f;
   -webkit-text-size-adjust: none;
+  font-family: $console;
+  box-shadow: inset 3px 3px 10px black;
+  border-radius: 10px;
 }
 
 pre code,
 .hljs-tag,
-.css .hljs-rules,
-.css .hljs-value,
-.css .hljs-function
+.hljs-rules,
+.hljs-value,
+.hljs-function
 .hljs-preprocessor,
 .hljs-pragma {
   color: #f8f8f2;
@@ -42,7 +39,7 @@ pre code,
 .hljs-tag .hljs-value,
 .hljs-code,
 .hljs-title,
-.css .hljs-class,
+.hljs-class,
 .hljs-class .hljs-title:last-child {
   color: #a6e22e;
 }
@@ -76,16 +73,17 @@ pre code,
 .hljs-tag .hljs-title,
 .hljs-value,
 .alias .hljs-keyword:first-child,
-.css .hljs-tag,
-.css .unit,
-.css .hljs-important {
+.hljs-tag,
+.unit,
+.hljs-important,
+.hljs-at_rule {
   color: #f92672;
 }
 
 .hljs-function .hljs-keyword,
 .hljs-class .hljs-keyword:first-child,
 .hljs-constant,
-.css .hljs-attribute {
+.hljs-attribute {
   color: #66d9ef;
 }
 
@@ -96,7 +94,7 @@ pre code,
 }
 
 .hljs-string,
-.css .hljs-id,
+.hljs-id,
 .hljs-subst,
 .hljs-type,
 .ruby .hljs-class .hljs-parent,
@@ -117,7 +115,8 @@ pre code,
 .tex .hljs-command,
 .hljs-prompt,
 .hljs-link_label,
-.hljs-link_url {
+.hljs-link_url,
+.hljs-pi {
   color: #e6db74;
 }
 
@@ -126,7 +125,6 @@ pre code,
 .hljs-annotation,
 .hljs-decorator,
 .hljs-template_comment,
-.hljs-pi,
 .hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
@@ -141,6 +139,7 @@ pre code,
 .xml .javascript,
 .xml .vbscript,
 .xml .css,
+.xml 
 .xml .hljs-cdata,
 .xml .php,
 .php .xml {

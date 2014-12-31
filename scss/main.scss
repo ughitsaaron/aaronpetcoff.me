@@ -1,0 +1,44 @@
+@import "bourbon",
+        "neat",
+        "normalize",
+        "vars",
+        "highlight",
+        "header",
+        "nav",
+        "post",
+        "page",
+        "footer";
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background-color: $primary;
+  color:$secondary;
+  font-family: $body;
+  font-size: rem(21);
+}
+
+a {
+  @include link {
+    @include trs(color);
+    color:$link-color;
+
+  }
+  
+  &:hover {
+    @include trs(color);
+    color:$link-hover;
+
+  }
+}
+
+main {
+  @include outer-container($local-max-width:rem(1000));
+  padding-bottom: 3em;
+}
+
+footer {
+  padding:1em;
+}

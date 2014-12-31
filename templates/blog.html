@@ -1,0 +1,15 @@
+<ul class="post-list">
+  {{#posts}}
+  <li>
+    <a class="post" href="/posts/{{meta.address}}" title="{{ post.title }}">
+      <h2 class="post-title">{{ meta.title }}</h2>
+      <span class="post-date">Posted {{ meta.date }}</span>
+    </a>
+  </li>
+  {{/posts}}
+</ul>
+{{#if showArchive}}
+<div class="post-archive-link">
+  <a href="/archive">View Archive</a>
+</div>
+{{/if}}
