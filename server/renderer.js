@@ -45,6 +45,10 @@ module.exports = function(opts) {
     posts.push(file);
   });
 
+  posts = posts.filter(function(post) {
+    return !post.meta.hasOwnProperty("draft") || post.meta.draft === false;
+  });
+
   posts = posts.sort(function(a, b) {
     if(opts.sort.date) {
       if(a.meta.rawDate < b.meta.rawDate) return opts.sort.descending ? 1 : -1;
