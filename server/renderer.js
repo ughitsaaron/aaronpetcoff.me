@@ -21,15 +21,6 @@ module.exports = function(opts) {
     return path.extname(file) === ".md";
   });
 
-  // clear public/posts to rebuild it from scratch
-  fs.readdir(opts.dirs.public + "posts/", function(err, rms) {
-    if(rms) {
-      rms.forEach(function(rm) {
-        fs.unlink(opts.dirs.public + "posts/" + rm);
-      });
-    }
-  });
-
   // convert each md file to json
   files.forEach(function(file) {
     var address, date;
@@ -67,6 +58,14 @@ module.exports = function(opts) {
       return 0;
     }
   });
+
+  // clear public/posts to rebuild it from scratch
+  var rms = fs.readdirSync(opts.dirs.public + "posts/");
+  if(rms.length >= 1) {
+    rms.forEach(function(rm) {
+      fs.unlink(opts.dirs.public + "posts/" + rm);
+    });
+  }
 
   // pass posts and options to singles
   singles(posts, opts);
