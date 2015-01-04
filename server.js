@@ -7,8 +7,10 @@ var express = require("express"),
     path = require('path'),
     md = require("meta-marked"),
     colors = require("colors"),
+    compress = require("compression"),
+    logger = require("morgan"),
     hljs = require("highlight.js"),
-    // extend = require("util")._extend,
+
     renderer = require("./server/renderer.js");
 
 var extend, config, opts;
@@ -65,6 +67,12 @@ opts = extend({
 
 // pass options to renderer
 renderer(opts);
+
+// start logging
+app.use(logger("common"));
+
+// gzip static assets
+app.use(compress());
 
 // establish post routes
 app.use(express.static(__dirname + "/public/"));
