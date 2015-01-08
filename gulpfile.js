@@ -1,5 +1,3 @@
-/* jshint node:true */
-
 "use strict";
 
 // dependencies
@@ -26,6 +24,12 @@ var watchPaths = [paths.markup.src, paths.styles.src, paths.scripts.src];
 var onError = function(err) {  
   gutil.beep();
   console.log(err);
+};
+
+// server
+var serve = {
+  script: "server.js",
+  ignore: [paths.markup.src, paths.styles.files, paths.scripts.src]
 };
  
 // stylesheets
@@ -61,16 +65,10 @@ gulp.task('watch', function() {
   gulp.watch(paths.styles.files, ['styles']);
   gulp.watch(paths.scripts.src, ['scripts']);
   gulp.watch(watchPaths).on('change', livereload.changed);
-  nodemon({
-    script: "server.js",
-    ignore: [paths.markup.src, paths.styles.files, paths.scripts.src]
-  });
+  nodemon(serve);
 });
  
 // default task
-gulp.task('default', ['styles','scripts'], function() {
-  nodemon({
-    script: "server.js",
-    ignore: [paths.markup.src, paths.styles.files, paths.scripts.src]
-  });
+gulp.task('default', ['watch','styles','scripts'], function() {
+  nodemon(serve);
 });
