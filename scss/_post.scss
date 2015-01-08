@@ -97,11 +97,8 @@ li:last-child .#{$module} {
   }
 }
 
-.fourohfour {
-  text-align: center;
-
-  img {
-    width: 100%;
-    max-width: rem(550);
-  }
+.#{$module}-comments {
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: 1em;
 }

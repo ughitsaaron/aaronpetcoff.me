@@ -4,13 +4,8 @@
 var express = require("express"),
     app = express(),
     fs = require("fs"),
-    path = require('path'),
-    md = require("meta-marked"),
-    colors = require("colors"),
     compress = require("compression"),
     logger = require("morgan"),
-    hljs = require("highlight.js"),
-
     renderer = require("./server/renderer.js");
 
 var extend, config, opts;

@@ -7,7 +7,8 @@
         "nav",
         "post",
         "page",
-        "footer";
+        "footer",
+        "misc";
 
 html {
   font-size: 100%;
@@ -36,7 +37,7 @@ a {
 
 main {
   @include outer-container($local-max-width:rem(1000));
-  padding-bottom: 3em;
+  padding-bottom: 1em;
 }
 
 footer {
