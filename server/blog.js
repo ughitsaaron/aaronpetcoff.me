@@ -35,12 +35,12 @@ module.exports = function(posts, opts) {
 
   hbs.registerPartial("content", blog(data));
 
-  fs.writeFile("./public/index.html", index(blog(data)), function(err) {
+  fs.writeFile("./public/blog.html", index(blog(data)), function(err) {
     if(err) throw err;
 
     if(opts.verbose) {
       var colors = require("colors");
-      console.log((opts.dirs.public).green + "index.html".green + " written!".green);
+      console.log((opts.dirs.public).green + "blog.html".green + " written!".green);
     }
   });
 

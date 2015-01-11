@@ -23,7 +23,7 @@ module.exports = function(opts) {
 
   // convert each md file to json
   files.forEach(function(file) {
-    var address, date;
+    var address;
 
     // store file name to act as address later when writing
     address = path.basename(file,".md");
