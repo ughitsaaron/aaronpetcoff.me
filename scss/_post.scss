@@ -102,3 +102,7 @@ li:last-child .#{$module} {
   padding-right: 1em;
   margin-top: 1em;
 }
+
+p > code {
+  word-wrap: break-word;
+}
