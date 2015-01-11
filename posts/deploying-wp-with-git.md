@@ -55,7 +55,7 @@ Create a new file in your in `/path/to/your/project/.git/hooks` called `post-rec
 #!/bin/sh
 GIT_WORK_TREE=../ git checkout -f
 ```
-Once the file is saved to `.git/hooks` you're need to make it executable.
+Once the file is saved to `.git/hooks` you'll need to make it executable.
 
 ```
 $ chmod +x /path/to/project/.git/hooks/post-receive
@@ -85,14 +85,14 @@ Host your-domain.com
   PreferredAuthentications publickey
 ```
 
-In your local project directory you'll need to create your new git repository and add the repository on your server as a remote
+In your local project directory you'll need to create your new git repository and add the repository on your server as a remote.
 
 ```
 $ git init
 $ git remote add remotename user_name@domain.com:path/to/project
 ```
 
-From here you can commit you whole project and push it to your remote repository
+From here you can commit your whole project and push it to your remote repository.
 
 ```
 $ git push remotename master
