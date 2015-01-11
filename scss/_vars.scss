@@ -3,6 +3,7 @@ $border-box-sizing:true;
 $max-width:rem(1000);
 
 // breakpoints
+$medium: new-breakpoint(min-width rem(768));
 $large: new-breakpoint(min-width rem(1024));
 
 // global style vars
