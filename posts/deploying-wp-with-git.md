@@ -1,5 +1,5 @@
 ---
-title: Make Your Life a Little Better by Deploying to Shared Hosting with Git
+title: Make Your Life a Little Better by Deploying with Git
 draft: false
 template: post
 date: 1/11/2015
