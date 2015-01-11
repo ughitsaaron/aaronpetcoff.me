@@ -2,7 +2,7 @@
 title: Make Your Life a Little Better by Deploying with Git
 draft: false
 template: post
-date: 1/11/2015
+date: 1/11/2015 2:45 PM
 ---
 
 Git deployment has been covered pretty thoroughly by a few different writers (for instance, [here](http://someguyjeremy.com/blog/quick-and-dirty-git-deployment "Quick and Dirty Git Deployment") and [here](http://www.arlocarreon.com/blog/git/push-git-repo-into-shared-hosting-account-like-hostgator/ "Push Git Repo Into Shared Hosting Account")). Nevertheless, I thought I'd contribute my own experience to the collection of articles and resources out there.
