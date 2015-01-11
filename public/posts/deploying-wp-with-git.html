@@ -76,7 +76,7 @@ GIT_WORK_TREE=../ git checkout <span class="hljs-operator">-f</span>
 <span class="hljs-variable">$ </span>git remote add remotename user_name<span class="hljs-variable">@domain</span>.<span class="hljs-symbol">com:</span>path/to/project
 </code></pre><p>From here you can commit your whole project and push it to your remote repository.</p>
 <pre><code>$ git <span class="hljs-keyword">push</span> remotename master
-</code></pre><p>If our post-receive hook is working properly, and all our SSH settings are correct, the remote should refresh the working directory automatically and any changes should be reflected immediately.</p>
+</code></pre><p>If our post-receive hook is working properly and all our SSH settings are correct the remote should refresh the working directory automatically after a push and any changes should be reflected immediately.</p>
 <h3 id="conclusion">Conclusion</h3>
 <p>This is the bare bones of a simple deployment strategy using git. The benefits -- including the simplicity, bringing together version control and deployment, etc -- are clear. In another post coming soon, I&#39;ll discuss how to bring databases into the mix to help synchronize deployment for platforms like Wordpress.</p>
 

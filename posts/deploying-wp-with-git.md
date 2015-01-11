@@ -98,7 +98,7 @@ From here you can commit your whole project and push it to your remote repositor
 $ git push remotename master
 ```
 
-If our post-receive hook is working properly, and all our SSH settings are correct, the remote should refresh the working directory automatically and any changes should be reflected immediately.
+If our post-receive hook is working properly and all our SSH settings are correct the remote should refresh the working directory automatically after a push and any changes should be reflected immediately.
 
 ### Conclusion
 This is the bare bones of a simple deployment strategy using git. The benefits -- including the simplicity, bringing together version control and deployment, etc -- are clear. In another post coming soon, I'll discuss how to bring databases into the mix to help synchronize deployment for platforms like Wordpress.
