@@ -1,3 +1,14 @@
+$string: #e6db74;
+$tag: #f8f8f2;
+$emphasis: #a8a8a2;
+$number: #ae81ff;
+$title: #a6e22e;
+$keyword: #f92672;
+$constant: #66d9ef;
+$params: #f8f8f2;
+$comment: #75715e;
+
+
 pre code {
   display: block;
   overflow-x: auto;
@@ -16,13 +27,13 @@ pre code,
 .hljs-function
 .hljs-preprocessor,
 .hljs-pragma {
-  color: #f8f8f2;
+  color: $tag;
 }
 
 .hljs-strongemphasis,
 .hljs-strong,
 .hljs-emphasis {
-  color: #a8a8a2;
+  color: $emphasis;
 }
 
 .hljs-bullet,
@@ -33,7 +44,7 @@ pre code,
 .alias .hljs-keyword,
 .hljs-literal,
 .hljs-hexcolor {
-  color: #ae81ff;
+  color: $number;
 }
 
 .hljs-tag .hljs-value,
@@ -41,7 +52,7 @@ pre code,
 .hljs-title,
 .hljs-class,
 .hljs-class .hljs-title:last-child {
-  color: #a6e22e;
+  color: $title;
 }
 
 .hljs-link_url {
@@ -77,20 +88,20 @@ pre code,
 .unit,
 .hljs-important,
 .hljs-at_rule {
-  color: #f92672;
+  color: $keyword;
 }
 
 .hljs-function .hljs-keyword,
 .hljs-class .hljs-keyword:first-child,
 .hljs-constant,
 .hljs-attribute {
-  color: #66d9ef;
+  color: $constant;
 }
 
 .hljs-variable,
 .hljs-params,
 .hljs-class .hljs-title {
-  color: #f8f8f2;
+  color: $params;
 }
 
 .hljs-string,
@@ -117,7 +128,7 @@ pre code,
 .hljs-link_label,
 .hljs-link_url,
 .hljs-pi {
-  color: #e6db74;
+  color: $string;
 }
 
 .hljs-comment,
@@ -130,7 +141,7 @@ pre code,
 .hljs-shebang,
 .apache .hljs-sqbracket,
 .tex .hljs-formula {
-  color: #75715e;
+  color: $comment;
 }
 
 .coffeescript .javascript,
@@ -144,4 +155,14 @@ pre code,
 .xml .php,
 .php .xml {
   opacity: 0.5;
+}
+
+.lang-terminal {
+  span[class^="hljs-"] {
+    color:$primary;
+
+    &.hljs-comment {
+      color:$comment;
+    }
+  }
 }

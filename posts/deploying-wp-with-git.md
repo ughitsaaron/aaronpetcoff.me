@@ -14,7 +14,7 @@ What we're going to do is pretty straightforward: We'll SSH into our host and se
 ### Setting up SSH
 First we'll want to get everything set up to SSH into our host.
 
-```
+```terminal
 $ ssh user_name@domain.com
 
 # If your host requires a port, add the number
@@ -24,7 +24,7 @@ $ ssh user_name@domain.com -p 22
 
 You'll be prompted for your password. That's fine. But in order to deploy to your host with git, you'll want to configure SSH to use a public key instead. Using keys for SSH is generally considered a best practice anyway.
 
-```
+```terminal
 # If you don't have a public key yet, generate one
 $ ssh-keygen # Hit enter all the way through
 
@@ -35,7 +35,7 @@ $ scp ~/.ssh/id_rsa.pub server_user@domain.com:~/.ssh/authorized_keys
 
 After setting up your keys, you'll want to initiate your remote repository and set it up to accept pushes.
 
-```
+```terminal
 $ cd /path/to/your/project/
 $ git init
 
@@ -57,7 +57,7 @@ GIT_WORK_TREE=../ git checkout -f
 ```
 Once the file is saved to `.git/hooks` you'll need to make it executable.
 
-```
+```terminal
 $ chmod +x /path/to/project/.git/hooks/post-receive
 ```
 
@@ -87,14 +87,14 @@ Host your-domain.com
 
 In your local project directory you'll need to create your new git repository and add the repository on your server as a remote.
 
-```
+```terminal
 $ git init
 $ git remote add remotename user_name@domain.com:path/to/project
 ```
 
 From here you can commit your whole project and push it to your remote repository.
 
-```
+```terminal
 $ git push remotename master
 ```
 
