@@ -16,7 +16,7 @@ module.exports = function(posts, opts) {
 
     // helpers
 
-    hbs.registerHelper("previous", function(body) {
+    hbs.registerHelper("next", function(body) {
       var link;
       
       if(i - 1 >= 0) link = posts[i - 1].meta.address;
@@ -24,7 +24,7 @@ module.exports = function(posts, opts) {
       return link;
     });
 
-    hbs.registerHelper("next", function(body) {
+    hbs.registerHelper("previous", function(body) {
       var link;
 
       if(posts.length - 1 >= i + 1) link = posts[i + 1].meta.address;
@@ -44,6 +44,10 @@ module.exports = function(posts, opts) {
       return title;
     });
 
+    hbs.registerHelper("canonical", function() {
+      return "http://aaronpetcoff.me/posts/" + post.meta.address;
+    });
+
     hbs.registerPartial("content", template(post));
 
     fs.writeFile(opts.dirs.public + "posts/" + post.meta.address + ".html", index(template(post)), function(err) {
@@ -55,6 +59,6 @@ module.exports = function(posts, opts) {
       }
     });
 
-    hbs.unregisterHelper("title");
+    hbs.unregisterHelper(["title","canonical"]);
   });
 };

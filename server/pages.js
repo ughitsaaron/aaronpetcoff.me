@@ -20,7 +20,6 @@ module.exports = function(opts) {
     var address, template, container;
 
     address = path.basename(page,".md");
-
     page = fs.readFileSync("./pages/" + page, {encoding:"utf-8"});
 
     page = md(page, {
@@ -45,8 +44,14 @@ module.exports = function(opts) {
       return title;
     });
 
+    console.log(address);
+
     page.meta.address = address;
-    page.meta.container = page.meta.container || "page"
+    page.meta.container = page.meta.container || "page";
+
+    hbs.registerHelper("canonical", function() {
+      return "http://aaronpetcoff.me/" + (page.meta.address !== "index" ? page.meta.address : "");
+    });
 
     container = hbs.compile(fs.readFileSync("./templates/" + page.meta.container + ".html", {encoding:"utf-8"}));
 
@@ -61,6 +66,6 @@ module.exports = function(opts) {
     });
 
     hbs.unregisterPartial("content");
-    hbs.unregisterHelper(["title", "page"]);
+    hbs.unregisterHelper(["title", "page","canonical"]);
   });
 };

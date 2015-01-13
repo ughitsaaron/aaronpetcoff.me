@@ -14,6 +14,10 @@ module.exports = function(posts, opts) {
     return title;
   });
 
+  hbs.registerHelper("canonical", function() {
+    return "http://aaronpetcoff.me/blog";
+  });
+
   archive = posts;
 
   posts = posts.filter(function(el, i) {
@@ -76,5 +80,5 @@ module.exports = function(posts, opts) {
   });
 
   hbs.unregisterPartial("content");
-  hbs.unregisterHelper("title");
+  hbs.unregisterHelper(["title","canonical"]);
 };
