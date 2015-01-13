@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://aaronpetcoff.me/sitemap.xml
