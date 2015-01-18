@@ -1,24 +1,35 @@
-@import "bourbon",
-        "neat",
-        "normalize",
-        "vars",
+@import "bourbon", "neat", "normalize"; // dependencies
+@import "vars", // partials
         "highlight",
         "header",
         "nav",
         "post",
         "page",
         "footer",
+        "home",
         "misc";
 
 html {
   font-size: 100%;
+  background-image: $bgi;
+  background-color: lighten(desaturate($secondary,100%),3%);
 }
 
 body {
-  background-color: $primary;
   color:$secondary;
   font-family: $body;
   font-size: rem(21);
+  line-height: 1.35em;
+}
+
+.wrap {
+  background-color: $primary;
+}
+
+h1, h2, h3 {
+  font-family: $headings;
+  font-weight: bold;
+  line-height: 1em;
 }
 
 a {
@@ -42,24 +53,4 @@ main {
 
 footer {
   padding:1em;
-}
-
-.home-image {
-  margin-bottom: 1em;
-  text-align: center;
-
-  img {
-    display: inline;
-    width: 80%;
-    max-width:rem(300);
-    height: auto;
-    border-radius: 5px;
-    box-shadow: 1px 1px 2px rgba(black,0.25);
-  }
-
-  @include media($medium) {
-    float: right;
-    width: 33%;
-    margin-bottom: 0;
-  }
 }

@@ -1,4 +1,4 @@
-$module: "header";
+ $module: "header";
 
 #{$module} {
   @include outer-container();
@@ -25,7 +25,7 @@ $module: "header";
   }
 
   &:hover {
-    .#{$module}-title-first {
+    .#{$module}-name-first {
       @include trs((color, opacity));
       color:$tertiary;
       opacity: 1;
@@ -33,11 +33,23 @@ $module: "header";
   }
 }
 
-[class^="#{$module}-title-"] {
+.#{$module}-name {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-family: $headings;
+  text-transform: uppercase;
+  font-weight: bold;
   font-size: 2.5em;
 }
 
-.#{$module}-title-first {
+.#{$module}-tagline {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: $headings;
+  text-transform: uppercase;
+}
+
+.#{$module}-name-first {
   @include trs((color, opacity));
   color:$secondary;
   opacity: 0.5;

@@ -1,12 +1,14 @@
 ---
 template: default
 ---
-
 <div class="home-image"><img src="/img/about.jpg" alt="Aaron Petcoff"></div>
-I'm a web developer from Detroit living in Brooklyn who is excited about all things Javascript. I work at the office of Communications + Marketing at the New York Institute of Technology.
 
-In my free time, I could be caught reading history and poetry, running in Prospect Park, or listening to records. I'm passionate about social, global, and environmental justice.
+<h2 class="home-lede">
+I am an ambitious web developer whose passion is learning new technologies, working with new people, and trying to make the web (and the world) a better place.
+</h2>
 
-I'm always open to discussing freelance opportunities. If you think you have a project I'd be interested in, [contact me](mailto:hello [ at ]  aaronpetcoff [ dot ] me).
+You'll currently find me in the Office of Communications + Marketing at the New York Institute of Technology's Manhattan campus where I specialize in the development and maintenance of web content.
 
-<span class="home-dim">Any opinions expressed on this site or in any related forums are my own and do not reflect the opinions of anyone else.</span>
+I live with my partner and two cats in Brooklyn. If you catch me in my free time there's a good chance I'll be reading history, running in Prospect Park, or listening to punk and hip-hop records. And social, global, and environmental justice are pretty important, too.
+
+I'm always open to discussing freelance opportunities. [I'd love to hear more](mailto:hello [ at ]  aaronpetcoff [ dot ] me) about your project.

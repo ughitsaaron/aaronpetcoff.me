@@ -7,12 +7,15 @@ $medium: new-breakpoint(min-width rem(768));
 $large: new-breakpoint(min-width rem(1024));
 
 // global style vars
-$body:'Cabin', sans-serif;
+$body:"Georgia", times, serif;
+$headings:'Archivo Narrow', sans-serif;
 $console:'Ubuntu Mono', monospace;
 
 $primary: #fafafa;
 $secondary: #23241f;
 $tertiary: #db2732;
+
+$bgi: url('/img/bg.jpg');
 
 $link-color: rgba($tertiary,0.85);
 $link-hover: $tertiary;
@@ -54,7 +57,6 @@ $border: darken($primary,25%);
 }
 
 @mixin arrow($direction, $style:9px solid $secondary) {
-
   @if $direction == left {
     &:before {
       @include arrow-content;
@@ -67,5 +69,23 @@ $border: darken($primary,25%);
       margin-left: 0.25em;
       border-left:$style;
     }
+  }
+}
+
+@mixin dropcaps {
+  p:first-of-type:first-letter {
+    float: left;
+    font-family: $headings;
+    font-weight: bold;
+    font-size: 3em;
+    margin-right: 0.15em;
+    margin-top: 10px;
+    color:rgba($tertiary,0.85);
+  }
+}
+
+@mixin alpha {
+  p:first-of-type {
+    margin-top: 0;
   }
 }

@@ -1,8 +1,10 @@
 $module: "footer";
 
 #{$module} {
+  background-image: url(/img/bg.jpg);
   background-color: lighten(desaturate($secondary,100%),3%);
-  box-shadow: inset 0 6px 12px black;
+  background-repeat: repeat;
+  box-shadow: inset 0 2px 3px rgba(black,0.65);
   color:$primary;
   padding: 1em;
 }
@@ -19,7 +21,7 @@ $module: "footer";
 .#{$module}-contact-link {
   @include link {
     display: inline-block;
-    background-color: lighten(desaturate($secondary,100%),6%);
+    // background-color: lighten(desaturate($secondary,100%),6%);
     margin-right: 0.5em;
     margin-left: 0.5em;
     padding:0.4em;
@@ -43,5 +45,12 @@ $module: "footer";
 .#{$module}-copyright {
   text-align: center;
   font-size: 0.9em;
-  color: lighten(desaturate($secondary,100%), 35%);
+  margin-bottom: 0;
+  opacity:0.3;
+}
+
+.#{$module}-disclaimer {
+  text-align: center;
+  font-size: 0.65em;
+  opacity:0.1;
 }

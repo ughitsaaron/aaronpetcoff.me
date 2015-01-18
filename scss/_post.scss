@@ -29,6 +29,8 @@ li:last-child .#{$module} {
 }
 
 .#{$module}-single {
+  @include dropcaps;
+  @include alpha;
   padding: 0 1em 1em 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid $link-color;
@@ -40,7 +42,7 @@ li:last-child .#{$module} {
 
 .#{$module}-title {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 0.4em;
   color:$secondary;
   text-decoration: none;
 }
