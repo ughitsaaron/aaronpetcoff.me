@@ -29,89 +29,89 @@
       </header>
 
       <main class="">
-  <article class="post-single">
-    <h1 class="post-title">Make Your Life a Little Better by Deploying with Git</h1>
-    <span class="post-date">6 days ago</span>
-  
-  <p>Git deployment has been covered pretty thoroughly by a few different writers (for instance, <a href="http://someguyjeremy.com/blog/quick-and-dirty-git-deployment" title="Quick and Dirty Git Deployment">here</a> and <a href="http://www.arlocarreon.com/blog/git/push-git-repo-into-shared-hosting-account-like-hostgator/" title="Push Git Repo Into Shared Hosting Account">here</a>). Nevertheless, I thought I&#39;d contribute my own experience to the collection of articles and resources out there.</p>
-  <p>Deploying with git offers many benefits such as speed, simplicity, and the fact that you bring version control into the center of your deployment strategy.  But if you haven&#39;t used this approach for anything before, switching may present some challenges in terms of having to learn some new skills and step outside of your traditional comfort zone.</p>
-  <p>What we&#39;re going to do is pretty straightforward: We&#39;ll SSH into our host and set up a remote repository that will load our changes after each push.</p>
-  <h3 id="setting-up-ssh">Setting up SSH</h3>
-  <p>First we&#39;ll want to get everything set up to SSH into our host.</p>
-  <pre><code class="lang-terminal"><span class="hljs-variable">$ </span>ssh user_name<span class="hljs-variable">@domain</span>.com
-  
-  <span class="hljs-comment"># If your host requires a port, add the number</span>
-  <span class="hljs-comment"># following the -p flag, for instance</span>
-  <span class="hljs-variable">$ </span>ssh user_name<span class="hljs-variable">@domain</span>.com -p <span class="hljs-number">22</span>
-  </code></pre>
-  <p>You&#39;ll be prompted for your password. That&#39;s fine. But in order to deploy to your host with git, you&#39;ll want to configure SSH to use a public key instead. Using keys for SSH is generally considered a best practice anyway.</p>
-  <pre><code class="lang-terminal"><span class="hljs-comment"># If you don't have a public key yet, generate one</span>
-  <span class="hljs-variable">$ </span>ssh-keygen <span class="hljs-comment"># Hit enter all the way through</span>
-  
-  <span class="hljs-comment"># This will produce a key at ~/.ssh/id_rsa.pub on your</span>
-  <span class="hljs-comment"># local workstation. Copy it to your server.</span>
-  <span class="hljs-variable">$ </span>scp ~<span class="hljs-regexp">/.ssh/id</span>_rsa.pub server_user<span class="hljs-variable">@domain</span>.<span class="hljs-symbol">com:</span>~<span class="hljs-regexp">/.ssh/authorized</span>_keys
-  </code></pre>
-  <p>After setting up your keys, you&#39;ll want to initiate your remote repository and set it up to accept pushes.</p>
-  <pre><code class="lang-terminal"><span class="hljs-variable">$ </span>cd /path/to/your/project/
-  <span class="hljs-variable">$ </span>git init
-  
-  <span class="hljs-comment"># This will initiate a new git repository on your</span>
-  <span class="hljs-comment"># host. Now we want to configure it to accept pushes</span>
-  <span class="hljs-variable">$ </span>git config receive.denyCurrentBranch ignore
-  
-  <span class="hljs-comment"># You can confirm the configuration by checking your settings</span>
-  <span class="hljs-variable">$ </span>git config --list
-  </code></pre>
-  <p>Next we&#39;re going to set up our hook to refresh the working directory. This will allow changes to your project to become reflected right away. The hook we want to set up is a <code>post-receive</code> hook, meaning it will run commands after the push has been completed.</p>
-  <p>Create a new file in your in <code>/path/to/your/project/.git/hooks</code> called <code>post-receive</code>.</p>
-  <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/sh</span>
-  GIT_WORK_TREE=../ git checkout <span class="hljs-operator">-f</span>
-  </code></pre>
-  <p>Once the file is saved to <code>.git/hooks</code> you&#39;ll need to make it executable.</p>
-  <pre><code class="lang-terminal">$ chmod +x <span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/project/</span>.git<span class="hljs-regexp">/hooks/</span>post-receive
-  </code></pre>
-  <p>Now our remote repository is set up to receive pushes and to reflect new changes right away.</p>
-  <p>As things stand, however, if anybody pointed their browser to <code>http://yourdomain.com/.git/</code> they&#39;d be able to peer into your whole repository. For security reasons, we want to make sure to prevent HTTP requests to our <code>.git</code> directory.</p>
-  <p>There are competing approaches to accomplishing this, including restricting access to it through <code>.htaccess</code> or by altering the permissions. I haven&#39;t tried every approach and so I&#39;d welcome a conversation about this.</p>
-  <p>I prefer to modify the <code>.htaccess</code> and add the following line.</p>
-  <pre><code class="lang-apache">RedirectMatch <span class="hljs-number">404</span> /<span class="hljs-string">\.git</span>
-  </code></pre>
-  <p>This will not only forbid HTTP access to our <code>.git</code> directory and all other <code>.git*</code> files, e.g., <code>.gitignore</code>, <code>.gitmodules</code>, etc., it also doesn&#39;t even reveal that they exist in the first place.</p>
-  <h3 id="setting-and-pushing-up-local-repository">Setting and pushing up local repository</h3>
-  <p>Now we have to set up our local repository. To push to our remote, we&#39;ll need to tell our local machine that we won&#39;t be requiring a password to connect to our host. To do that we&#39;ll have to set up our <code>~/.ssh/config</code>.</p>
-  <pre><code class="lang-bash"><span class="hljs-comment"># Create ~/.ssh/config if it doesn't exist</span>
-  <span class="hljs-title">Host</span> your-domain.com
-    Port <span class="hljs-number">22</span>
-    PreferredAuthentications publickey
-  </code></pre>
-  <p>In your local project directory you&#39;ll need to create your new git repository and add the repository on your server as a remote.</p>
-  <pre><code class="lang-terminal"><span class="hljs-variable">$ </span>git init
-  <span class="hljs-variable">$ </span>git remote add remotename user_name<span class="hljs-variable">@domain</span>.<span class="hljs-symbol">com:</span>path/to/project
-  </code></pre>
-  <p>From here you can commit your whole project and push it to your remote repository.</p>
-  <pre><code class="lang-terminal">$ git <span class="hljs-keyword">push</span> remotename master
-  </code></pre>
-  <p>If our post-receive hook is working properly and all our SSH settings are correct the remote should refresh the working directory automatically after a push and any changes should be reflected immediately.</p>
-  <h3 id="conclusion">Conclusion</h3>
-  <p>This is the bare bones of a simple deployment strategy using git. The benefits -- including the simplicity, bringing together version control and deployment, etc -- are clear. In another post coming soon, I&#39;ll discuss how to bring databases into the mix to help synchronize deployment for platforms like Wordpress.</p>
-  
-  
-  </article>
-  
-  <div class="post-navigation-wrap">
-    <a href="/posts/site-redesign" class="post-navigation post-navigation-prev">Previous</a>
-    <a href="/" class="post-navigation">Home</a>
-    <a href="/posts/" class="post-navigation post-navigation-next">Next</a>
-  </div>
-  
-  <div id="disqus_thread" class="post-comments"></div>
-  <script type="text/javascript">
-    var disqus_shortname = 'aaronpetcoff';
-    var disqus_url = 'http://aaronpetcoff.me/posts/deploying-wp-with-git';
-    (function() {var dsq = document.createElement('script');dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>      </main>
+<article class="post-single">
+  <h1 class="post-title">Make Your Life a Little Better by Deploying with Git</h1>
+  <span class="post-date">7 days ago</span>
+
+<p>Git deployment has been covered pretty thoroughly by a few different writers (for instance, <a href="http://someguyjeremy.com/blog/quick-and-dirty-git-deployment" title="Quick and Dirty Git Deployment">here</a> and <a href="http://www.arlocarreon.com/blog/git/push-git-repo-into-shared-hosting-account-like-hostgator/" title="Push Git Repo Into Shared Hosting Account">here</a>). Nevertheless, I thought I&#39;d contribute my own experience to the collection of articles and resources out there.</p>
+<p>Deploying with git offers many benefits such as speed, simplicity, and the fact that you bring version control into the center of your deployment strategy.  But if you haven&#39;t used this approach for anything before, switching may present some challenges in terms of having to learn some new skills and step outside of your traditional comfort zone.</p>
+<p>What we&#39;re going to do is pretty straightforward: We&#39;ll SSH into our host and set up a remote repository that will load our changes after each push.</p>
+<h3 id="setting-up-ssh">Setting up SSH</h3>
+<p>First we&#39;ll want to get everything set up to SSH into our host.</p>
+<pre><code class="lang-terminal"><span class="hljs-variable">$ </span>ssh user_name<span class="hljs-variable">@domain</span>.com
+
+<span class="hljs-comment"># If your host requires a port, add the number</span>
+<span class="hljs-comment"># following the -p flag, for instance</span>
+<span class="hljs-variable">$ </span>ssh user_name<span class="hljs-variable">@domain</span>.com -p <span class="hljs-number">22</span>
+</code></pre>
+<p>You&#39;ll be prompted for your password. That&#39;s fine. But in order to deploy to your host with git, you&#39;ll want to configure SSH to use a public key instead. Using keys for SSH is generally considered a best practice anyway.</p>
+<pre><code class="lang-terminal"><span class="hljs-comment"># If you don't have a public key yet, generate one</span>
+<span class="hljs-variable">$ </span>ssh-keygen <span class="hljs-comment"># Hit enter all the way through</span>
+
+<span class="hljs-comment"># This will produce a key at ~/.ssh/id_rsa.pub on your</span>
+<span class="hljs-comment"># local workstation. Copy it to your server.</span>
+<span class="hljs-variable">$ </span>scp ~<span class="hljs-regexp">/.ssh/id</span>_rsa.pub server_user<span class="hljs-variable">@domain</span>.<span class="hljs-symbol">com:</span>~<span class="hljs-regexp">/.ssh/authorized</span>_keys
+</code></pre>
+<p>After setting up your keys, you&#39;ll want to initiate your remote repository and set it up to accept pushes.</p>
+<pre><code class="lang-terminal"><span class="hljs-variable">$ </span>cd /path/to/your/project/
+<span class="hljs-variable">$ </span>git init
+
+<span class="hljs-comment"># This will initiate a new git repository on your</span>
+<span class="hljs-comment"># host. Now we want to configure it to accept pushes</span>
+<span class="hljs-variable">$ </span>git config receive.denyCurrentBranch ignore
+
+<span class="hljs-comment"># You can confirm the configuration by checking your settings</span>
+<span class="hljs-variable">$ </span>git config --list
+</code></pre>
+<p>Next we&#39;re going to set up our hook to refresh the working directory. This will allow changes to your project to become reflected right away. The hook we want to set up is a <code>post-receive</code> hook, meaning it will run commands after the push has been completed.</p>
+<p>Create a new file in your in <code>/path/to/your/project/.git/hooks</code> called <code>post-receive</code>.</p>
+<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/sh</span>
+GIT_WORK_TREE=../ git checkout <span class="hljs-operator">-f</span>
+</code></pre>
+<p>Once the file is saved to <code>.git/hooks</code> you&#39;ll need to make it executable.</p>
+<pre><code class="lang-terminal">$ chmod +x <span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/project/</span>.git<span class="hljs-regexp">/hooks/</span>post-receive
+</code></pre>
+<p>Now our remote repository is set up to receive pushes and to reflect new changes right away.</p>
+<p>As things stand, however, if anybody pointed their browser to <code>http://yourdomain.com/.git/</code> they&#39;d be able to peer into your whole repository. For security reasons, we want to make sure to prevent HTTP requests to our <code>.git</code> directory.</p>
+<p>There are competing approaches to accomplishing this, including restricting access to it through <code>.htaccess</code> or by altering the permissions. I haven&#39;t tried every approach and so I&#39;d welcome a conversation about this.</p>
+<p>I prefer to modify the <code>.htaccess</code> and add the following line.</p>
+<pre><code class="lang-apache">RedirectMatch <span class="hljs-number">404</span> /<span class="hljs-string">\.git</span>
+</code></pre>
+<p>This will not only forbid HTTP access to our <code>.git</code> directory and all other <code>.git*</code> files, e.g., <code>.gitignore</code>, <code>.gitmodules</code>, etc., it also doesn&#39;t even reveal that they exist in the first place.</p>
+<h3 id="setting-and-pushing-up-local-repository">Setting and pushing up local repository</h3>
+<p>Now we have to set up our local repository. To push to our remote, we&#39;ll need to tell our local machine that we won&#39;t be requiring a password to connect to our host. To do that we&#39;ll have to set up our <code>~/.ssh/config</code>.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># Create ~/.ssh/config if it doesn't exist</span>
+<span class="hljs-title">Host</span> your-domain.com
+  Port <span class="hljs-number">22</span>
+  PreferredAuthentications publickey
+</code></pre>
+<p>In your local project directory you&#39;ll need to create your new git repository and add the repository on your server as a remote.</p>
+<pre><code class="lang-terminal"><span class="hljs-variable">$ </span>git init
+<span class="hljs-variable">$ </span>git remote add remotename user_name<span class="hljs-variable">@domain</span>.<span class="hljs-symbol">com:</span>path/to/project
+</code></pre>
+<p>From here you can commit your whole project and push it to your remote repository.</p>
+<pre><code class="lang-terminal">$ git <span class="hljs-keyword">push</span> remotename master
+</code></pre>
+<p>If our post-receive hook is working properly and all our SSH settings are correct the remote should refresh the working directory automatically after a push and any changes should be reflected immediately.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>This is the bare bones of a simple deployment strategy using git. The benefits -- including the simplicity, bringing together version control and deployment, etc -- are clear. In another post coming soon, I&#39;ll discuss how to bring databases into the mix to help synchronize deployment for platforms like Wordpress.</p>
+
+
+</article>
+
+<div class="post-navigation-wrap">
+  <a href="/posts/site-redesign" class="post-navigation post-navigation-prev">Previous</a>
+  <a href="/" class="post-navigation">Home</a>
+  <a href="/posts/" class="post-navigation post-navigation-next">Next</a>
+</div>
+
+<div id="disqus_thread" class="post-comments"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'aaronpetcoff';
+  var disqus_url = 'http://aaronpetcoff.me/posts/deploying-wp-with-git';
+  (function() {var dsq = document.createElement('script');dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>      </main>
 
     </div>
     <footer>
