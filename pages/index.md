@@ -1,7 +1,7 @@
 ---
 template: default
 ---
-<div class="home-image"><img src="/img/about.jpg" alt="Aaron Petcoff"></div>
+<div class="home-image"><img src="/img/about.jpg" alt="Aaron Petcoff" width="250" height="250"></div>
 
 <h2 class="home-lede">
 I am an ambitious web developer whose passion is learning new technologies, working with new people, and trying to make the web (and the world) a better place.
