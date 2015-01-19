@@ -1,0 +1,31 @@
+<div class="profile-skills">
+  <h3>Skills</h3>
+  <ul class="profile-skills-list">
+    {{#each profile.skills }}
+      <li class="profile-skill">
+        <span class="profile-skill-name">{{ name }}</span>
+        <span class="profile-skill-level"><span class="profile-skill-fill" style="width:{{ proficiency }}%" title="Skill level"></span></span>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+<div class="profile-current">
+  <h2>Current Position</h2>
+  <h3><span class="profile-job-title">{{ profile.current.title }}</span><span class="profile-job-employer">{{ profile.current.employer }}</span></h3>
+  <span class="profile-job-date">{{ profile.current.startDate }} &mdash; {{ profile.current.endDate }}</span>
+</div>
+<h2>Past Positions</h2>
+<ul class="profile-jobs-list">
+  {{#each profile.jobs }}
+  <li class="profile-job">
+    <h3><span class="profile-job-title">{{ this.title }}</span><span class="profile-job-employer">{{ this.employer }}</span></h3>
+    <span class="profile-job-date">{{ this.startDate }} &mdash; {{ this.endDate }}</span>
+  </li>
+  {{/each}}
+</ul>
+<div class="profile-education">
+  <h2>Education</h2>
+  <h3 class="profile-education-name">{{ profile.education.name }}</h3>
+  <span class="profile-education-degree">{{ profile.education.degree }}</span>, <span class="profile-education-major">{{ profile.education.major }}</span>
+  <span class="profile-education-date">{{ profile.education.graduationDate }}</span>
+</div>

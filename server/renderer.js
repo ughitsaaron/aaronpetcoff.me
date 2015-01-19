@@ -8,6 +8,7 @@ var fs = require("fs"),
     blog = require("./blog.js"),
     singles = require("./singles.js"),
     pages = require("./pages.js");
+    // resume = require("./resume.js");
 
 module.exports = function(opts) {
 
@@ -79,4 +80,7 @@ module.exports = function(opts) {
 
   // render pages
   pages(opts);
+
+  // resume plugin
+  // resume(opts);
 };

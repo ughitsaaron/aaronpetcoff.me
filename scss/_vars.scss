@@ -72,6 +72,12 @@ $border: darken($primary,25%);
   }
 }
 
+@mixin date {
+  display: block;
+  color:$secondary;
+  opacity:0.45;
+}
+
 @mixin dropcaps {
   p:first-of-type:first-letter {
     float: left;

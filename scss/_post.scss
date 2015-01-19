@@ -48,9 +48,7 @@ li:last-child .#{$module} {
 }
 
 .#{$module}-date {
-  display: block;
-  color:$secondary;
-  opacity:0.35;
+  @include date;
 }
 
 .#{$module}-navigation-wrap {

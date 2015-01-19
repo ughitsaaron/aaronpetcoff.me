@@ -1,7 +1,6 @@
 $module:"home";
 
 .page {
-  @include dropcaps;
   @include alpha;
 }
 
@@ -20,6 +19,10 @@ $module:"home";
     width: 25%;
     background-color: rgba($tertiary,0.85);
     content: '';
+  }
+
+  ~ {
+    @include dropcaps;
   }
 }
 

@@ -44,10 +44,12 @@ module.exports = function(opts) {
       return title;
     });
 
-    console.log(address);
-
     page.meta.address = address;
     page.meta.container = page.meta.container || "page";
+
+    if(page.meta.address === "profile") {
+      page.profile = JSON.parse(fs.readFileSync("data/profile.json"));
+    }
 
     hbs.registerHelper("canonical", function() {
       return "http://aaronpetcoff.me/" + (page.meta.address !== "index" ? page.meta.address : "");
@@ -58,7 +60,9 @@ module.exports = function(opts) {
     hbs.registerPartial("content", container(page));
 
     template = hbs.compile(fs.readFileSync("./templates/" + page.meta.template + ".html", {encoding:"utf-8"}));
-    
+
+    // console.log(page);
+
     fs.writeFile(opts.dirs.public + page.meta.address + ".html", template(container(page)), function(err){
       if (err) throw err;
 
