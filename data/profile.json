@@ -2,7 +2,7 @@
   "skills": [
     { "name":"HTML/CSS/Sass", "proficiency":95 },
     { "name":"Design", "proficiency":70 },
-    { "name":"Javascript/jQuery", "proficiency":80 },
+    { "name":"Javascript/jQuery", "proficiency":70 },
     { "name":"Node.js", "proficiency":50 },
     { "name":"Angular/MV*","proficiency":50 },
     { "name":"Wordpress","proficiency":60}
