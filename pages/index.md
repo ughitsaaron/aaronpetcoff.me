@@ -7,7 +7,7 @@ template: default
 I am an ambitious web developer whose passion is learning new technologies, working with new people, and trying to make the web (and the world) a better place.
 </h2>
 
-You'll currently find me in the Office of Communications + Marketing at the New York Institute of Technology's Manhattan campus where I specialize in the development and maintenance of web content. I write about what I do [on my blog](/blog/). You can find out more about me [from my profile](/profile/).
+You'll currently find me in the Office of Communications + Marketing at the New York Institute of Technology's Manhattan campus where I specialize in the development and maintenance of web content. I write about what I do [on my blog](/blog/).
 
 I live with my partner and two cats in Brooklyn. If you catch me in my free time there's a good chance I'll be reading history, running in Prospect Park, or listening to punk and hip-hop records. And social, global, and environmental justice are pretty important, too.
 
