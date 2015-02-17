@@ -1,0 +1,21 @@
+{
+  "name": "aaronpetcoff.me",
+  "version": "0.0.0",
+  "homepage": "https://github.com/aptkf/aaronpetcoff.me",
+  "authors": [
+    "Aaron Petcoff <hello@aaronpetcoff.me>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "neat": "~1.7.1",
+    "bourbon": "~4.2.0"
+  }
+}

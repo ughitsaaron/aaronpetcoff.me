@@ -34,19 +34,18 @@ var serve = {
  
 // stylesheets
 gulp.task('styles', function() {
-  gulp.src(paths.styles.files)
-  .pipe(plumber({errorHandler: onError}))
-  .pipe(sass({
-    style: 'compressed',
+  return sass(paths.styles.src, {
+    style: "compressed",
+    noCache:true,
     loadPath: [
-      "./bower_components/bourbon/dist/",
+      "./bower_components/bourbon/app/assets/stylesheets/",
       "./bower_components/neat/app/assets/stylesheets/"
-    ],
-    noCache: true,
-    "sourcemap=none": true }))
+    ]
+  })
+  .pipe(plumber({errorHandler: onError}))
   .pipe(autoprefixer('last 2 versions'))
   .pipe(gulp.dest(paths.styles.dest))
-  .pipe(livereload());
+  .pipe(livereload({auto:false}));
 });
  
 // scripts
