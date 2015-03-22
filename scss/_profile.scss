@@ -1,0 +1,83 @@
+$module: "profile";
+
+.#{$module}-skills {
+  padding: 1em;
+  background-color: darken($primary,2%);
+
+  @include media($medium) {
+    float: right;
+    width: 33%;
+    margin-left: 1em;
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+}
+
+.#{$module}-skill-level {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: darken($primary,4%);
+  box-shadow:inset 1px 1px 2px rgba(black,0.15);
+  border-radius:20px;
+}
+
+.#{$module}-skill-fill {
+  display: block;
+  height: 100%;
+  border-radius:20px;
+  box-shadow:inset -1px -1px 2px rgba(black,0.35);
+  background-color: rgba($tertiary,0.65);
+}
+
+.#{$module}-job-employer {
+  display: block;
+
+  @include media($medium) {
+    display: inline;
+    float: right;
+  }
+}
+
+.#{$module}-job-date,
+.#{$module}-education-date {
+  @include date;
+  margin-top: 0;
+}
+
+.#{$module}-job-employer,
+.#{$module}-job-date {
+  font-size: 0.8em;
+
+  @include media($medium) {
+    font-size: inherit;
+  }
+}
+
+.#{$module}-job h3, .#{$module}-current h3 {
+  margin-bottom: 0;
+
+  @include media($medium) {
+    font-family: $headings;
+    font-size: 0.9em;
+  }
+
+  @include media($large) {
+    font-size: 1.1em;
+  }
+}
+
+.#{$module}-job h3, .#{$module}-current h3 {
+  @include media($medium) {
+    margin-bottom: 0.5em;
+  }
+}
+
+.#{$module}-education-name {
+  margin-bottom: 0.2em;
+}

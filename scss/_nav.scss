@@ -1,0 +1,33 @@
+$module: "nav";
+
+#{$module} {
+  display: table;
+  margin: auto;
+}
+
+.#{$module}-link {
+  display: inline-block;
+  background-color: darken($primary,2%);
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+  padding:11px 0 0 13px;
+  width:65px;
+  height:65px;
+  border-radius: 50%;
+  border:1px solid $border;
+
+  .icon {
+    @include trs(fill);
+    fill: $secondary;
+  }
+
+  &:hover .icon {
+    @include trs(fill);
+    fill:rgba($tertiary,0.85);
+  }
+}
+
+nav svg {
+  width: 100%;
+  max-width: rem(40);
+}

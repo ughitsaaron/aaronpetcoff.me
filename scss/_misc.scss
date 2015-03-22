@@ -1,0 +1,34 @@
+$module: undefined;
+
+.fourohfour {
+  text-align: center;
+
+  img {
+    width: 100%;
+    max-width: rem(550);
+  }
+}
+
+.archive-link {
+  display: inline-block;
+  float: right;
+  padding: 1em 2em;
+}
+
+.post-nav {
+  text-align: center;
+
+  a {
+    @include trs(color);
+    position: relative;
+    color:$link-color;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.post-nav-previous:after {
+  content: '';
+  width: 0;
+  height: 0;
+}

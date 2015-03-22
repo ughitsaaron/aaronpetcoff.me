@@ -1,0 +1,11 @@
+$module: "page";
+
+.#{$module} {
+  padding-left: 1em;
+  padding-right: 1em;
+
+  @include media($large) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

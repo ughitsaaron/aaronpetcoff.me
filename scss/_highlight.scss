@@ -1,0 +1,168 @@
+$string: #e6db74;
+$tag: #f8f8f2;
+$emphasis: #a8a8a2;
+$number: #ae81ff;
+$title: #a6e22e;
+$keyword: #f92672;
+$constant: #66d9ef;
+$params: #f8f8f2;
+$comment: #75715e;
+
+
+pre code {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  background: #23241f;
+  -webkit-text-size-adjust: none;
+  font-family: $console;
+  box-shadow: inset 3px 3px 10px black;
+  border-radius: 10px;
+}
+
+pre code,
+.hljs-tag,
+.hljs-rules,
+.hljs-value,
+.hljs-function
+.hljs-preprocessor,
+.hljs-pragma {
+  color: $tag;
+}
+
+.hljs-strongemphasis,
+.hljs-strong,
+.hljs-emphasis {
+  color: $emphasis;
+}
+
+.hljs-bullet,
+.hljs-blockquote,
+.hljs-horizontal_rule,
+.hljs-number,
+.hljs-regexp,
+.alias .hljs-keyword,
+.hljs-literal,
+.hljs-hexcolor {
+  color: $number;
+}
+
+.hljs-tag .hljs-value,
+.hljs-code,
+.hljs-title,
+.hljs-class,
+.hljs-class .hljs-title:last-child {
+  color: $title;
+}
+
+.hljs-link_url {
+  font-size: 80%;
+}
+
+.hljs-strong,
+.hljs-strongemphasis {
+  font-weight: bold;
+}
+
+.hljs-emphasis,
+.hljs-strongemphasis,
+.hljs-class .hljs-title:last-child {
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-function,
+.hljs-change,
+.hljs-winutils,
+.hljs-flow,
+.nginx .hljs-title,
+.tex .hljs-special,
+.hljs-header,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.hljs-tag .hljs-title,
+.hljs-value,
+.alias .hljs-keyword:first-child,
+.hljs-tag,
+.unit,
+.hljs-important,
+.hljs-at_rule {
+  color: $keyword;
+}
+
+.hljs-function .hljs-keyword,
+.hljs-class .hljs-keyword:first-child,
+.hljs-constant,
+.hljs-attribute {
+  color: $constant;
+}
+
+.hljs-variable,
+.hljs-params,
+.hljs-class .hljs-title {
+  color: $params;
+}
+
+.hljs-string,
+.hljs-id,
+.hljs-subst,
+.hljs-type,
+.ruby .hljs-class .hljs-parent,
+.hljs-built_in,
+.django .hljs-template_tag,
+.django .hljs-variable,
+.smalltalk .hljs-class,
+.django .hljs-filter .hljs-argument,
+.smalltalk .hljs-localvars,
+.smalltalk .hljs-array,
+.hljs-attr_selector,
+.hljs-pseudo,
+.hljs-addition,
+.hljs-stream,
+.hljs-envvar,
+.apache .hljs-tag,
+.apache .hljs-cbracket,
+.tex .hljs-command,
+.hljs-prompt,
+.hljs-link_label,
+.hljs-link_url,
+.hljs-pi {
+  color: $string;
+}
+
+.hljs-comment,
+.hljs-javadoc,
+.hljs-annotation,
+.hljs-decorator,
+.hljs-template_comment,
+.hljs-doctype,
+.hljs-deletion,
+.hljs-shebang,
+.apache .hljs-sqbracket,
+.tex .hljs-formula {
+  color: $comment;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml 
+.xml .hljs-cdata,
+.xml .php,
+.php .xml {
+  opacity: 0.5;
+}
+
+.lang-terminal {
+  span[class^="hljs-"] {
+    color:$primary;
+
+    &.hljs-comment {
+      color:$comment;
+    }
+  }
+}
