@@ -1,4 +1,4 @@
-@import "bourbon", "neat", "normalize"; // dependencies
+@import "bourbon", "neat"; // dependencies
 @import "vars", // partials
         "highlight",
         "header",
@@ -7,7 +7,7 @@
         "page",
         "footer",
         "home",
-        "profile",
+        // "profile",
         "misc";
         
 html {
@@ -41,13 +41,11 @@ a {
   @include link {
     @include trs(color);
     color:$link-color;
-
   }
   
   &:hover {
     @include trs(color);
     color:$link-hover;
-
   }
 }
 

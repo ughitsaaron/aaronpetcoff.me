@@ -1,7 +1,5 @@
 ---
 title: New blog
-template: post
-date: 2014-12-31
 ---
 
 Okay, so I completely redesigned and rebuilt my personal site. There are a couple of reasons I decided to do this, but mainly because I wanted to give myself an excuse to play with node and build my own static site generator to run my site.

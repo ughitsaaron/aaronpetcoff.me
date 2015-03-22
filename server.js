@@ -4,64 +4,21 @@
 var express = require("express"),
     app = express(),
     fs = require("fs"),
+    path = require("path"),
     compress = require("compression"),
     logger = require("morgan"),
-    renderer = require("./server/renderer.js");
+    md = require("meta-marked"),
+    hljs = require("highlight.js"),
+    Promise = require("bluebird");
 
-var extend, config, opts;
+// hook bluebird into fs module
+Promise.promisifyAll(fs);
 
-// extend borrowed from 
-// youmightnotneedjquery.com
-
-extend = function(target) {
-  target = target || {};
-
-  for (var i = 1; i < arguments.length; i++) {
-    var obj = arguments[i];
-
-    if (!obj)
-      continue;
-
-    for (var key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        if (typeof obj[key] === 'object')
-          extend(target[key], obj[key]);
-        else
-          target[key] = obj[key];
-      }
-    }
-  }
-
-  return target;
+// set config options
+var opts = {
+  dirs : { posts : "./posts/", public : "/public/" },
+  maxPosts: 10
 };
-
-// extend defaults to config.json 
-config = JSON.parse(fs.readFileSync("./config.json"));
-
-opts = extend({
-  title: "My Blog",
-  date: {
-    format: "MMMM Do, YYYY [at] h:mm a",
-    relative: false
-  },
-  dirs : {
-    posts : "./posts/",
-    templates : "./templates/",
-    pages : "./pages/",
-    public : "./public/"
-  },
-  sort: {
-    date: true,
-    title: false,
-    descending: true
-  },
-  permalinks: "./posts/:title/",
-  verbose: false,
-  maxPostsHome: 10
-}, config);
-
-// pass options to renderer
-renderer(opts);
 
 // start logging
 app.use(logger("common"));
@@ -69,28 +26,87 @@ app.use(logger("common"));
 // gzip static assets
 app.use(compress());
 
-// establish post routes
-app.use(express.static(__dirname + "/public/"));
+// start web server
+app.listen(process.env.PORT || 3000);
+console.log("Listening on port 3000");
+app.use(express.static(__dirname + opts.dirs.public));
 
-app.get("/posts/:title", function(req,res) {
-  res.sendFile("./public/posts/" + req.params.title + ".html", {root: __dirname});
+// build blog api
+var posts = [];
+
+var Post = function(id,title,slug,date,body) {
+  this.id = id;
+  this.title = title;
+  this.slug = slug;
+  this.date = date;
+  this.body = body;
+};
+
+var getPost = function(files, index) {
+  var post = fs.readFileAsync(opts.dirs.posts + files[index], "utf-8")
+  .then(function(data) {
+    var id, title, slug, date, body;
+  
+    data = md(data, {
+      highlight: function(code) {
+        return hljs.highlightAuto(code).value;
+      }
+    });
+  
+    id = index + 1;
+    title = data.meta.title;
+    slug = path.basename(files[index], ".md");
+    date = new Date(files[index].match(/^[0-9]{4}-[0-9]{2}-[0-9]{2}/)[0]);
+    body = data.html;
+  
+    return new Post(id, title,slug,date,body);
+  });
+  
+  posts.push(post);
+};
+
+var postData = fs.readdirAsync(opts.dirs.posts)
+.then(function(files) {
+  for(var index = 0; index < files.length; index++) {
+    getPost(files,index);
+  }
+
+  return Promise.all(posts);
 });
 
-app.get("/:page", function(req, res) {
-  res.sendFile("./public/" + req.params.page + ".html", {root: __dirname}, function(err) {
-    if(err) try {
-      res.status(404);
-      res.sendFile("./public/404.html", {root: __dirname});
-    } catch(err) {
-      throw err;
-    }
+app.get("/api/posts/archive", function(req, res) {
+  postData.then(function(results) {
+    res.json(results);
   });
 });
 
-app.get("*", function(req,res) {
-  res.status(404);
-  res.sendFile("./public/404.html", {root: __dirname});
+app.get("/api/posts/:slug", function(req, res) {
+  postData.then(function(results) {
+    res.json(results.filter(function(value) {
+      return value.slug === req.params.slug;
+    }));
+  });
 });
 
-app.listen(process.env.PORT || 3000);
-console.log("Listening on port 3000");
+app.get("/api/posts", function(req, res) {
+  postData.then(function(results) {
+    res.json(results.reverse().filter(function(value,index) {
+      return index+1 <= opts.maxPosts;
+    }));
+  });
+});
+
+app.get("/api/config", function(req, res) {
+  postData.then(function(results) {
+    opts.totalPosts = results.length;
+    opts.dirs = undefined;
+    res.json(opts);
+  });
+});
+
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  res.redirect("/#/four-oh-four");
+  next();
+});

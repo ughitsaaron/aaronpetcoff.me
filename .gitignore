@@ -1,4 +1,4 @@
 npm-debug.log
 node_modules/
-bower_components/
+public/libs
 .DS_Store
