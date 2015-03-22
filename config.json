@@ -1,0 +1,9 @@
+{
+  "title":"Aaron Petcoff | Web Developer",
+  "date": {
+    "format":"MM.DD.YY",
+    "relative":true
+  },
+  "verbose": true,
+  "maxPostsHome": 5
+}
