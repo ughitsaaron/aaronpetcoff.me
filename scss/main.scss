@@ -49,9 +49,16 @@ a {
   }
 }
 
-main {
+main, article {
   @include outer-container($local-max-width:rem(1000));
   padding-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+
+  @include media($large) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 footer {
