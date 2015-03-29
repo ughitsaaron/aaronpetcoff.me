@@ -17,7 +17,8 @@ Promise.promisifyAll(fs);
 // set config options
 var opts = {
   dirs : { posts : "./posts/", public : "/public/" },
-  maxPosts: 10
+  maxPosts: 10,
+  blog:false
 };
 
 // start logging

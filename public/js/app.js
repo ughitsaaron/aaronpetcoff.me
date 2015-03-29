@@ -68,7 +68,10 @@
   App.ApplicationController = Ember.Controller.extend({
     showArchiveLink:function() {
       return this.get('model.totalPosts') >= this.get('model.maxPosts');
-    }.property('model.showArchiveLink')
+    }.property('model.showArchiveLink'),
+    showBlogLink:function() {
+      return this.get('model.blog')
+    }.property('model.showBlogLink')
   });
 
   App.PostsIndexController = Ember.Controller.extend({

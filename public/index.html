@@ -26,7 +26,9 @@
           <h1 class="header-name">  {{#link-to "home" classNames="header-title"}}<span class="header-name-first">aaron</span><span class="header-name-last">petcoff</span>{{/link-to}}</h1>
           <div class="header-tagline">web developer &bull; brooklyn</div>
           <nav>
-            {{#link-to "posts" classNames="nav-link"}}<svg class="icon icon-stack" viewBox="0 0 1024 1024"><use xlink:href="#icon-quill"></use></svg>{{/link-to}}
+            {{#if showBlogLink}}
+              {{#link-to "posts" classNames="nav-link"}}<svg class="icon icon-stack" viewBox="0 0 1024 1024"><use xlink:href="#icon-quill"></use></svg>{{/link-to}}
+            {{/if}}
             {{#if showArchiveLink}}
               {{#link-to "archive" classNames="nav-link"}}
               <svg class="icon icon-profile" viewBox="0 0 32 32"><use xlink:href="#icon-stack"></use></svg>{{/link-to}}
@@ -56,7 +58,7 @@
         I am an ambitious web developer whose passion is learning new technologies, working with new people, and trying to make the web (and the world) a better place.
         </h2>
 
-        <p>You&#39;ll currently find me at <a href="http://nymag.com"><i>New York</i> magazine</a> where I work as a front-end developer. I write about what I do {{#link-to "posts"}}on my blog{{/link-to}}.</p>
+        <p>You&#39;ll currently find me at <a href="http://nymag.com"><i>New York</i> magazine</a> where I work as a front-end developer.</p>
         <p>I live with my partner and two cats in Brooklyn. If you catch me in my free time there&#39;s a good chance I&#39;ll be reading history, running in Prospect Park, or listening to punk and hip-hop records. And social, global, and environmental justice are pretty important, too.</p>
       </main>
     </script>
