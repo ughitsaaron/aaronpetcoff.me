@@ -33,8 +33,9 @@ console.log("Listening on port 3000");
 app.use(express.static(__dirname + opts.dirs.public));
 
 // build blog api
-var posts = [];
+var posts = []; // store all posts in an array
 
+// post object
 var Post = function(id,title,slug,date,body) {
   this.id = id;
   this.title = title;
@@ -48,7 +49,10 @@ var getPost = function(files, index) {
   .then(function(data) {
     var id, title, slug, date, body;
   
+    // parse markdown
     data = md(data, {
+
+      // highlight code blocks in post
       highlight: function(code) {
         return hljs.highlightAuto(code).value;
       }
@@ -60,14 +64,22 @@ var getPost = function(files, index) {
     date = new Date(files[index].match(/^[0-9]{4}-[0-9]{2}-[0-9]{2}/)[0]);
     body = data.html;
   
-    return new Post(id, title,slug,date,body);
+    return new Post(id, title, slug, date, body);
   });
   
+  // push each post to the array
   posts.push(post);
 };
 
+// serve post data
 var postData = fs.readdirAsync(opts.dirs.posts)
 .then(function(files) {
+
+  // exclude non-markdown files
+  files = files.filter(function(file) {
+    return path.extname() === ".md";
+  });
+
   for(var index = 0; index < files.length; index++) {
     getPost(files,index);
   }
