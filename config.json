@@ -1,0 +1,8 @@
+{
+  "dirs" : {
+    "posts" : "/posts/",
+    "public" : "/public/",
+    "test" : "/test/posts/"
+  },
+  "maxPosts": 10
+}

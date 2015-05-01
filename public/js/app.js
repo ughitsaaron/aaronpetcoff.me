@@ -8,10 +8,11 @@
   App.Router.map(function() {
     this.resource("home", { path: "/" });
     this.resource("posts", { path: "blog" }, function() {
-      this.resource("archive");
       this.resource("post", { path: ":slug" });
+      this.resource("archive");
     });
-    this.resource("fourohfour", { path: "/*path"});
+    this.resource("tag", { path: "/tags/:tag" });
+    this.resource("about", { path: "about"});
   });
 
   // routes
@@ -26,6 +27,17 @@
     model: function() {
       return $.getJSON("/api/posts").then(function(results) {
         return results.sortBy('date').reverse();
+      });
+    },
+    setupController: function(controller,posts) {
+      controller.set('model', posts);
+    }
+  });
+
+  App.TagRoute = Ember.Route.extend({
+    model: function(params) {
+      return $.getJSON("/api/tags/" + params.tag).then(function(results) {
+        return results;
       });
     },
     setupController: function(controller,posts) {
@@ -48,18 +60,11 @@
   App.PostRoute = Ember.Route.extend({
     model: function(params) {
       return $.getJSON("/api/posts/" + params.slug).then(function(post) {
-        return post.findBy("slug", params.slug);
+        return post;
       });
     },
     setupController: function(controller,post) {
       controller.set('model', post);
-    }
-  });
-
-  App.FourohfourRoute = Ember.Route.extend({
-    redirect: function() {
-      if(window.location.pathname !== this.router.location.formatURL('/four-oh-four'))
-        this.transitionTo('/four-oh-four');
     }
   });
 
@@ -68,10 +73,7 @@
   App.ApplicationController = Ember.Controller.extend({
     showArchiveLink:function() {
       return this.get('model.totalPosts') >= this.get('model.maxPosts');
-    }.property('model.showArchiveLink'),
-    showBlogLink:function() {
-      return this.get('model.blog')
-    }.property('model.showBlogLink')
+    }.property('model.showArchiveLink')
   });
 
   App.PostsIndexController = Ember.Controller.extend({
@@ -81,20 +83,20 @@
   App.PostController = Ember.ObjectController.extend({
     needs: ['posts'],
     mostRecent: function() {
-      return this.get('model.id') === this.get('controllers.posts.model.length');
+      return this.get('model._id') === this.get('controllers.posts.model.length');
     }.property('model.mostRecent'),
     oldest: function() {
-      return this.get('model.id') === 1;
+      return this.get('model._id') === 1;
     }.property('model.oldest'),
     actions: {
       nextPost: function() {
         if(!this.get('mostRecent')) {
-          this.transitionTo("post",this.get('controllers.posts.model').findBy('id', (this.get('model.id') + 1)));
+          this.transitionTo("post",this.get('controllers.posts.model').findBy('_id', (this.get('model._id') + 1)));
         }
       },
       previousPost: function() {
         if(!this.get('oldest')) {
-          this.transitionTo("post",this.get('controllers.posts.model').findBy('id', (this.get('model.id') - 1)));
+          this.transitionTo("post",this.get('controllers.posts.model').findBy('_id', (this.get('model._id') - 1)));
         }
       }
     }

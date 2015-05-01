@@ -96,6 +96,19 @@
       </ul>
     </script>
 
+    <script type="text/x-handlebars" data-template-name="tag">
+      <ul class="post-list">
+        {{#each post in model}}
+        <li>
+          {{#link-to "post" post classNames="post"}}
+            <h2 class="post-title">{{post.title}}</h2>
+            <span class="post-date">Posted {{relativeDate post.date}}</span>
+          {{/link-to}}
+        </li>
+        {{/each}}
+      </ul>
+    </script>
+
     <script type="text/x-handlebars" data-template-name="post">
       <article>
         <h1>{{title}}</h1>
