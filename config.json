@@ -4,5 +4,6 @@
     "public" : "/public/",
     "test" : "/test/posts/"
   },
+  "showBlogLink": true,
   "maxPosts": 10
 }

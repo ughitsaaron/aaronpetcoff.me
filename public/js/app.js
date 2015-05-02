@@ -76,6 +76,12 @@
     }.property('model.showArchiveLink')
   });
 
+  App.ApplicationController = Ember.Controller.extend({
+    showBlogLink:function() {
+      return this.get('model.showBlogLink');
+    }.property('model.showBlogLink')
+  });
+
   App.PostsIndexController = Ember.Controller.extend({
     needs:['application']
   });
