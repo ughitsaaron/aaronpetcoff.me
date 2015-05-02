@@ -4,6 +4,7 @@
     "public" : "/public/",
     "test" : "/test/posts/"
   },
+  "title": "aaron petcoff | web developer | brooklyn",
   "showBlogLink": true,
   "maxPosts": 10
 }

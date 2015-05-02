@@ -15,6 +15,8 @@
     this.resource("about", { path: "about"});
   });
 
+  App.PostsView = Ember.View.extend({});
+
   // routes
 
   App.ApplicationRoute = Ember.Route.extend({
@@ -24,6 +26,7 @@
   });
 
   App.PostsRoute = Ember.Route.extend({
+    needs:['application'],
     model: function() {
       return $.getJSON("/api/posts").then(function(results) {
         return results.sortBy('date').reverse();
@@ -58,6 +61,7 @@
   });
 
   App.PostRoute = Ember.Route.extend({
+    needs: ['application'],
     model: function(params) {
       return $.getJSON("/api/posts/" + params.slug).then(function(post) {
         return post;
@@ -87,13 +91,17 @@
   });
 
   App.PostController = Ember.ObjectController.extend({
-    needs: ['posts'],
+    needs: ['application','posts'],
     mostRecent: function() {
       return this.get('model._id') === this.get('controllers.posts.model.length');
     }.property('model.mostRecent'),
     oldest: function() {
       return this.get('model._id') === 1;
     }.property('model.oldest'),
+    updateTitle: function() {
+      var title = this.controllerFor('application').model.title;
+      document.title = title + " | " + this.get('title');
+    }.observes('model.title'),
     actions: {
       nextPost: function() {
         if(!this.get('mostRecent')) {
