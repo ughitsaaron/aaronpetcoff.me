@@ -125,4 +125,8 @@
   Ember.Handlebars.registerBoundHelper('formattedDate', function(date, format) {
     return moment(date).format(format);
   });
+
+  Ember.Handlebars.registerBoundHelper('currentYear', function() {
+    return new Date().getFullYear();
+  });
 })();
