@@ -135,11 +135,11 @@
         {{{body}}}
 
         <div class="post-nav">
-          {{#unless mostRecent}}
-          <a {{action "nextPost"}} class="post-nav-next">Next</a>
-          {{/unless}}
           {{#unless oldest}}
           <a {{action "previousPost"}} class="post-nav-previous">Previous</a>
+          {{/unless}}
+          {{#unless mostRecent}}
+          <a {{action "nextPost"}} class="post-nav-next">Next</a>
           {{/unless}}
         </div>
       </article>
