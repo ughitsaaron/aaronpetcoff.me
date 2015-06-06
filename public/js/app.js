@@ -4,7 +4,6 @@
   var App = Ember.Application.create();
 
   // router
-
   App.Router.map(function() {
     this.resource("home", { path: "/" });
     this.resource("posts", { path: "blog" }, function() {
@@ -25,6 +24,13 @@
     }
   });
 
+  App.HomeRoute = Ember.Route.extend({
+    needs:['application'],
+    afterModel: function() {
+      document.title = this.modelFor('application').title;
+    }
+  });
+
   App.PostsRoute = Ember.Route.extend({
     needs:['application'],
     model: function() {
@@ -32,16 +38,24 @@
         return results.sortBy('date').reverse();
       });
     },
+    afterModel: function() {
+      document.title = "posts | " + this.modelFor('application').title;
+    },
     setupController: function(controller,posts) {
       controller.set('model', posts);
     }
   });
 
   App.TagRoute = Ember.Route.extend({
+    needs:['application'],
     model: function(params) {
       return $.getJSON("/api/tags/" + params.tag).then(function(results) {
+        results.tag = params.tag; // add tag name to model for setting document.title
         return results;
       });
+    },
+    afterModel: function(model) {
+      document.title = model.tag + " | " + this.modelFor('application').title;
     },
     setupController: function(controller,posts) {
       controller.set('model', posts);
@@ -55,6 +69,9 @@
         return results.sortBy('date').reverse();
       });
     },
+    afterModel: function() {
+      document.title = "archive" + " | " + this.modelFor('application').title;
+    },
     setupController: function(controller,posts) {
       controller.set('model', posts);
     }
@@ -67,6 +84,9 @@
         return post;
       });
     },
+    afterModel: function(model) {
+      document.title = model.title  + " | " + this.modelFor('application').title;
+    },
     setupController: function(controller,post) {
       controller.set('model', post);
     }
@@ -74,13 +94,10 @@
 
   // controllers
 
-  App.ApplicationController = Ember.Controller.extend({
+  App.ApplicationController = Ember.ObjectController.extend({
     showArchiveLink:function() {
       return this.get('model.totalPosts') >= this.get('model.maxPosts');
-    }.property('model.showArchiveLink')
-  });
-
-  App.ApplicationController = Ember.Controller.extend({
+    }.property('model.showArchiveLink'),
     showBlogLink:function() {
       return this.get('model.showBlogLink');
     }.property('model.showBlogLink')
@@ -98,10 +115,6 @@
     oldest: function() {
       return this.get('model._id') === 1;
     }.property('model.oldest'),
-    updateTitle: function() {
-      var title = this.controllerFor('application').model.title;
-      document.title = title + " | " + this.get('title');
-    }.observes('model.title'),
     actions: {
       nextPost: function() {
         if(!this.get('mostRecent')) {
