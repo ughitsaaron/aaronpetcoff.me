@@ -6,7 +6,8 @@ let express = require("express"),
     compress = require("compression"),
     logger = require("morgan"),
     server = require("./lib/server"),
-    opts = require("./config");
+    opts = require("./config"),
+    Feed = require("feed");
 
 // start logging
 app.use(logger("common"));
@@ -57,5 +58,37 @@ app.get("/api/config", (req, res) => {
     opts.totalPosts = results.length;
     opts.dirs = undefined;
     res.json(opts);
+  });
+});
+
+app.get("/feed", (req, res) => {
+  var year = new Date();
+  var feed = new Feed({
+    title: "Aaron Petcoff",
+    description: "Aaron Petcoff is a web developer based out of Brooklyn.",
+    link: "http://aaronpetcoff.me",
+    image: "http://aaronpetcoff.me/img/about.jpg",
+    copyright: "Copyright (c) " + year.getFullYear() + " Aaron Petcoff",
+    author: {
+      name: "Aaron Petcoff",
+      email: "hello@aaronpetcoff.me",
+      link: "http://aaronpetcoff.me"
+    }
+  });
+
+  return server.getPosts(__dirname + "/posts/")
+  .then(posts => {
+    posts = posts.filter((value, index) => ++index <= opts.maxPosts);
+    posts.forEach(function(post) {
+      feed.addItem({
+        title: post.title,
+        link: "http://aaronpetcoff.me/#/blog/" + post.slug,
+        date: post.date,
+        content: post.body
+      });
+    });
+
+    res.set('Content-Type', 'text/xml');
+    res.send(feed.render('rss-2.0'));
   });
 });

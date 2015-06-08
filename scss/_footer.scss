@@ -36,6 +36,11 @@ $module: "footer";
     fill: lighten(desaturate($secondary,100%), 35%);
   }
 
+  .icon-syndication {
+    width: 1.7rem;
+    height: 1.3rem;
+  }
+
   &:hover .icon {
     @include trs(fill);
     fill:lighten(desaturate($secondary,100%), 55%);
