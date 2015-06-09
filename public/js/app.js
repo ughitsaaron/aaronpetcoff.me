@@ -12,6 +12,11 @@
     });
     this.resource("tag", { path: "/tags/:tag" });
     this.resource("about", { path: "about"});
+    this.resource("fourohfour", { path: "*:" });
+  });
+
+  App.Router.reopen({
+    location: 'history'
   });
 
   App.PostsView = Ember.View.extend({});
@@ -19,6 +24,7 @@
   // routes
 
   App.ApplicationRoute = Ember.Route.extend({
+    needs:['fourohfour'],
     model: function() {
       return $.getJSON("/api/config");
     }
@@ -43,6 +49,13 @@
     },
     setupController: function(controller,posts) {
       controller.set('model', posts);
+    }
+  });
+
+  App.PostsErrorRoute = Ember.Route.extend({
+    needs:['application'],
+    afterModel: function() {
+      return this.transitionTo("fourohfour");
     }
   });
 
