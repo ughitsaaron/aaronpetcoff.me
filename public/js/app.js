@@ -144,11 +144,11 @@
   // helpers
 
   Ember.Handlebars.registerBoundHelper('relativeDate', function(date) {
-    return moment(date).fromNow();
+    return moment(date).utcOffset('America/New York').fromNow();
   });
 
   Ember.Handlebars.registerBoundHelper('formattedDate', function(date, format) {
-    return moment(date).format(format);
+    return moment(date).utcOffset('America/New York').format(format);
   });
 
   Ember.Handlebars.registerBoundHelper('currentYear', function() {

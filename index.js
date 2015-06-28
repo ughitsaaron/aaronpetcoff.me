@@ -41,7 +41,7 @@ app.get("/api/posts/:slug", (req, res) => {
       .then(post => res.json(post));
     } catch(err) {
       res.status(404).sendFile("public/index.html", {root: __dirname});
-    };
+    }
   });
 });
 
@@ -56,7 +56,7 @@ app.get("/api/posts/:slug/shares", (req, res) => {
     res.json({
       twitter: {
         link: twitter.url,
-        count: twitter.count
+        count: twitter.count || 0
       },
       facebook: {
         link: facebook.id,
