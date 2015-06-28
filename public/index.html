@@ -43,8 +43,6 @@
     <script type="text/x-handlebars">
       <div class="wrap">
         <header>
-          {{#link-to "home" classNames="header-title"}}
-          <img class="header-profile" src="/img/me.jpg" alt="Aaron Petcoff" height="100" width="100">{{/link-to}}
           <h1 class="header-name">  {{#link-to "home" classNames="header-title"}}<span class="header-name-first">aaron</span><span class="header-name-last">petcoff</span>{{/link-to}}</h1>
           <div class="header-tagline">web developer &bull; brooklyn</div>
           <nav>
@@ -78,7 +76,7 @@
 
     <script type="text/x-handlebars" data-template-name="home">
       <main>
-        <div class="home-image"><img src="/img/about.jpg" alt="Aaron Petcoff" width="250" height="250"></div>
+        <div class="home-image"><img src="http://gravatar.com/avatar/e3ae39ab25e0e7d0308cc1a7ebb879ab?size=250" alt="Aaron Petcoff" width="250" height="250"></div>
 
         <h2 class="home-lede">
         I am an ambitious web developer whose passion is learning new technologies, working with new people, and trying to make the web (and the world) a better place.
@@ -94,7 +92,7 @@
         {{#each post in model}}
         <li class="post">
           <h2 class="post-title">{{#link-to "post" post}}{{post.title}}{{/link-to}}</h2>
-          <span class="post-date">Posted {{relativeDate post.date}} in <span class="post-tags">{{#each tag in post.tags}}{{#link-to "tag" tag classNames="post-tags-tag"}}{{tag}}{{/link-to}}{{/each}}</span></span>
+          <span class="post-date">Posted {{relativeDate post.date}} |  <span class="post-tags">{{#each tag in post.tags}}{{#link-to "tag" tag classNames="post-tags-tag"}}{{tag}}{{/link-to}}{{/each}}</span></span>
         </li>
         {{/each}}
       </ul>

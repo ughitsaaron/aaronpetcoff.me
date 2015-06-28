@@ -79,15 +79,15 @@ $border: darken($primary,25%);
 }
 
 @mixin dropcaps {
-  p:first-of-type:first-letter {
-    float: left;
-    font-family: $headings;
-    font-weight: bold;
-    font-size: 3em;
-    margin-right: 0.15em;
-    margin-top: 10px;
-    color:rgba($tertiary,0.85);
-  }
+  // p:first-of-type:first-letter {
+  //   float: left;
+  //   font-family: $headings;
+  //   font-weight: bold;
+  //   font-size: 3em;
+  //   margin-right: 0.15em;
+  //   margin-top: 10px;
+  //   color:rgba($tertiary,0.85);
+  // }
 }
 
 @mixin alpha {
