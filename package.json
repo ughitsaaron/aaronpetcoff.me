@@ -37,7 +37,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "node_modules/bower/bin/bower install",
     "babel-node": "babel-node --stage 0",
-    "start": "node_modules/babel/bin/babel-node index.js"
+    "start": "node_modules/.bin/babel-node index.js"
   },
   "repository": {
     "type": "git",
