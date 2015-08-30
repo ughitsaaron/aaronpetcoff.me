@@ -1,12 +1,12 @@
 ---
-title: 'Using Inline SVG icons for links with click event listeners'
+title: 'Using inline SVG icons for links with click event listeners'
 tags:
   - javascript
   - html
   - css
 ---
 
-A quirky issue so I figured I would write a little bit about it.
+I came across a quirky issue yesterday so I figured I would write a little bit about it.
 
 I like to use inline SVG icons when I can. Not only are they more attractive, but they come with a whole bunch of development and performance benefits. Because the SVG is in the DOM you can manipulate it with CSS and Javascript, for example. Because the SVG is inline, you can also avoid the extra HTTP request for additional resources.
 
@@ -54,15 +54,19 @@ pizza.addEventListener('click', function (e) {
 
 This is a fine solution that totally works just fine. However, there's a CSS solution that might be a bit simpler.
 
-`pointer-events` allows a developer to designate how an element responds to both click and touch events. The spec characterizes a "pointer" as "any point of contact on the screen",
+`pointer-events` allows a developer to designate how an element responds to both click and touch events. The [W3 spec](http://www.w3.org/TR/pointerevents/#intro) characterizes a "pointer" as "any point of contact on the screen",
 
 > Newer computing devices today, however, incorporate other forms of input, including touchscreens, pen input, etc. Event types have been proposed for handling each of these forms of input individually. However, that approach often incurs unnecessary duplication of logic and event handling overhead when adding support for a new input type.
 
-Most of the `pointer-events` properties [are concerned with SVG](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events#Values).  For our purposes here, however, the `none` and `auto` properties allow a developer to define whether or not a particular element responds to a pointer event.
+Most of the `pointer-events` properties [are concerned with SVG](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events#Values).  For our purposes, the `none` and `auto` properties are the most intereting.
 
-The children of elements with the `pointer-events: none` property will inherit the property. `auto` on children will reset the expected behavior. Likewise, any node styled `pointer-events: none` with a listener will obey the listener over the style.
+`pointer-events: none` means exactly what it sounds like: the element will respond to no pointer events. Since a "pointer" is broadly defined, you don't need to reproduce this code for different devices or screens. Any event such as click or touch will be disabled for the element styled.
 
-Returning to our markup above, all this means we can remove our `closest` function and simply add to our styles,
+You can imagine how this could be useful for a number of instances beyond simply fixing SVG icons attached to Javascript listeners or anchors like in our example above. It could be useful for disabling certain <button value="buttons" style="pointer-events: none;">buttons</button> or <a href="http://www.aaronpetcoff.me/" style="pointer-events:none;">links</a>, for example, in one central place with minimal code (literally *one line*!).
+
+The children of elements styled `pointer-events: none` will inherit the property. `auto` on these children will reset the element to express the expected pointer behavior. Likewise, any HTML node styled `pointer-events: none` with a listener attached will obey the listener over the style.
+
+Returning to our markup above, this means we can remove our `closest` function and simply add the following to our styles,
 
 ```css
 /* make sure our anchor wraps around the SVG element */
@@ -75,4 +79,4 @@ svg {
 }
 ```
 
-This is totally semantic and legal markup, using the `pointer-events` property as intended, to define pointer events for an element and reduce the amount of unnessary code on writes, with no performance cost.
+This is totally semantic and legal markup using the `pointer-events` property as intended. What we get in return is replacing a few lines of Javascript in exchange for one CSS property at no performance cost.
