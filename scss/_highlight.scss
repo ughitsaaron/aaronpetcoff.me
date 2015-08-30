@@ -22,9 +22,11 @@ pre code {
 
 pre code,
 .hljs-tag,
+.lang-html .hljs-tag,
 .hljs-rules,
 .hljs-value,
-.hljs-function
+.lang-javascript .hljs-function,
+.lang-css .hljs-value,
 .hljs-preprocessor,
 .hljs-pragma {
   color: $tag;
@@ -47,10 +49,10 @@ pre code,
   color: $number;
 }
 
-.hljs-tag .hljs-value,
 .hljs-code,
 .hljs-title,
 .hljs-class,
+.hljs-tag .hljs-attribute,
 .hljs-class .hljs-title:last-child {
   color: $title;
 }
@@ -91,6 +93,7 @@ pre code,
   color: $keyword;
 }
 
+.lang-javascript .hljs-built_in,
 .hljs-function .hljs-keyword,
 .hljs-class .hljs-keyword:first-child,
 .hljs-constant,
@@ -108,6 +111,7 @@ pre code,
 .hljs-id,
 .hljs-subst,
 .hljs-type,
+.hljs-tag .hljs-value,
 .ruby .hljs-class .hljs-parent,
 .hljs-built_in,
 .django .hljs-template_tag,
@@ -150,7 +154,7 @@ pre code,
 .xml .javascript,
 .xml .vbscript,
 .xml .css,
-.xml 
+.xml
 .xml .hljs-cdata,
 .xml .php,
 .php .xml {
@@ -165,4 +169,16 @@ pre code,
       color:$comment;
     }
   }
+}
+
+code {
+  font-family: $console;
+  color: #f92672;
+}
+
+p > code {
+  background-color: rgba(0,0,0,0.05);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
 }
