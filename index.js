@@ -112,7 +112,7 @@ app.get("/feed", (req, res) => {
     posts.forEach(function(post) {
       feed.addItem({
         title: post.title,
-        link: "http://aaronpetcoff.me/#/blog/" + post.slug,
+        link: "http://aaronpetcoff.me/blog/" + post.slug,
         date: post.date,
         content: post.body
       });
