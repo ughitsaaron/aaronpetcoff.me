@@ -3,6 +3,7 @@ title: Porting my blog to Ember
 tags:
   - personal
   - javascript
+  - ember
 ---
 
 After giving it some thought I decided to port my blog over to using a client-side templating (Ember) rather than doing pure server-side rendering. Doing this not only makes transitioning between pages almost instantaneous -- it also resulted in reducing my whole code base by an enormous amount. It's an overall huge improvement.

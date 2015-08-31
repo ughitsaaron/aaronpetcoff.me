@@ -2,6 +2,7 @@
 title: Make Your Life a Little Better by Deploying with Git
 tags:
   - git
+  - ops
   - tutorial
 ---
 
