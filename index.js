@@ -114,6 +114,7 @@ app.get("/feed", (req, res) => {
         title: post.title,
         link: "http://aaronpetcoff.me/blog/" + post.slug,
         date: post.date,
+        description: post.body,
         content: post.body
       });
     });
