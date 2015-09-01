@@ -50,6 +50,6 @@ We're going to only push our `dist/` file to Github Pages. For that, we'll make 
 
 If you look at your repository after pushing, you'll see only files for production were pushed.
 
-![Ember Project on Github Pages](/img/subtree.png)
+![Ember Project on Github Pages](http://aaronpetcoff.me/img/subtree.png)
 
 That's it. Point your browser at `username.github.io/project-name` and you'll (hopefully) see your app open right up.
