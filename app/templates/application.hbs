@@ -1,0 +1,23 @@
+<div class="wrap">
+  <header>
+    <h1 class="header-name">{{#link-to "index" class="header-title"}}<span class="header-name-first">aaron</span><span class="header-name-last">petcoff</span>{{/link-to}}</h1>
+    <div class="header-tagline">web developer &bull; brooklyn</div>
+    <nav>
+      {{#link-to "index" class="nav-link"}}<svg class="icon icon-home" viewBox="0 0 32 32"><use xlink:href="#icon-home"></use></svg>{{/link-to}}
+      {{#link-to "blog" class="nav-link"}}<svg class="icon icon-quill" viewBox="0 0 1024 1024"><use xlink:href="#icon-quill"></use></svg>{{/link-to}}
+      <!-- <a href="" class="nav-link"><svg class="icon icon-profile" viewBox="0 0 32 32"><use xlink:href="#icon-stack"></use></svg></a> -->
+    </nav>
+  </header>
+
+    {{ outlet }}
+
+</div>
+<footer>
+  <ul class="footer-contact-list">
+    <li><a class="footer-contact-link" href="/feed"><svg class="icon icon-syndication" viewBox="0 0 1024 1024"><use xlink:href="#icon-syndication"></use></svg></a></li>
+    <li><a class="footer-contact-link" href="mailto:hello [ at ] aaronpetcoff [ dot ] me"><svg class="icon icon-email" viewBox="0 0 32 32"><use xlink:href="#icon-email"></use></svg></a></li>
+    <li><a class="footer-contact-link" href="https://www.github.com/ughitsaaron"><svg class="icon icon-github" viewBox="0 0 32 32"><use xlink:href="#icon-github"></use></svg></a></li>
+    <li><a class="footer-contact-link" href="http://www.twitter.com/ughitsaaron"><svg class="icon icon-twitter" viewBox="0 0 32 32"><use xlink:href="#icon-twitter"></use></svg></a></li>
+  </ul>
+  <p class="footer-copyright">&copy; {{moment-format now "YYYY" }} Aaron Petcoff</p>
+</footer>

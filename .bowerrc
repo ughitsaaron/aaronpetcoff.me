@@ -1,1 +1,4 @@
-{ "directory": "./public/libs" }
+{
+  "directory": "bower_components",
+  "analytics": false
+}

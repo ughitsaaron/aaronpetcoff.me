@@ -1,0 +1,13 @@
+{{#each posts as |post|}}
+  <li class="post">
+    <h2 class="post-title">{{#link-to "blog.post" post.slugs.self}}{{post.title}}{{/link-to}}</h2>
+    <span class="post-date">
+      Posted {{moment-from-now post.created}} |
+      <span class="post-tags">
+        {{#each post.tags as |tag|}}
+          {{#link-to "blog.tags" tag class="post-tags-tag"}}{{tag}}{{/link-to}}
+        {{/each}}
+      </span>
+    </span>
+  </li>
+{{/each}}

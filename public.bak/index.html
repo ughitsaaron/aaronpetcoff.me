@@ -88,17 +88,7 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="posts/index">
-      <ul class="post-list">
-        {{#each post in model}}
-        <li class="post">
-          <h2 class="post-title">{{#link-to "post" post}}{{post.title}}{{/link-to}}</h2>
-          <span class="post-date">Posted {{relativeDate post.date}} |  <span class="post-tags">{{#each tag in post.tags}}{{#link-to "tag" tag classNames="post-tags-tag"}}{{tag}}{{/link-to}}{{/each}}</span></span>
-        </li>
-        {{/each}}
-      </ul>
-      {{#if controllers.application.showArchiveLink}}
-        {{#link-to "archive" classNames="archive-link"}}View all posts{{/link-to}}
-      {{/if}}
+
     </script>
 
     <script type="text/x-handlebars" data-template-name="posts">
