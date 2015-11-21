@@ -6,6 +6,6 @@ export default Ember.Route.extend({
 
     return tokens.length
       ? `${tokens.join(' | ')} | ${title}`
-      : `${title}`
+      : `${title}`;
   }
 });

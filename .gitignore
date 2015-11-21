@@ -3,6 +3,7 @@
 # compiled output
 /dist
 /tmp
+bundle.js
 
 # dependencies
 /node_modules

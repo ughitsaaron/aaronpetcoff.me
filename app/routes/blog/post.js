@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params) {
-    return this.store.queryRecord('post', { slug: params.slug })
+    return this.store.queryRecord('post', { slug: params.slug });
   },
 
   titleToken: function(model) {
