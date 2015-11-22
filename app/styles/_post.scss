@@ -121,10 +121,8 @@ li:last-child .#{$module} {
   }
 }
 
-.#{$module}-comments {
-  padding-left: 1em;
-  padding-right: 1em;
-  margin-top: 1em;
+.disqus-comments {
+  margin-top: 1rem;
 }
 
 p > code {

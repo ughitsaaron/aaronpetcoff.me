@@ -18,4 +18,6 @@
       {{#link-to "blog.post" model.slugs.next class="post-nav-next"}}Next{{/link-to}}
     {{/if}}
   </div>
+
+  {{disqus-comments identifier=model.title}}
 </article>
