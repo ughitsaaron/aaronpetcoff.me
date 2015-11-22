@@ -1,3 +1,4 @@
+/* jshint node: true */
 import express from 'express';
 import _ from 'lodash';
 import server from './lib/server';
@@ -46,6 +47,18 @@ function renderPosts(posts) {
   };
 }
 
+function handleError(e) {
+  let status = e.errno === -2 ? 400 : null;
+
+  return {
+    errors: [{
+      id: 0,
+      status: status,
+      code: e.code
+    }]
+  }
+}
+
 api.get('/posts', (req, res) => {
   let query = req.query,
     hasSlug = _.has(query, 'slug'),
@@ -55,24 +68,31 @@ api.get('/posts', (req, res) => {
     case hasSlug:
       getPostFromSlug(req.query.slug)
         .then(post => res.json(renderPost(post)))
-        .catch(() => res.json({}));
+        .catch(e => res.json(handleError(e)));
+
       return;
 
     case hasTag:
       getPostsFromTag(req.query.tag)
         .then(posts => res.json(renderPosts(posts)))
-        .catch(() => res.json({}));
+
       return;
 
     default:
       getAllPosts()
-        .then(posts => res.json(renderPosts(posts)));
+        .then(posts => res.json(renderPosts(posts)))
   }
 });
 
 api.get('/posts/:id', (req, res) => {
   getPostFromId(req.params.id)
-    .then(post => res.json({ data: post, meta: {} }));
+    .then(post => res.json({ data: post, meta: {} }))
+    .catch(e => res.json({
+      errors: [{
+        id: 0,
+        status: e.status
+      }]
+    }));
 });
 
 // router.get('/feed', (req, res) => {

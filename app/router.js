@@ -9,7 +9,10 @@ Router.map(function() {
   this.route('blog', function() {
     this.route('post', { path: ':slug' });
     this.route('tags', { path: 'tag/:tag' });
+    this.route('error', { path: '*path' });
   });
+
+  this.route('fourOhFour', { path: '*path' });
 });
 
 export default Router;
