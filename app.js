@@ -25,6 +25,12 @@ app.get('/api/v1/*', (req, res, next) => {
   res.header('Content-Type', 'application/vnd.api+json');
   next();
 });
+
+// temp redirect to non-fingerprinted dir
+app.get('/jsgeo.pdf', (req, res) => {
+  res.redirect(301, '/static/jsgeo.pdf');
+});
+
 app.use('/api/v1', api);
 
 app.get('/', function(req, res) {
