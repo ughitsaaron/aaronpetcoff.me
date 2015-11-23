@@ -13,6 +13,9 @@ module.exports = function(defaults) {
     autoprefixer: {
       browsers: ['last 2 ios version'],
       cascade: false
+    },
+    fingerprint: {
+      exclude: ['static/']
     }
   });
 
