@@ -1,0 +1,16 @@
+$module: 'talk';
+
+.#{$module} {
+  @include outer-container($local-max-width:$container);
+}
+
+.#{$module}-title {
+  text-decoration: none;
+
+  a {
+    @include link {
+      color:$secondary;
+      text-decoration: underline;
+    }
+  }
+}

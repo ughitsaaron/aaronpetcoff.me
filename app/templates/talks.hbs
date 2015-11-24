@@ -1,0 +1,13 @@
+<ul class="talk-list">
+{{#each model as |talk|}}
+  <li class="talk">
+    <h2 class="talk-title"><a href="{{talk.url}}">{{talk.title}}</a></h2>
+    <span class="talk-location">
+      At {{talk.location}}
+    </span>
+    <span class="talk-date">
+      on {{moment-format talk.date "YYYY.MM.DD"}}
+    </span>
+  </li>
+{{/each}}
+</ul>

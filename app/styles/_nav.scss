@@ -31,3 +31,8 @@ nav svg {
   width: 100%;
   max-width: rem(40);
 }
+
+.#{$module}-link[href*="talks"] svg {
+  left: 0.2rem;
+  position: relative;
+}

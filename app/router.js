@@ -13,6 +13,7 @@ Router.map(function() {
   });
 
   this.route('fourOhFour', { path: '*path' });
+  this.route('talks');
 });
 
 export default Router;
