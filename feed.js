@@ -9,8 +9,9 @@ let router = express.Router(),
 let feedDetails = {
   title: 'Aaron Petcoff',
   description: 'Aaron Petcoff is a web developer based in Brooklyn, New York',
-  link: 'http://aaronpetcoff.me',
-  image: 'http://gravatar.com/avatar/e3ae39ab25e0e7d0308cc1a7ebb879ab?size=650',
+  feed_url: 'http://aaronpetcoff.me/feed',
+  site_url: 'http://aaronpetcoff.me',
+  image_url: 'http://gravatar.com/avatar/e3ae39ab25e0e7d0308cc1a7ebb879ab?size=650',
   copyright: `Copyright (c) ${now.getFullYear()} Aaron Petcoff`,
   author: {
     name: 'Aaron Petcoff',
@@ -22,7 +23,7 @@ let feedDetails = {
 function formatFeedItem(post) {
   return {
     title: post.attributes.title,
-    url: `http://aaronpetcoff.me/blog/${post.slug}`,
+    url: `http://aaronpetcoff.me/blog/${post.attributes.slugs.self}`,
     categories: post.attributes.tags,
     date: post.attributes.created,
     description: post.attributes.body
