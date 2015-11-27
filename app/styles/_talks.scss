@@ -6,6 +6,7 @@ $module: 'talk';
 
 .#{$module}-title {
   text-decoration: none;
+  margin-bottom: 0.5rem;
 
   a {
     @include link {

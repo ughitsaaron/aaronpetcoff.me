@@ -14,7 +14,8 @@ export default DS.JSONAPISerializer.extend({
       let description = repo.description.split(', '),
         title = description[1],
         location = description[2],
-        date = new Date(description[3]);
+        date = new Date(description[3]),
+        status = description[4];
 
       return {
         id: repo.id,
@@ -23,7 +24,8 @@ export default DS.JSONAPISerializer.extend({
           title: title,
           location: location,
           date: date,
-          url: `http://ughitsaaron.github.io/${repo.name}`
+          url: `http://ughitsaaron.github.io/${repo.name}`,
+          status: status
         }
       };
     });
