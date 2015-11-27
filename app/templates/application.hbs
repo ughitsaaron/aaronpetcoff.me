@@ -1,10 +1,12 @@
 <div class="wrap">
   <header>
-    <h1 class="header-name">{{#link-to "index" class="header-title"}}<span class="header-name-first">aaron</span><span class="header-name-last">petcoff</span>{{/link-to}}</h1>
+    <h1 class="header-name">{{#link-to "index" class="header-title" title="Home"}}<span class="header-name-first">aaron</span><span class="header-name-last">petcoff</span>{{/link-to}}</h1>
     <div class="header-tagline">web developer &bull; brooklyn</div>
     <nav>
-      {{#link-to "index" class="nav-link"}}<svg class="icon icon-home" viewBox="0 0 32 32"><use xlink:href="#icon-home"></use></svg>{{/link-to}}
-      {{#link-to "blog" class="nav-link"}}<svg class="icon icon-quill" viewBox="0 0 1024 1024"><use xlink:href="#icon-quill"></use></svg>{{/link-to}}
+      {{#link-to "index" class="nav-link" title="Home"}}<svg class="icon icon-home" viewBox="0 0 32 32"><use xlink:href="#icon-home"></use></svg>{{/link-to}}
+      {{#link-to "blog" class="nav-link" title="Posts"}}<svg class="icon icon-quill" viewBox="0 0 1024 1024"><use xlink:href="#icon-quill"></use></svg>{{/link-to}}
+      {{#link-to "talks" class="nav-link" title="Talks"}}<svg class="icon icon-podium" viewBox="0 0 32 32"><use xlink:href="#icon-podium"></use></svg>{{/link-to}}
+
       <!-- <a href="" class="nav-link"><svg class="icon icon-profile" viewBox="0 0 32 32"><use xlink:href="#icon-stack"></use></svg></a> -->
     </nav>
   </header>
