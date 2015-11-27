@@ -95,37 +95,4 @@ api.get('/posts/:id', (req, res) => {
     }));
 });
 
-// router.get('/feed', (req, res) => {
-//   let year = new Date();
-//   let feed = new Feed({
-//     title: 'Aaron Petcoff',
-//     description: 'Aaron Petcoff is a web developer based out of Brooklyn.',
-//     link: 'http://aaronpetcoff.me',
-//     image: 'http://aaronpetcoff.me/img/about.jpg',
-//     copyright: 'Copyright (c) ' + year.getFullYear() + ' Aaron Petcoff',
-//     author: {
-//       name: 'Aaron Petcoff',
-//       email: 'hello@aaronpetcoff.me',
-//       link: 'http://aaronpetcoff.me'
-//     }
-//   });
-
-//   return server.getAllPosts(__dirname + '/posts/')
-//   .then(posts => {
-//     posts = posts.filter((value, index) => ++index <= 10);
-//     posts.forEach(function(post) {
-//       feed.addItem({
-//         title: post.title,
-//         link: 'http://aaronpetcoff.me/blog/' + post.slug,
-//         date: post.date,
-//         description: post.body,
-//         content: post.body
-//       });
-//     });
-
-//     res.set('Content-Type', 'text/xml');
-//     res.send(feed.render('rss-2.0'));
-//   });
-// });
-
 export default api;

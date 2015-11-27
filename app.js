@@ -5,6 +5,7 @@ import compress from 'compression';
 import logger from 'morgan';
 import path from 'path';
 import api from './api';
+import feed from './feed';
 
 let app = express(),
   listener;
@@ -32,6 +33,7 @@ app.get('/jsgeo.pdf', (req, res) => {
 });
 
 app.use('/api/v1', api);
+app.use('/feed', feed);
 
 app.get('/', function(req, res) {
   res.sendFile('dist/index.html', { root: __dirname });
