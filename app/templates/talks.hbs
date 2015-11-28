@@ -1,7 +1,7 @@
 <ul class="talk-list">
 {{#each talks as |talk|}}
   <li class="talk">
-    <h3 class="talk-title"><a href="{{talk.url}}" title="{{talk.title}}">{{talk.title}}</a></h3>
+    <h2 class="talk-title"><a href="{{talk.url}}" title="{{talk.title}}">{{talk.title}}</a></h2>
     <span class="talk-details">{{talk.location}}, {{moment-format talk.date "YYYY.MM.DD"}}</span>
   </li>
 {{/each}}
