@@ -33,6 +33,5 @@ nav svg {
 }
 
 .#{$module}-link[href*="talks"] svg {
-  left: 0.25rem;
-  position: relative;
+  margin-left: 0.25rem;
 }
