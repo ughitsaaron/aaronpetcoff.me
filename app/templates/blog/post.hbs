@@ -1,15 +1,17 @@
-<article>
-  <h1>{{model.title}}</h1>
-  <span class="post-info">{{moment-format model.created "YYYY.MM.DD"}} |
-  <span class="post-tags">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <h1 itemprop="name headline">{{model.title}}</h1>
+  <span class="post-info" itemprop="datePublished">{{moment-format model.created "YYYY.MM.DD"}} |</span>
+  <span class="post-tags" itemprop="keywords">
     {{#each model.tags as |tag|}}
       {{#link-to "blog.tags" tag class="post-tags-tag"}}{{tag}}{{/link-to}}
     {{/each}}
-  </span></span>
+  </span>
 
-  {{{model.body}}}
+  <div class="post-body" itemprop="text articleBody">
+    {{{model.body}}}
+  </div>
 
-  <div class="post-nav">
+  <div class="post-nav" itemprop="pagination">
     {{#if model.slugs.prev}}
       {{#link-to "blog.post" model.slugs.prev class="post-nav-previous"}}Previous{{/link-to}}
     {{/if}}
