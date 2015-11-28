@@ -7,5 +7,15 @@ export default Ember.Route.extend({
     return tokens.length
       ? `${tokens.join(' | ')} | ${title}`
       : `${title}`;
+  },
+
+  actions: {
+    loading() {
+      document.body.classList.add('loading');
+    },
+
+    didTransition() {
+      document.body.classList.remove('loading');
+    }
   }
 });
