@@ -9,7 +9,7 @@ _Back in March I spoke at Queens JS where I shared some personal reflections on 
 
 _[My slides can be found over at Speaker Deck](https://speakerdeck.com/aptkf/becoming-a-developer-finding-community). A transcript of my talk with some minor edits are below._
 
-##On becoming a developer
+## On becoming a developer
 
 I may be preaching to the choir a bit tonight: I want to talk tonight about how important community is for emerging developers.
 
@@ -27,11 +27,11 @@ For more experienced developers – I hope that these notes can help you reflect
 
 I wanted to speak tonight about community particularly because I have been so impressed and thankful for the developer community here in New York – in particular the people around in the local JS and Sass communities.  And wanted to share some considerations on what’s made the scene here so helpful.
 
-###tl;dr
+## #tl;dr
 
 The quick tl;dr of what I want to get across here is that our field – like any field – produces its own anxieties and stresses. Being upfront about your questions and challenges and being engaged with a community of developers is the most effective remedy for those stresses.
 
-###Why Development
+## #Why Development
 
 To open up, I think it’d be helpful to start with what makes our field pretty great.
 
@@ -39,7 +39,7 @@ To open up, I think it’d be helpful to start with what makes our field pretty 
 * We make useful things We make things that are useful to people by helping them access information, make things more convenient, or entertain them.
 * My personal favorite. The “ah-ha” moment. This is that moment when everything comes together in your code. It’s like a big high five.
 
-###Challenges
+## #Challenges
 At its best, engineering rewards curiosity. But it also brings its own burdens and stresses: in particular, I think programming can lend itself to a loud “inner critic” and a tendency to feel as if one has to “know everything.”
 
 The loud “inner critic” is that kind of troll in the back of your mind that bothers you about your code, or your project. It compares you to other developers. Bugs you about why you didn’t think of something first. It’s a real jerk.
@@ -48,7 +48,7 @@ The burden of needing to know everything is that tendency that makes you feel th
 
 And of course, these stresses are not unique to our field. But I have a set of hypotheses to suggest that we may be particularly vulnerable:
 
-###Inner Critic
+## #Inner Critic
 
 **Hypothesis**: The program only executes what the developer writes.
 
@@ -56,7 +56,7 @@ Broken code, therefore, remind us of the limitations of the human condition.
 
 Thus spinning us off into an eternal spiral of existential longing and angst.
 
-###Need to know everything
+## #Need to know everything
 
 **Hypothesis**: Our work relies on an ever-growing multitude of skills, disciplines, and talents.
 
@@ -64,7 +64,7 @@ We, therefore, admire the skills, knowledge, and talents of others.
 
 We want their knowledge; and we must have it.
 
-###Messy combination
+## #Messy combination
 
 These two things can combine into a messy potion, creating the basis for a phenomenon we’ve probably all heard a lot about: **Imposter Syndrome**
 
@@ -72,11 +72,11 @@ This is a condition where – despite all evidence to the contrary – one feels
 
 The need to “prove” oneself can lead to one feeling as if any moment not spent working or developing is a sign of their “faking it.” This can lead to burnout or pushing oneself out of the field entirely, feeling as if the standard for a “real” programmer is just unrealistically out of reach.
 
-###Strategies
+## #Strategies
 
 Thankfully, there are countless ways that people in our field mitigate these stresses.  And for the purposes of this discussion I wanted to kind of parse them out into “personal” and “collective” tactics, with some more emphasis on the latter.
 
-###Personal strategies
+## #Personal strategies
 
 In her article for [A List Apart called "Never Heard of It"](http://alistapart.com/column/never-heard-of-it), Lyza Danger Gardner talks about owning up to “not knowing.” In the article she describes catching herself nodding along or panicking when a colleague or client made reference to some new bit of news or information that she wasn’t yet familiar with. To stop herself she had to learn how to be okay with saying that she didn’t know, “yet.”
 
@@ -86,7 +86,7 @@ It’s also important to make a lot of time for experimentation. At my last job,
 
 Finally, it’s crucial that one learns how to give themselves credit. Which, unfortunately, is often harder than it sounds.
 
-###Community
+## #Community
 
 But in addition to developing your own personal strategies, finding a community of developers can be a powerful resource to emerging developers.
 
@@ -100,7 +100,7 @@ A wider community can also open up opportunities to share what you know. Develop
 
 Being able to teach or to share your ideas or what you’ve learned with a group is an especially powerful pedagogical tool – it forces you to organize your own thoughts and ideas in order to be explicit and understandable to others.
 
-###Long term benefits community
+## #Long term benefits community
 
 A healthy and vibrant development community is something that can build on top of itself. By being a powerful resource for emerging developers, it can provide a strong foundation of support to the projects that come out of it.
 
@@ -108,6 +108,6 @@ In a recent article on Sitepoint called, "[On Code and Community](http://www.sit
 
 In that vein, Kravets, recommends a few things that I think are incredibly helpful to ensuring an engaged and inclusive community. For instance: making sure to have and enforce a strong code of conduct. And having active ways of connecting people together such as an IRC or Slack chat.
 
-###Conclusions
+## #Conclusions
 
 Closing things out, I’ll just reiterate that I’ve been tremendously lucky to have found a great community of developers and colleagues in Detroit and here in New York. I’m looking forward to really building some amazing stuff with you all. Thanks again.
