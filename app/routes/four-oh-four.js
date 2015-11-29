@@ -1,5 +1,5 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  titleToken: 'nagl'
+  titleToken: 'not found'
 });

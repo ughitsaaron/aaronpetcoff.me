@@ -2,11 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   title: tokens => {
-    let title = 'aaron petcoff | web developer | brooklyn';
+    let subtitle = 'aaron petcoff | web developer | brooklyn',
+      title = tokens.length
+      ? `${tokens.join(' | ')} | ${subtitle}`
+      : `${subtitle}`;
 
-    return tokens.length
-      ? `${tokens.join(' | ')} | ${title}`
-      : `${title}`;
+    return title.toLowerCase();
   },
 
   actions: {

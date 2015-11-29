@@ -6,7 +6,7 @@ export default Ember.Route.extend({
   },
 
   titleToken: function(model) {
-    return model.get('title').toLowerCase();
+    return model.get('title');
   },
 
   afterModel() {
