@@ -61,20 +61,6 @@ li:last-child .#{$module} {
   @include date;
 }
 
-.#{$module}-tags-tag {
-  position: relative;
-  z-index: 10;
-
-  &:after {
-    content:", "; // keep space for separator
-    text-decoration: none;
-  }
-
-  &:last-of-type:after {
-    content:"";
-  }
-}
-
 .#{$module}-navigation-wrap {
   text-align: center;
 }

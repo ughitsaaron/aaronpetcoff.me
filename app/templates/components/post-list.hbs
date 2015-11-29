@@ -4,7 +4,7 @@
     <span class="post-date" itemprop="datePublished">
       Posted {{moment-from-now post.created}} |
       <span class="post-tags" itemprop="keywords">
-        {{#each post.tags as |tag|}}
+        {{#each post.tags as |tag index|}}
           {{#link-to "blog.tags" tag class="post-tags-tag" title=tag}}{{tag}}{{/link-to}}
         {{/each}}
       </span>
