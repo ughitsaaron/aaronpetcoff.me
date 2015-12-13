@@ -4,6 +4,6 @@ export default Ember.Route.extend({
   titleToken: 'talks',
 
   model() {
-    return this.store.query('repository', { q: 'mytalks+user:ughitsaaron' })
+    return this.store.query('repository', { q: 'mytalks+user:ughitsaaron' });
   }
 });

@@ -1,6 +1,5 @@
 import DS from 'ember-data';
 import Ember from 'ember';
-import moment from 'moment';
 
 export default DS.JSONAPISerializer.extend({
   keyForAttribute: function(key) {
@@ -11,11 +10,22 @@ export default DS.JSONAPISerializer.extend({
     let response = {};
 
     response.data = payload.items.map(repo => {
-      let description = repo.description.split(', '),
+      /**
+       * data about each talk is stored in the repository's
+       * description in a comma separated list
+      */
+      let description = repo.description.split(', '), // break desc into array
+
+        // assign properties
         title = description[1],
         location = description[2],
         date = new Date(description[3]),
-        status = description[4];
+        status = description[4],
+        slides; // optional property in case slides aren't HTML
+
+      if (description[5]) {
+        slides = description[5];
+      }
 
       return {
         id: repo.id,
@@ -25,6 +35,7 @@ export default DS.JSONAPISerializer.extend({
           location: location,
           date: date,
           url: `http://ughitsaaron.github.io/${repo.name}`,
+          slides: slides || '',
           status: status
         }
       };
