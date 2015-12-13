@@ -7,9 +7,5 @@ export default DS.Model.extend({
   date: DS.attr('date'),
   url: DS.attr('string'),
   status: DS.attr('string'),
-  slides: DS.attr('string'),
-
-  hasSlides: Ember.computed('slides', function() {
-    return !!this.get('slides');
-  })
+  slides: DS.attr('string')
 });

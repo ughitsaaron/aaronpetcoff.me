@@ -2,6 +2,24 @@ $module: 'talk';
 
 .#{$module} {
   @include outer-container($local-max-width:$container);
+
+  
+  a[href*=".pdf"] {
+    position: relative;
+    
+    &:after {
+      content: '';
+      display: inline-block;
+      background-image: url('/img/pdf.svg');
+      width: rem(24);
+      height: rem(28);
+      background-repeat: no-repeat;
+      /* float: right; */
+      right: -2rem;
+      position: absolute;
+      top: 0.3rem;
+    }
+  }
 }
 
 .#{$module}-title {
