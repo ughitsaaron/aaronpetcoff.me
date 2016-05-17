@@ -1,4 +1,4 @@
-$module: "nav";
+$module: 'nav';
 
 #{$module} {
   display: table;
@@ -6,15 +6,20 @@ $module: "nav";
 }
 
 .#{$module}-link {
-  display: inline-block;
-  background-color: darken($primary,2%);
-  margin-right: 0.5em;
-  margin-left: 0.5em;
-  padding:11px 0 0 3px;
-  width:65px;
-  height:65px;
+  background-color: darken($primary, 2%);
+  border: 1px solid $border;
   border-radius: 50%;
-  border:1px solid $border;
+  display: inline-block;
+  height: rem(55);
+  margin-left: .5em;
+  margin-right: .5em;
+  padding: rem(11) 0 0 rem(3);
+  width: rem(55);
+
+  @include media($medium) {
+    height: rem(65);
+    width: rem(65);
+  }
 
   .icon {
     @include trs(fill);
@@ -28,14 +33,18 @@ $module: "nav";
 
   .icon-profile {
     position: relative;
-    right: 1px;
-    bottom: 2px;
+    right: rem(1);
+    bottom: rem(2);
   }
 }
 
 nav svg {
   width: 100%;
-  max-width: rem(40);
+  max-width: rem(30);
+
+  @include media($medium) {
+    max-width: rem(40);
+  }
 }
 
 .#{$module}-link[href*="talks"] svg {
