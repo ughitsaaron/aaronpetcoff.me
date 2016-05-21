@@ -5,5 +5,9 @@ export default Ember.Route.extend({
 
   model() {
     return this.store.findAll('post');
+  },
+
+  afterModel(model) {
+    ga('send', 'event', 'blog', 'click', 'blog');
   }
 });

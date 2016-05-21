@@ -9,9 +9,10 @@ export default Ember.Route.extend({
     return model.get('title');
   },
 
-  afterModel() {
+  afterModel(model) {
     // scroll to top of window after
     // transition between posts
     window.scrollTo(0, 0);
+    ga('send', 'event', 'post', 'click', model.get('title'));
   }
 });
