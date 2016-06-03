@@ -1,7 +1,6 @@
 ---
 title: Porting my blog to Ember
 tags:
-  - personal
   - javascript
   - ember
 ---

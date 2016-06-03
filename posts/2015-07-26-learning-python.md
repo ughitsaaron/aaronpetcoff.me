@@ -1,7 +1,6 @@
 ---
 title: 'Teaching Myself Python'
 tags:
-  - personal
   - python
   - education
 ---

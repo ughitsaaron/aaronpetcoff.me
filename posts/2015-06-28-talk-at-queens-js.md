@@ -1,7 +1,6 @@
 ---
 title: 'Becoming a developer (Queens JS talk transcript)'
 tags:
-  - personal
   - presentations
 ---
 
