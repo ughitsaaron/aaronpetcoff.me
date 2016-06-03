@@ -2,7 +2,7 @@
   <li class="post" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
     <h2 class="post-title" itemprop="name headline">{{#link-to "blog.post" post.slugs.self title=post.title}}{{post.title}}{{/link-to}}</h2>
     <span class="post-date" itemprop="datePublished">
-      Posted {{moment-from-now post.created}} |
+      Posted {{ post.fromNow }} |
       <span class="post-tags" itemprop="keywords">
         {{#each post.tags as |tag index|}}
           {{#link-to "blog.tags" tag class="post-tags-tag" title=tag}}{{tag}}{{/link-to}}
