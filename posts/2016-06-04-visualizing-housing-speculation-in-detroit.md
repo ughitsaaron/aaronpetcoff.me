@@ -1,0 +1,33 @@
+---
+title: Visualizing housing speculation in Detroit
+tags:
+  - javascript
+  - geography
+  - leaflet
+  - cartodb
+---
+![Abandoned houses in Detroit](/img/detroit-houses.png)
+
+Detroit's urban renaissance has been celebrated in tourism and business presses across the U.S. and the world. The trickling in of new investment promises to rescue the city from its "re-wilding" –– the reclamation by nature of a city abandoned by people. An article from [Weather.com](https://weather.com/tv/shows/secrets-of-the-earth/news/earth-reclaims-creepy-abandoned-buildings-detriot-20141029), for instance, dramatically describes Detroit as, "a battlefront in the eternal war between man and nature. But when humans abandoned half the city, nature set up its occupying forces in deserted buildings and every structure is a target to be taken over or taken down." Similarly, one blogger [observes](http://scribol.com/anthropology-and-history/urban-exploration/detroit-the-ghost-city-gradually-being-reclaimed-by-nature/),
+
+> Detroit is turning into an urban prairie, with grass overtaking sidewalks, sapling trees towering over fences, and utility lines competing with tree branches…Giant trees are growing on the roofs of skyscrapers. Abandoned buildings are full of pigeon roosts and feral cats that keep the rat population in check. Wild dog packs roam neighborhoods, hunting the pheasants, turkeys, opossums, roosters and raccoons that have returned to the city.
+
+This apparent retreat to nature, however, conceals an important social fact. These abandoned neighborhoods do not exist outside the world and remain shaped by powerful social forces. Similar to how the old West was disguised as a barren, unpopulated land offering opportunity for settlement, the new urban frontier is presented as a space marginalized from society, ripe for redevelopment.
+
+!["At least Katrina was quick" graffiti in Detroit](/img/katrina-graffiti.jpg)
+
+The physical landscape of Detroit invokes an immediate and often powerful curiosity––a demand for explanation. It has been explored in every medium from "[ruin porn](https://www.guernicamag.com/features/leary_1_15_11/)" photography to film (in the horror movie [_It Follows_](https://www.youtube.com/watch?v=QX38jXwnRAM), a slow moving, ghostly apparition relentlessly pursues its victims across the backdrop of a dilapidated and segregated metropolitan Detroit––suggesting that one's fate is inescapably bound with the history of the space around them). The city's appearance suggests the wake of some monumental and powerful force--a force that was unattainable except by war or natural disaster until recent history (I'm recalling some graffiti on an abandoned factory that lamented, "At least Katrina was quick"). This, however, was economics.
+
+Widespread property speculation contributes to the blight that characterizes many Detroit neighborhoods. Speculators control nearly [twenty percent](http://michiganradio.org/post/land-speculation-helping-or-hurting-detroit) of the city's parcels. The land and houses are often kept in various states of disuse and isolated from the surrounding community. The land is owned for no other purpose than the remote possibility of profit. These profiteers often hide anonymously behind a web of shell companies, avoiding regulation and accountability.
+
+In a modest attempt to the impact that speculation has on Detroit, I helped put out an [interactive map](http://www.propertypraxis.org) to visualize data examining speculation in the city's housing market. My collaborators on the project were Josh Akers, a geography professor at the University of Michigan and Alex B. Hill, a geographer and designer in Detroit. All of us have been active in one way or another in local activist movements in Detroit and felt like illustrating the dramatic scale and impact of speculation in Detroit could help inform further activism and policy changes. Already the project (which we've called Property Praxis) has grabbed the attention of [local media](http://wdet.org/posts/2016/05/24/83156-speculators-own-20-percent-of-land-parcels-in-detroit/) and  [politicians](http://wdet.org/posts/2016/05/25/83166-andy-meisner-shares-strategies-to-deter-land-speculation/).
+
+The data represented was gathered through research led by Akers. He drew from [2015 City of Detroit Assessor](https://data.detroitmi.gov/Property-Parcels/Parcel-Ownership-Information/pe32-xn5k) which is available from Detroit's open data portal. Individual ownership of the various shell companies was determined through a review of publicly available corporation filings with the state of Michigan or the state in which the company was registered.
+
+I used [CartoDB](http://cartodb.com), [Leaflet](http://leafletjs.com/), and [Ember](http://emberjs.com) to build the map itself. Since all the data is all grabbed by the browser through requests to a remote service, the application can be hosted as a static site on Github Pages. This means it would be relatively simple for anyone interested to [fork the repository](https://github.com/alexbhill/project-pip) and [customize it](https://github.com/alexbhill/project-pip#customizing) to point to their own CartoDB dataset.
+
+I knew virtually nothing about geography or GIS when I was invited to help with this project. This presented some real challenges (both in terms of comprehending the data being visualized, as well as the available technologies for solving various problems I came across in the course of development). Fortunately the community of people working around geography on the web has been incredibly supportive toward helping me find my way. When I presented on this project (in it's very early stage) at [JS.Geo](www.jsgeo.com) last November, I received a lot of guidance, encouragement, and support. Even more critically, however, I found a network of developers who were thoughtful about how technology can be used to help people understand the world and intervene in it. For instance, I met [Ryan Smith](https://twitter.com/Ryan_J_Smith) who [built a similar map](http://www.baltimoretaxcredit.com/) to help low-income homeowners in Baltimore receive a tax-credit that could help families save money and avoid foreclosure.
+
+Maps can show us how space is shaped and produced in order to help us navigate and intervene in the world. Toward that end, I hope that people find Property Praxis useful.
+
+(PS: I'll be presenting on this project later in June alongside Akers and Hill at the [Allied Media Conference](https://www.alliedmedia.org) and will hopefully be presenting more on it in the future, so keep on the lookout for updates!)
