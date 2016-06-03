@@ -6,7 +6,7 @@
       {{#link-to "index" class="nav-link" title="Home"}}<svg class="icon icon-home" viewBox="0 0 32 32"><use xlink:href="#icon-home"></use></svg>{{/link-to}}
       {{#link-to "blog" class="nav-link" title="Posts"}}<svg class="icon icon-quill" viewBox="0 0 1024 1024"><use xlink:href="#icon-quill"></use></svg>{{/link-to}}
       {{#link-to "talks" class="nav-link" title="Talks"}}<svg class="icon icon-podium" viewBox="0 0 32 32"><use xlink:href="#icon-podium"></use></svg>{{/link-to}}
-      <a href="/resume.pdf" class="nav-link" title="Resume" {{action 'resume' }}><svg class="icon icon-profile" viewBox="0 0 16 16"><use xlink:href="#icon-profile"></use></svg></a>
+      <a href="/resume.pdf" class="nav-link" title="Resume" {{action 'resume' preventDefault=false}}><svg class="icon icon-profile" viewBox="0 0 16 16"><use xlink:href="#icon-profile"></use></svg></a>
     </nav>
   </header>
 
