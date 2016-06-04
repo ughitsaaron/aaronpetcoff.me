@@ -11,7 +11,7 @@
     "start": "node_modules/babel-cli/bin/babel-node.js app.js --presets es2015",
     "local": "nodemon --exec \"npm start\" --watch app.js --watch api.js --watch feed.js --watch lib/server.js & ember server --proxy http://localhost:3000",
     "postinstall": "node_modules/ember-cli/node_modules/.bin/bower install && node_modules/.bin/ember build --environment=production",
-    "new": "python scripts/new-post.py",
+    "new": "python3 scripts/new-post.py",
     "test": "node_modules/.bin/babel-node/ember test"
   },
   "repository": "",
