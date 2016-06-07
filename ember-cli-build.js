@@ -15,7 +15,7 @@ module.exports = function(defaults) {
       cascade: false
     },
     fingerprint: {
-      exclude: ['static/']
+      exclude: ['img/']
     }
   });
 
