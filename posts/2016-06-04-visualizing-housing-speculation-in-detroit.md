@@ -6,7 +6,7 @@ tags:
   - leaflet
   - cartodb
 ---
-![Abandoned houses in Detroit](/img/detroit-houses.png)
+[![Abandoned houses in Detroit](/img/property-praxis.png)](http://propertypraxis.org)
 
 Detroit's urban renaissance has been celebrated in tourism and business presses across the U.S. and the world. The trickling in of new investment promises to rescue the city from its "re-wilding" –– the reclamation by nature of a city abandoned by people. An article from [Weather.com](https://weather.com/tv/shows/secrets-of-the-earth/news/earth-reclaims-creepy-abandoned-buildings-detriot-20141029), for instance, dramatically describes Detroit as, "a battlefront in the eternal war between man and nature. But when humans abandoned half the city, nature set up its occupying forces in deserted buildings and every structure is a target to be taken over or taken down." Similarly, one blogger [observes](http://scribol.com/anthropology-and-history/urban-exploration/detroit-the-ghost-city-gradually-being-reclaimed-by-nature/),
 
