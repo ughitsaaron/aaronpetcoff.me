@@ -9,6 +9,8 @@ export default DS.JSONAPISerializer.extend({
   normalizeQueryResponse(store, model, payload) {
     let response = {};
 
+    console.log(payload, payload.items);
+
     response.data = payload.items.map(repo => {
       /**
        * data about each talk is stored in the repository's

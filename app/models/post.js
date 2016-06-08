@@ -3,6 +3,7 @@ import moment from 'moment';
 
 export default DS.Model.extend({
   title: DS.attr('string'),
+  description: DS.attr('string'),
   created: DS.attr('date'),
   body: DS.attr('string'),
   tags: DS.attr(),

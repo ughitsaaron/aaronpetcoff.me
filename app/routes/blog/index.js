@@ -1,13 +1,18 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  titleToken: 'blog',
+  headData: Ember.inject.service(),
 
   model() {
     return this.store.findAll('post');
   },
 
   afterModel(model) {
-    ga('send', 'event', 'blog', 'click', 'blog');
+    this.set('headData.title', 'blog | aaron petcoff | web developer | brooklyn');
+    this.set('headData.description', 'I\'m a web developer living in Brooklyn who is excited about working with new technologies, working with cool people, and trying to make the web (and the world) a better place.');
+    
+    if (window && window.ga) {
+      ga('send', 'event', 'blog', 'click', 'blog');
+    }
   }
 });

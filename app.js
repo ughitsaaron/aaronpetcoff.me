@@ -1,14 +1,16 @@
 'use strict';
 
 import express from 'express';
+import fastboot from 'fastboot-express-middleware';
 import compress from 'compression';
 import logger from 'morgan';
 import path from 'path';
 import api from './api';
 import feed from './feed';
 
-let app = express(),
-  listener;
+const port = process.env.PORT || 3000;
+
+let app = express();
 
 // start logging
 app.use(logger('common'));
@@ -16,9 +18,6 @@ app.use(logger('common'));
 // gzip static assets
 app.use(compress());
 
-// start web server
-listener = app.listen(process.env.PORT || 3000);
-console.log('Listening on port 3000');
 app.use(express.static(`${__dirname}/dist`));
 
 // prefix all routes with api & version
@@ -35,10 +34,7 @@ app.get('/jsgeo.pdf', (req, res) => {
 app.use('/api/v1', api);
 app.use('/feed', feed);
 
-app.get('/', function(req, res) {
-  res.sendFile('dist/index.html', { root: __dirname });
-});
-
-app.get('*', function(req, res) {
-  res.sendFile('dist/index.html', { root: __dirname });
+app.get('/*', fastboot(__dirname + '/dist'));
+app.listen(port, function () {
+  console.log('Fastboot app listening on ' + port);
 });

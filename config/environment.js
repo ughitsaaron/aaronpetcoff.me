@@ -21,6 +21,9 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+    fastboot: {
+      hostWhitelist: ['aaronpetcoff.me', /^localhost:\d+$/]
+    },
     contentSecurityPolicy: {
       'connect-src': "'self' https://api.github.com",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",

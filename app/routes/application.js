@@ -1,22 +1,24 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  title: tokens => {
-    let subtitle = 'aaron petcoff | web developer | brooklyn',
-      title = tokens.length
-      ? `${tokens.join(' | ')} | ${subtitle}`
-      : `${subtitle}`;
+  headData: Ember.inject.service(),
 
-    return title.toLowerCase();
+  afterModel() {
+    this.set('headData.title', 'aaron petcoff | web developer | brooklyn');
+    this.set('headData.description', 'I\'m a web developer living in Brooklyn who is excited about working with new technologies, working with cool people, and trying to make the web (and the world) a better place.')
   },
 
   actions: {
     loading() {
-      document.body.classList.add('loading');
+      if (window && window.document) {
+        document.body.classList.add('loading');
+      }
     },
 
     didTransition() {
-      document.body.classList.remove('loading');
+      if (window && window.document) {
+        document.body.classList.remove('loading');
+      }
     }
   }
 });

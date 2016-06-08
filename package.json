@@ -27,6 +27,8 @@
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-babel": "^5.1.6",
     "ember-cli-dependency-checker": "^1.2.0",
+    "ember-cli-fastboot": "1.0.0-beta.3",
+    "ember-cli-head": "0.0.7",
     "ember-cli-htmlbars": "^1.0.3",
     "ember-cli-htmlbars-inline-precompile": "^0.3.1",
     "ember-cli-inject-live-reload": "^1.4.0",
@@ -42,6 +44,7 @@
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
     "ember-moment": "6.1.0",
+    "ember-network": "0.3.0",
     "ember-resolver": "^2.0.3",
     "loader.js": "^4.0.1",
     "moment": "^2.13.0",
@@ -55,13 +58,19 @@
     "bluebird": "^3.0.5",
     "compression": "^1.6.0",
     "express": "^4.13.3",
+    "fastboot-express-middleware": "^1.0.0-beta.6",
     "feed": "^0.2.6",
     "front-matter": "^2.0.0",
     "highlight.js": "^8.9.1",
-    "lodash": "^3.10.1",
+    "lodash": "^4.13.1",
     "meta-marked": "^0.3.4",
     "morgan": "^1.6.1",
     "request": "^2.65.0",
-    "rss": "^1.2.1"
-  }
+    "rss": "^1.2.1",
+    "striptags": "^2.1.1"
+  },
+  "fastbootDependencies": [
+    "moment",
+    "moment-format"
+  ]
 }
