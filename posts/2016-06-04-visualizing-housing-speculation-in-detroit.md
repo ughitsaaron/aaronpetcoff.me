@@ -1,5 +1,6 @@
 ---
 title: Visualizing housing speculation in Detroit
+image: property-praxis.png
 tags:
   - javascript
   - geography

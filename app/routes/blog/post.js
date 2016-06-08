@@ -8,11 +8,11 @@ export default Ember.Route.extend({
   },
 
   afterModel(model) {
-    const title = model.get('title'),
-      description = model.get('description');
+    const title = model.get('title').toLowerCase() + ' | aaron petcoff | web developer | brooklyn';
 
-    this.set('headData.title', title.toLowerCase() + ' | aaron petcoff | web developer | brooklyn');
-    this.set('headData.description', description);
+    this.set('headData.title', title);
+    this.set('headData.description', model.get('description'));
+    this.set('headData.image', model.get('image'));
     // scroll to top of window after
     // transition between posts
     if (window && window.ga) {

@@ -6,6 +6,7 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   created: DS.attr('date'),
   body: DS.attr('string'),
+  image: DS.attr('string'),
   tags: DS.attr(),
   slugs: DS.attr(),
 
