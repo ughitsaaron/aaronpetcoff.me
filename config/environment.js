@@ -22,7 +22,7 @@ module.exports = function(environment) {
       // when it is created
     },
     fastboot: {
-      hostWhitelist: ['aaronpetcoff.me', /^localhost:\d+$/]
+      hostWhitelist: ['www.aaronpetcoff.me', /^localhost:\d+$/]
     },
     contentSecurityPolicy: {
       'connect-src': "'self' https://api.github.com",
@@ -33,6 +33,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.host = 'http://localhost:' + (process.env.PORT || 3000)
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -53,7 +54,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.host = 'http://www.aaronpetcoff.me'
   }
 
   return ENV;

@@ -20,6 +20,14 @@ app.use(compress());
 
 app.use(express.static(`${__dirname}/dist`));
 
+if (process.env.NODE_ENV !== 'production') {
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+}
+
 // prefix all routes with api & version
 app.get('/api/v1/*', (req, res, next) => {
   res.header('Content-Type', 'application/vnd.api+json');
