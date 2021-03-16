@@ -25,9 +25,6 @@ export default function IndexPage() {
         i enjoy seeing live music, writing, and reading sci-fi, history, and
         poetry. i believe social, economic, and global justice are important.
       </p>
-      <p>
-        sometimes <Link to="/blog">i write things and put them here</Link>
-      </p>
       <p>here are some things i've made recently</p>
       <ProjectList>
         <li>

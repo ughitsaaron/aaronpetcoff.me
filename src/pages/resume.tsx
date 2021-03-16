@@ -12,7 +12,7 @@ export default function Resume() {
         <h2>work</h2>
         <ul>
           <li>
-            <h3>front-end engineer, frame.io</h3>
+            <h3>senior software engineer, frame.io</h3>
             <div>november 2018 – (current)</div>
           </li>
           <li>
