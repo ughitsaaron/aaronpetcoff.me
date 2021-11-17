@@ -3,7 +3,9 @@ module.exports = {
     title: 'aaron petcoff | software engineer | brooklyn',
     description:
       'aaron petcoff is a software engineer living in brooklyn, new york',
-    author: '@ughitsaaron'
+    author: '@ughitsaaron',
+    siteUrl: 'https://crimes.cool',
+    image: '/me.jpg'
   },
   plugins: [
     'gatsby-plugin-react-helmet',

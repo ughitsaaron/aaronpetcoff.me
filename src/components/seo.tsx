@@ -18,12 +18,15 @@ function SEO({ description = '', lang = 'en', meta = [], title = ''}) {
             title
             description
             author
+            siteUrl
+            image
           }
         }
       }
     `
   );
 
+  const metaImage = `${site.siteMetadata.siteUrl}${site.siteMetadata.image}`;
   const metaDescription = description || site.siteMetadata.description;
   const metaTitle = title || site.siteMetadata.title;
 
@@ -66,9 +69,20 @@ function SEO({ description = '', lang = 'en', meta = [], title = ''}) {
         {
           name: `twitter:description`,
           content: metaDescription
-        }
+        },
+        {
+          property: "og:image",
+          content: metaImage,
+        },
+        {
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
       ].concat(meta)}
-    />
+    >
+      <meta name="description" content={site.siteMetadata.description} />
+      <meta name="image" content={site.siteMetadata.image} />
+    </Helmet>
   );
 }
 
