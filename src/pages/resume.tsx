@@ -12,8 +12,12 @@ export default function Resume() {
         <h2>work</h2>
         <ul>
           <li>
+            <h3>senior software engineer, adobe</h3>
+            <div>november 2021 – current</div>
+          </li>
+          <li>
             <h3>senior software engineer, frame.io</h3>
-            <div>november 2018 – (current)</div>
+            <div>november 2018 – november 2021</div>
           </li>
           <li>
             <h3>

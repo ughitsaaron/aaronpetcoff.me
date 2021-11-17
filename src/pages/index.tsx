@@ -19,7 +19,7 @@ export default function IndexPage() {
       <h1>Hi, my name is Aaron Petcoff</h1>
       <p>
         i'm a software engineer living in Brooklyn and i work at{' '}
-        <a href="https://frame.io">Frame.io</a>.
+        <a href="https://frame.io">Frame.io</a>, an <a href="https://www.adobe.com/">Adobe</a> company.
       </p>
       <p>
         i enjoy seeing live music, writing, and reading sci-fi, history, and
