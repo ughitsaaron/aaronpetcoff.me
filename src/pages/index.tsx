@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Photo from '../components/photo';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const validBadge = require('../images/valid.gif');
 
@@ -15,7 +16,7 @@ export default function IndexPage() {
   return (
     <Layout>
       <SEO />
-      <Photo />
+      <StaticImage src="../images/me.jpg" width={450} alt="it's me with a handsome romanesco" />
       <h1>Hi, my name is Aaron Petcoff</h1>
       <p>
         i'm a software engineer living in Brooklyn and i work at{' '}

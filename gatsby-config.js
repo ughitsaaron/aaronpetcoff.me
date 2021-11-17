@@ -7,6 +7,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-image',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -31,7 +32,8 @@ module.exports = {
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
-        display: 'minimal-ui'
+        display: 'minimal-ui',
+        icons: [],
       }
     },
     {
