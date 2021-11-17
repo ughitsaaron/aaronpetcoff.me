@@ -15,13 +15,6 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'md',
-        path: `${__dirname}/src/md`
-      }
-    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -34,17 +27,6 @@ module.exports = {
         theme_color: '#663399',
         display: 'minimal-ui',
         icons: [],
-      }
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {}
-          }
-        ]
       }
     },
     'gatsby-plugin-styled-components',
