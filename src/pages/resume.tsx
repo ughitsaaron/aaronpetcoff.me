@@ -1,13 +1,13 @@
 import React from 'react';
-import Photo from '../components/photo';
 import { Link } from 'gatsby';
 import Layout from '../components/layout';
 import Footer from '../components/footer';
+import { StaticImage } from 'gatsby-plugin-image';
 
 export default function Resume() {
   return (
     <Layout>
-      <Photo />
+      <StaticImage src="../images/me.jpg" width={450} alt="it's me with a handsome romanesco" />
       <div>
         <h2>work</h2>
         <ul>
