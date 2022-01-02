@@ -15,11 +15,12 @@ export default function IndexPage() {
   return (
     <Layout>
       <SEO />
-      <StaticImage src="../images/me.jpg" width={450} alt="it's me with a handsome romanesco" />
+      <StaticImage src="../images/me.jpg" width={450} alt="it's a me" />
       <h1>Hi, my name is Aaron Petcoff</h1>
       <p>
         i'm a software engineer living in Brooklyn and i work at{' '}
-        <a href="https://frame.io">Frame.io</a>, an <a href="https://www.adobe.com/">Adobe</a> company.
+        <a href="https://frame.io">Frame.io</a>, an{' '}
+        <a href="https://www.adobe.com/">Adobe</a> company.
       </p>
       <p>
         i enjoy seeing live music, writing, and reading sci-fi, history, and
@@ -84,11 +85,9 @@ export default function IndexPage() {
       </p>
       <p>
         you can contact me thru electronic mail at{' '}
-        <a href="mailto:hello [at] aaronpetcoff [dot] me">
-          hello [at] aaronpetcoff [dot] me
-        </a>{' '}
-        or on twitter dot com at{' '}
-        <a href="https://twitter.com/ughitsaaron">@ughitsaaron</a>.
+        <a href="mailto:xfilesfan69@crimes.cool">
+          xfilesfan69 [at] crimes [dot] cool
+        </a>
       </p>
       <p>
         my pgp fingerprint is{' '}
