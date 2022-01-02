@@ -5,8 +5,6 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { StaticImage } from 'gatsby-plugin-image';
 
-const validBadge = require('../images/valid.gif');
-
 const ProjectList = styled.ul`
   line-height: 1.5;
 `;
@@ -95,7 +93,7 @@ export default function IndexPage() {
           A0AA AEA9 9F9E 2E9C 02F7 8B7D 2E8D 39DF 26A5 18BF
         </a>
       </p>
-      <img src={validBadge} alt="i'm valid" />
+      <StaticImage src="../images/valid.gif" alt="i'm valid" />
     </Layout>
   );
 }
