@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+  build:
+    commands:
+      - echo "Installing yarn"
+      - npm install -g yarn
+      - echo "yarn version"
+      - yarn -v
+  pre_build:
+    commands:
+      - echo "Installing dependencies"
+      - yarn install
+  build:
+    commands:
+      - echo "Build started on `date`"
+      - echo "Compiling the Node.js code"
+      - yarn build
+      - cd $CODEBUILD_SRC_DIR/public
+  post_build:
+    commands:
+      - echo "Preparing push to Raspberry Pi"
+      - apt-get update
+      - apt-get install -y sshpass
+      - echo "Push to Raspberry Pi"
+      - sshpass -p $DEPLOY_PASS scp -r -oStrictHostKeyChecking=no -P $PI_PORT ./* deploy@$PI_DNS:~/www/aaronpetcoff.me
