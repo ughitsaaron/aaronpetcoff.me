@@ -14,17 +14,31 @@ export default function IndexPage() {
     <Layout>
       <SEO />
       <StaticImage src="../images/me.jpg" width={450} alt="it's a me" />
-      <h1>Hi, my name is Aaron Petcoff</h1>
+      <h1>Hello, my name is Aaron Petcoff.</h1>
       <p>
-        i'm a software engineer living in Brooklyn and i work at{' '}
+        i live in brooklyn, new york. i'm originally from{' '}
+        <a href="https://www.youtube.com/watch?v=FNFDKm8F4hg">
+          Detroit and am very proud of that
+        </a>
+        . i work as a software engineer at{' '}
         <a href="https://frame.io">Frame.io</a>, an{' '}
         <a href="https://www.adobe.com/">Adobe</a> company.
       </p>
       <p>
-        i enjoy seeing live music, writing, and reading sci-fi, history, and
-        poetry. i believe social, economic, and global justice are important.
+        i enjoy dive bars,{' '}
+        <a href="https://www.instagram.com/p/CjaUo6sOX2O">live music</a>,
+        hockey, writing, and history. the two most influential books i've ever
+        read are{' '}
+        <a href="https://www.marxists.org/archive/marx/works/1867-c1/index.htm">
+          <i>Capital, Vol. 1</i>
+        </a>{' '}
+        and{' '}
+        <a href="https://web.mit.edu/6.001/6.037/sicp.pdf">
+          <i>Structure and Interpretation of Computer Programs</i>
+        </a>
+        .
       </p>
-      <p>here are some things i've made recently</p>
+      <p>here are some of the things i've built for the web in my spare time</p>
       <ProjectList>
         <li>
           <a href="https://ughitsaaron.github.io/react-wasm-demo/">
@@ -72,8 +86,8 @@ export default function IndexPage() {
           <a>
             <strong>bodega cats of nyc (w.i.p.)</strong>
           </a>{' '}
-          – an interface for mapping &amp; rating the furry &amp; friendly
-          felines of new york's most beloved &amp; bathroomless institution
+          – an interface for collaboratively mapping the feline guardians of new
+          york's most beloved &amp; bathroomless institution
         </li>
       </ProjectList>
       <p>
@@ -83,15 +97,7 @@ export default function IndexPage() {
       </p>
       <p>
         you can contact me thru electronic mail at{' '}
-        <a href="mailto:xfilesfan69@crimes.cool">
-          xfilesfan69 [at] crimes [dot] cool
-        </a>
-      </p>
-      <p>
-        my pgp fingerprint is{' '}
-        <a href="/keybase.html">
-          A0AA AEA9 9F9E 2E9C 02F7 8B7D 2E8D 39DF 26A5 18BF
-        </a>
+        <a href="mailto:xfilesfan69@aol.com">xfilesfan69 [at] aol [dot] com</a>
       </p>
       <StaticImage src="../images/valid.gif" alt="i'm valid" />
     </Layout>
