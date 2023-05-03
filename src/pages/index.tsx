@@ -17,12 +17,9 @@ export default function IndexPage() {
       <h1>Hello, my name is Aaron Petcoff.</h1>
       <p>
         i live in brooklyn, new york. i'm originally from{' '}
-        <a href="https://www.youtube.com/watch?v=FNFDKm8F4hg">
-          Detroit and am very proud of that
-        </a>
-        . i work as a software engineer at{' '}
-        <a href="https://frame.io">Frame.io</a>, an{' '}
-        <a href="https://www.adobe.com/">Adobe</a> company.
+        <a href="https://www.youtube.com/watch?v=FNFDKm8F4hg">Detroit</a>. i
+        work as a software engineer at <a href="https://frame.io">Frame.io</a>,
+        an <a href="https://www.adobe.com/">Adobe</a> company.
       </p>
       <p>
         i enjoy dive bars,{' '}
