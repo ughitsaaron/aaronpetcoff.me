@@ -8,6 +8,7 @@ module.exports = {
     image: '/me.jpg'
   },
   plugins: [
+    'gatsby-plugin-netlify-cms',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-image',
     {
@@ -28,7 +29,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icons: [],
+        icons: []
       }
     },
     'gatsby-plugin-styled-components',
