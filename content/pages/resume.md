@@ -1,7 +1,7 @@
 ---
 image: /images/uploads/me2.jpg
 ---
-## work
+## work 
 
 - ### senior software engineer, adobe
 
