@@ -26,12 +26,14 @@ collections:
         slug: '{{title}}'
         file: content/pages/home.md
         fields:
-          - { label: Title, name: title, widget: hidden, default: title }
+          - { label: Image, name: image, widget: file }
+          - { label: Title, name: title, widget: hidden, default: home }
           - { label: Body, name: body, widget: markdown }
       - label: Resume
         name: resume
         slug: '{{title}}'
         file: content/pages/resume.md
         fields:
+          - { label: Image, name: image, widget: file }
           - { label: Title, name: title, widget: hidden, default: resume }
           - { label: Body, name: body, widget: markdown }
