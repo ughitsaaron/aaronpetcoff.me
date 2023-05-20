@@ -13,6 +13,6 @@ here are some of the things i've built for the web in my spare time
 * **[property praxis](http://propertypraxis.org/)** – an interactive map documenting property speculation in detroit ([source](https://github.com/alexbhill/project-pip))
 * **bodega cats of nyc (w.i.p.)** – an interface for collaboratively mapping the feline guardians of new york's most beloved & bathroomless institution
 
-you can find out more about me from my github and my resume.
+you can find out more about me from [my github](https://www.github.com/ughitsaaron) and [my resume](http://localhost:8000/resume/).
 
 you can contact me thru electronic mail at <a href="mailto:xfilesfan69 [at] aol [dot] com">xfilesfan69 \[at] aol \[dot] com</a>
