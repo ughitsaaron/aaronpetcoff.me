@@ -8,13 +8,12 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-netlify-cms',
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-image',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`
+        path: `${__dirname}/static/images/uploads`
       }
     },
     {
@@ -31,7 +30,19 @@ module.exports = {
         path: `${__dirname}/content`
       }
     },
-    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-transformer-remark'
+      // options: {
+      //   plugins: [
+      //     {
+      //       resolve: 'gatsby-remark-images',
+      //       options: {
+      //         maxWidth: 580
+      //       }
+      //     }
+      //   ]
+      // }
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-graphql-codegen',
