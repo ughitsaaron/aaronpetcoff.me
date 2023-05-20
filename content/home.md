@@ -1,8 +1,8 @@
 ### Hello, my name is Aaron Petcoff.
 
-i live in brooklyn, new york. i'm originally from Detroit. i work as a software engineer at Frame.io, an Adobe company.
+i live in brooklyn, new york. i'm originally from [Detroit](https://www.youtube.com/watch?v=FNFDKm8F4hg). i work as a software engineer at [Frame.io](https://frame.io/), an [Adobe](https://www.adobe.com/) company.
 
-i enjoy dive bars, live music, hockey, writing, and history. the two most influential books i've ever read are Capital, Vol. 1 and Structure and Interpretation of Computer Programs.
+i enjoy dive bars, [live music](https://www.instagram.com/p/CjaUo6sOX2O), hockey, writing, and history. the two most influential books i've ever read are *[Capital, Vol. 1](https://www.marxists.org/archive/marx/works/1867-c1/index.htm)* and *[Structure and Interpretation of Computer Programs](https://web.mit.edu/6.001/6.037/sicp.pdf)*.
 
 here are some of the things i've built for the web in my spare time
 
