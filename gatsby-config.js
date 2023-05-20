@@ -18,20 +18,16 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
-        start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icons: []
+        name: 'blog',
+        path: `${__dirname}/content/blog`
       }
     },
+    'gatsby-transformer-remark',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-typescript',
