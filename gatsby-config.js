@@ -4,8 +4,7 @@ module.exports = {
     description:
       'aaron petcoff is a software engineer living in brooklyn, new york',
     author: '@ughitsaaron',
-    siteUrl: 'https://crimes.cool',
-    image: '/me.jpg'
+    siteUrl: 'https://crimes.cool'
   },
   plugins: [
     'gatsby-plugin-netlify-cms',
@@ -25,10 +24,17 @@ module.exports = {
         path: `${__dirname}/content/blog`
       }
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: `${__dirname}/content`
+      }
+    },
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-styled-components',
+    'gatsby-plugin-graphql-codegen',
     {
       resolve: 'gatsby-plugin-typescript',
       options: {
@@ -42,8 +48,5 @@ module.exports = {
         trackingId: 'UA-47847770-2'
       }
     }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
   ]
 };

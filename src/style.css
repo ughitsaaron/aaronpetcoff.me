@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=pt+serif:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+  font-family: 'pt serif', serif;
+  font-size: 1.2rem;
+  background-color: #fefefe;
+}
+
+:link {
+  color: #1c73c4;
+}
+
+:visited {
+  color: #57127b;
+}
+
+main {
+  max-width: 960px;
+  margin: auto;
+  color: #222;
+}

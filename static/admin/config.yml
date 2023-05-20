@@ -1,14 +1,15 @@
 backend:
   name: git-gateway
 
-media_folder: images/uploads
+media_folder: static/images/uploads
+public_folder: /images/uploads
 
 collections:
   - name: blog
     label: Blog
     folder: content/blog
     create: true
-    slug: index
+    slug: '{{title}}'
     path: '{{title}}'
     editor:
       preview: true
@@ -22,11 +23,15 @@ collections:
     files:
       - label: Home
         name: home
-        file: content/home.md
+        slug: '{{title}}'
+        file: content/pages/home.md
         fields:
+          - { label: Title, name: title, widget: hidden, default: title }
           - { label: Body, name: body, widget: markdown }
       - label: Resume
         name: resume
-        file: content/resume.md
+        slug: '{{title}}'
+        file: content/pages/resume.md
         fields:
+          - { label: Title, name: title, widget: hidden, default: resume }
           - { label: Body, name: body, widget: markdown }
