@@ -1,8 +1,6 @@
 ---
 title: home
 ---
-!["its me"](/images/uploads/me1.jpg)
-
 # Hello, my name is Aaron Petcoff.
 
 i live in brooklyn, new york. i'm originally from [Detroit](https://www.youtube.com/watch?v=FNFDKm8F4hg). i work as a software engineer at [Frame.io](https://frame.io/), an [Adobe](https://www.adobe.com/) company.
