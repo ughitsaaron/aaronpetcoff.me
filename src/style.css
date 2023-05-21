@@ -14,6 +14,16 @@ img {
   background-color: transparent; */
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li > p:after {
+  content: '…'
+}
+
+a,
 :link {
   color: #1c73c4;
 }

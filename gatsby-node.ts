@@ -10,7 +10,11 @@ export async function createPages({ graphql, actions, reporter }) {
   // Get all markdown blog posts sorted by date
   const result = await graphql(`
     {
-      allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
+      allMarkdownRemark(
+        sort: { frontmatter: { date: ASC } }
+        filter: { fileAbsolutePath: { regex: "/blog/" } }
+        limit: 1000
+      ) {
         nodes {
           id
           fields {
@@ -63,7 +67,7 @@ export function onCreateNode({ node, actions, getNode }) {
     createNodeField({
       name: `slug`,
       node,
-      value
+      value: path.join('/blog/', value)
     });
   }
 }

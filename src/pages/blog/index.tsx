@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import type { PageProps } from 'gatsby';
 import type { BlogPageQuery } from '../../../graphql-types';
-import { StaticImage } from 'gatsby-plugin-image';
 
 const BlogPage = ({ data }: PageProps<BlogPageQuery>) => {
   return (
@@ -10,9 +9,11 @@ const BlogPage = ({ data }: PageProps<BlogPageQuery>) => {
       <h3>blog</h3>
       <ul>
         {data.allMarkdownRemark.edges.map((post) => (
-          <li>
+          <li key={post.node.id}>
             <h4>
-              <Link to={`/blog/`}>{post.node.frontmatter.title}</Link>
+              <Link to={post.node.fields.slug}>
+                {post.node.frontmatter.title}
+              </Link>
             </h4>
             <h5>{post.node.frontmatter.date}</h5>
             <p>{post.node.excerpt}</p>
@@ -30,9 +31,13 @@ export const query = graphql`
     allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/blog/" } }) {
       edges {
         node {
+          id
           frontmatter {
             date(fromNow: true)
             title
+          }
+          fields {
+            slug
           }
           excerpt(truncate: true, pruneLength: 75)
         }

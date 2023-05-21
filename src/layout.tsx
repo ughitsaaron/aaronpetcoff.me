@@ -9,19 +9,12 @@ type Props = {
 };
 
 const Layout = ({ children, path }: Props) => {
-  console.log({ path });
   return (
     <>
       <SEO />
       <main>{children}</main>
-      {path !== '/' && (
-        <div>
-          <hr />
-          <p>
-            <Link to="/">back home</Link>
-          </p>
-        </div>
-      )}
+      {path === '/blog/' && <Link to="/">back home</Link>}
+      {/blog\/+.$/.test(path) && <Link to="/blog">back to blog</Link>}
     </>
   );
 };
