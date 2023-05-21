@@ -18,4 +18,6 @@ here are some of the things i've built for the web in my spare time
 
 you can find out more about me from [my github](https://www.github.com/ughitsaaron) and [my resume](http://localhost:8000/resume/).
 
+i﻿ might write something on [my blog sometime](/blog).
+
 you can contact me thru electronic mail at <a href="mailto:xfilesfan69 [at] aol [dot] com">xfilesfan69 \[at] aol \[dot] com</a>
