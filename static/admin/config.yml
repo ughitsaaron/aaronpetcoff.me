@@ -10,7 +10,7 @@ collections:
     folder: content/blog
     create: true
     slug: '{{title}}'
-    path: '{{title}}'
+    path: 'blog/{{title}}'
     editor:
       preview: true
     fields:
@@ -23,17 +23,13 @@ collections:
     files:
       - label: Home
         name: home
-        slug: '{{title}}'
         file: content/pages/home.md
         fields:
           - { label: Image, name: image, widget: file }
-          - { label: Title, name: title, widget: hidden, default: home }
           - { label: Body, name: body, widget: markdown }
       - label: Resume
         name: resume
-        slug: '{{title}}'
         file: content/pages/resume.md
         fields:
           - { label: Image, name: image, widget: file }
-          - { label: Title, name: title, widget: hidden, default: resume }
           - { label: Body, name: body, widget: markdown }

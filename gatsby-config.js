@@ -9,6 +9,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-netlify-cms',
     'gatsby-plugin-image',
+    'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
