@@ -4,17 +4,21 @@ body {
   font-family: 'pt serif', serif;
   font-size: 1.2rem;
   background-color: #fefefe;
+  color: #222;
+}
+
+main, footer {
+  max-width: 960px;
+  margin: auto;
+  padding-bottom: 16px;
 }
 
 img {
   max-width: 100%;
   max-height: 100%;
-  /* display: block;
-  background-size: contain;
-  background-color: transparent; */
 }
 
-ul {
+ul.blog {
   list-style: none;
   padding: 0;
 }
@@ -30,10 +34,4 @@ a,
 
 :visited {
   color: #57127b;
-}
-
-main {
-  max-width: 960px;
-  margin: auto;
-  color: #222;
 }

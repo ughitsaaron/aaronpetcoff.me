@@ -13,8 +13,10 @@ const Layout = ({ children, path }: Props) => {
     <>
       <SEO />
       <main>{children}</main>
-      {path === '/blog/' && <Link to="/">back home</Link>}
-      {/blog\/+.$/.test(path) && <Link to="/blog">back to blog</Link>}
+      <footer>
+        {['/blog/', '/resume/'].includes(path) && <Link to="/">back home</Link>}
+        {/blog\/+./.test(path) && <Link to="/blog">back to blog</Link>}
+      </footer>
     </>
   );
 };

@@ -7,7 +7,7 @@ const BlogPage = ({ data }: PageProps<BlogPageQuery>) => {
   return (
     <>
       <h3>blog</h3>
-      <ul>
+      <ul className="blog">
         {data.allMarkdownRemark.edges.map((post) => (
           <li key={post.node.id}>
             <h4>
