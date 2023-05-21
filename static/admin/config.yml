@@ -9,7 +9,7 @@ collections:
     label: Blog
     folder: content/blog
     create: true
-    slug: '{{title}}'
+    slug: 'blog/{{title}}'
     preview_path: 'blog/{{title}}'
     editor:
       preview: true

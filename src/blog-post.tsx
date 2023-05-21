@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import type { PageProps } from 'gatsby';
-import type { BlogPostQuery } from '../../graphql-types';
+import type { BlogPostQuery } from '../graphql-types';
 import { StaticImage } from 'gatsby-plugin-image';
 
 const BlogPost = ({ data, ...rest }: PageProps<BlogPostQuery>) => {

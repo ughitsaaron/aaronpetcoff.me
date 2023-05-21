@@ -2,7 +2,7 @@ import path from 'path';
 import { createFilePath } from 'gatsby-source-filesystem';
 
 // Define the template for blog post
-const blogPost = path.resolve('./src/pages/blog-post.tsx');
+const blogPost = path.resolve('./src/blog-post.tsx');
 
 export async function createPages({ graphql, actions, reporter }) {
   const { createPage } = actions;
@@ -81,16 +81,11 @@ export function createSchemaCustomization({ actions }) {
     type SiteSiteMetadata {
       author: Author
       siteUrl: String
-      social: Social
     }
 
     type Author {
       name: String
       summary: String
-    }
-
-    type Social {
-      twitter: String
     }
 
     type MarkdownRemark implements Node {
