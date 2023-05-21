@@ -10,7 +10,7 @@ collections:
     folder: content/blog
     create: true
     slug: '{{title}}'
-    path: 'blog/{{title}}'
+    preview_path: 'blog/{{title}}'
     editor:
       preview: true
     fields:

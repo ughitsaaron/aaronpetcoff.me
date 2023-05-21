@@ -4,8 +4,7 @@ import type { PageProps } from 'gatsby';
 import type { BlogPageQuery } from '../../../graphql-types';
 import { StaticImage } from 'gatsby-plugin-image';
 
-const BlogPage = ({ data, ...rest }: PageProps<BlogPageQuery>) => {
-  console.log({ rest });
+const BlogPage = ({ data }: PageProps<BlogPageQuery>) => {
   return (
     <>
       <h3>blog</h3>

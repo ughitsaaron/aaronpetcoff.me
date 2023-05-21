@@ -4,7 +4,8 @@ import type { PageProps } from 'gatsby';
 import type { BlogPostQuery } from '../../graphql-types';
 import { StaticImage } from 'gatsby-plugin-image';
 
-const BlogPost = ({ data }: PageProps<BlogPostQuery>) => {
+const BlogPost = ({ data, ...rest }: PageProps<BlogPostQuery>) => {
+  console.log({ rest });
   return (
     <div>
       <h2>{data.markdownRemark.frontmatter.title}</h2>
