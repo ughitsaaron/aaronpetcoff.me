@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from './src/layout';
 import './src/style.css';
+import 'prismjs/themes/prism-okaidia.css';
 
 /**
  * Implement Gatsby's Browser APIs in this file.

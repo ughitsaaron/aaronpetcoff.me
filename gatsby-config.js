@@ -34,7 +34,11 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: [`gatsby-remark-prismjs`]
+        plugins: [
+          {
+            resolve: 'gatsby-remark-prismjs'
+          }
+        ]
       }
       //     {
       //       resolve: 'gatsby-remark-images',

@@ -7,6 +7,15 @@ body {
   color: #222;
 }
 
+.gatsby-highlight code[class*="language-"], .gatsby-highlight pre[class*="language-"] {
+  font-size: 0.85rem;
+  max-width: 80%;
+}
+
+pre {
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.7);
+}
+
 main, footer {
   max-width: 960px;
   margin: auto;
