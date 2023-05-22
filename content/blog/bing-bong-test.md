@@ -4,18 +4,6 @@ date: 2023-05-20T18:00:59.823Z
 ---
 test test test
 
-
-
-`﻿``tsx
-
-const BlogPage = ({ data }: PageProps<BlogPageQuery>) => {
-  return (
-    <>
-      <h3>blog</h3>
-      <ul className="blog">
- ﻿     </ul>
- ﻿   </>
- ﻿ );
-}﻿
-
+``﻿`elixir
+i﻿ex> apply(fn x -> x * 2 end, \[2])
 `﻿``
