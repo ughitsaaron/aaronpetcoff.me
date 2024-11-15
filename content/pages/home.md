@@ -3,9 +3,9 @@ image: /images/uploads/me1.jpg
 ---
 # Hello, my name is Aaron Petcoff
 
-i live in brooklyn, new york with my wife and three cats. i'm originally from [Detroit](https://www.youtube.com/watch?v=FNFDKm8F4hg). i work as a software engineer at [Frame.io](https://frame.io/), an [Adobe](https://www.adobe.com/) company.
+i live in upstate, new york with my wife, daughter, and three cats. i'm originally from Detroit. i work as a software engineer at [Frame.io](https://frame.io/), an [Adobe](https://www.adobe.com/) company.
 
-i enjoy dive bars, [live music](https://www.instagram.com/p/CjaUo6sOX2O), hockey, writing, and history. the two most influential books i've ever read are *[Capital, Vol. 1](https://www.marxists.org/archive/marx/works/1867-c1/index.htm)* and *[Structure and Interpretation of Computer Programs](https://web.mit.edu/6.001/6.037/sicp.pdf)*.
+i enjoy astronomy, hockey, writing, and history. the two most influential books i've ever read are *[Capital, Vol. 1](https://www.marxists.org/archive/marx/works/1867-c1/index.htm)* and *[Structure and Interpretation of Computer Programs](https://web.mit.edu/6.001/6.037/sicp.pdf)*.
 
 here are some of the things i've built for the web in my spare time
 
