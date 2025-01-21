@@ -1,5 +1,5 @@
 ---
-image: /images/uploads/img_4267.jpg
+image: /images/uploads/me2.jpg
 ---
 # Hello, my name is Aaron Petcoff
 
