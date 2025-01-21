@@ -11,6 +11,7 @@ const IndexPage = ({ data, path }: PageProps<HomePageQuery>) => {
         src={data.markdownRemark.frontmatter.image}
         width={460}
         height={460}
+        style={{ objectFit: 'cover' }}
       />
       <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
       <StaticImage src="../images/valid.gif" alt="i'm valid" />
