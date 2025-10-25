@@ -33,3 +33,13 @@ collections:
         fields:
           - { label: Image, name: image, widget: file }
           - { label: Body, name: body, widget: markdown }
+      - label: Astronomy Gallery
+        name: astronomy_gallery
+        file: content/pages/gallery.md
+        fields:
+          - {
+              label: Images,
+              name: images,
+              widget: list,
+              field: { label: Image, name: image, widget: image }
+            }
